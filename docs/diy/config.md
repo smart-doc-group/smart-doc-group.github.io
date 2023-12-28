@@ -143,7 +143,8 @@ Example of a complete configuration file
   ],
   "requestParamsTable": true, // Whether to display the request parameter table in the document, the default is true, @since 2.2.5
   "responseParamsTable": true, // Whether to display the response parameter table in the document, the default is true, @since 2.2.5
-  "componentType": 1 // openapi component key generator 1:  support @Validated 2: don't support @Validated, for openapi generator
+  "componentType": 1, // openapi component key generator 1:  support @Validated 2: don't support @Validated, for openapi generator
+  "apiUploadNums": 1
 }
 ```
 
@@ -882,5 +883,17 @@ openapi component key generator RANDOM :  support @Validated NORMAL: don't suppo
 ```json
 {
     "componentType": "RANDOM"
+}
+```
+
+## apiUploadNums
+* required: `false`
+* type:`Integer`
+* default: `RANDOM`
+* @since `3.0.2` :new:
+
+When uploading Torna, batch uploading of documents is supported, and the size of document batches can be set. ```json
+{
+    "apiUploadNums": 1
 }
 ```
