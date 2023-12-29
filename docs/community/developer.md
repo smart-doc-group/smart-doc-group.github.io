@@ -10,7 +10,9 @@ Thanks to all developers for their contributions to the community! We will regul
 - Yu Sun([@shalousun](https://github.com/shalousun))
 
 ### Committer
-The community is currently processing the migration and construction, and is waiting for review after the community documents are completed.
+- Xingzhi Li([@netdied](https://github.com/netdied))
+- Qi Chen([@chenqi146](https://github.com/chenqi146))
+- Bing Li([@abing22333](https://github.com/abing22333))
 
 ### Contributor
 https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
