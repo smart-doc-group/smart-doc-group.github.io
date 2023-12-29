@@ -11,8 +11,9 @@
 - Yu Sun([@shalousun](https://github.com/shalousun))
 
 ### Committer
-社区目前处理迁移建设中，等待社区文档完善后评审。
-
+- Xingzhi Li([@netdied](https://github.com/netdied))
+- Qi Chen([@chenqi146](https://github.com/chenqi146))
+- Bing Li([@abing22333](https://github.com/abing22333))
 ### Contributor
 https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
 
