@@ -17,9 +17,11 @@
 
 ## 3. 提交commit && 推送到远程仓库
 
-1. 一个`pull request`中只能一个`commit`。如果有多个`commit`，使用[rabse命令合并commit](zh-cn/community/rebase-option.md)
+1. 一个`pull request`中只能一个`commit`。如果有多个`commit`，使用[Rebase命令合并commit](zh-cn/community/rebase-option.md)
 2. 每个`commit`都要在`CHANGELOG`中添加对应的修改记录。
 3. `git push` 或则 `git push -f`(合并了远程`commit`添加 `-f`)推送`commit`到远程仓库
+
+- [Rebase操作参考文档](zh-cn/community/rebase-option.md)
 
 ## 4. 创建 pull request
 

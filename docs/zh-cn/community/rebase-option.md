@@ -1,6 +1,6 @@
 # 使用场景
 - 合并当前分支的多个`commit`记录
-- 将多条无效的`commit`记录合并，提`pr`前合并调无效的信息。
+- 将多条无效的`commit`记录合并，提`pr`前合并成一条提交记录，去除无效的提交信息。
 
 
 # Rebase操作
@@ -11,7 +11,7 @@ git log
 ```
 ## 使用git rebase -i命令，进入如下页面，和操作vim一样，输入i进入编辑模式。
 ```shell
-// 合并的前一个不包含
+// ad1cff40代表提交记录id, 这个id通常选择我们本次修改最早一条提交记录的前一个提交id
 git rebase -i ad1cff40
 ```
 >如果标记错误可以使用命令删除：rm -fr ".git/rebase-merge"
@@ -23,8 +23,9 @@ pick 150b094 update: 更新文档
 pick 9881e77 update: 优化代码
 pick f3ec765 optimised: 优化代码
 ```
-除了第一个保留`pick`，其余改成`s`就可以了。
+除了第一个保留`pick`，其余都将`pick`改成`s`然后保存即可。
 ## 保存，退出编辑页面（点击Esc键后输入:wq），进入commit message页面
+上面将`pick`改成`s`的操作完成后，正常情况会弹出一个修改提交信息的界面。信息展示如下：
 ```shell
 update: 更新文档
 
