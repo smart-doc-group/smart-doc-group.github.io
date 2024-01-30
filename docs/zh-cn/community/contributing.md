@@ -18,6 +18,8 @@
 
 6、如果合并成功，恭喜您已经成功做出了贡献！
 
+- [PR提交流程参考文档](zh-cn/community/pull-request-process.md)
+
 ## 注意的事项
 在为`smart-doc`提交贡献时，请注意以下事项：
 
