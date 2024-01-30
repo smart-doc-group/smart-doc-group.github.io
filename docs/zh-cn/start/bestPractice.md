@@ -25,20 +25,20 @@ public class CommonResult<T> implements Serializable {
 这种定义统一返回结构和明确的返回对象定义，`smart-doc`能够推导根据接口定义帮你推导出类的字段定义，包括嵌套的对象定义。
 ```java
 /**
-     * 添加用户信息
-     * @param user
-     * @return
-     */
+ * 添加用户信息
+ * @param user
+ * @return
+ */
 @PostMapping("/add")
 public CommonResult<User> addUser(@RequestBody User user){
     return CommonResult.ok().setResult(user);
 }
 
 /**
-     * 分页查询用户信息
-     * @param user
-     * @return
-     */
+ * 分页查询用户信息
+ * @param user
+ * @return
+ */
 @PostMapping("/page")
 public CommonResult<Page<User>> addUser(@RequestBody UserQuery query){
     return CommonResult.ok().setResult(user);
