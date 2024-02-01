@@ -179,7 +179,7 @@ public abstract class BaseResult<BR> implements Serializable {
 
 **有`Makefile`编写例子吗？**
 
-- [Makefile参考](https://gitee.com/smart-doc-team/spring-boot-maven-multiple-module.git) 
+- [官方多模块项目Makefile参考](https://gitee.com/smart-doc-team/spring-boot-maven-multiple-module.git) 
 
 ### 在多模块中构建使用smart-doc为什么会依赖报错？
 `smart-doc`在这几年的发展中，随着使用的用户越来越多，时不时就会有同学问这个问题。
@@ -337,3 +337,23 @@ for(int i=0;i<arr.length;i++){
 ```
 > record目前已经是java的关键字，如果是record导致的问题，建议不要再自己的业务代码中使用record，这会影响后面升级到jdk 17.
 如果从地方依赖导致的错误，建议根据报错代码的包直接通过插件的exclude配置项把报错的依赖排除掉。
+
+### package-info.java错误
+`Java`要求在`package-info.java`文件中必须设置一个有效的`package`。因此如果你在项目中手动添加了`package-info.java`
+文件，则请按照规范书写，否则`qdox`在解析文档时会导致语法解析错误影响`smart-doc`生成文档。
+```java
+//package com.smartdoc.example.controller;
+package com.smartdoc.example.repository;
+```
+- 必须要有一行非注释的有效`package`设置。
+
+如果注释会导致`qdox`的`SourceLibrary`的第`174`行代码出现错误, 因此建议按照规范编写
+```
+File packageInfo = new File(file.getParentFile(), "package-info.java");
+if( packageInfo.exists() )
+{
+    JavaPackage pckg = parse( new FileInputStream( packageInfo ),
+                                                  packageInfo.toURI().toURL() ).getSource().getPackage();
+    context.add( pckg );
+}
+```
