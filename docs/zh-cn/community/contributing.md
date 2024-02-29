@@ -20,6 +20,8 @@
 
 - [PR提交流程参考文档](zh-cn/community/pull-request-process.md)
 
+<span style="color:red;">**为了方便社区后续国际化推广，提pr请用英文，可以使用文心一言、科大讯飞星火等GPT工具辅助翻译成英文**</span>
+
 ## 注意的事项
 在为`smart-doc`提交贡献时，请注意以下事项：
 

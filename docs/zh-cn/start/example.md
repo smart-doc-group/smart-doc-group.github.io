@@ -82,7 +82,7 @@ smart-doc-example-cn
 ```
 
 
-## [多模块](https://gitee.com/smart-doc-team/spring-boot-maven-multiple-module)
+## [多模块项目参考](https://gitee.com/smart-doc-team/spring-boot-maven-multiple-module)
 
 ### 项目目录结构
 其中`dubbo-provider`, `spring-boot-web1`, `spring-boot-web2`, `spring-boot-web3`, `spring-boot-web4`为各服务启动模块
@@ -269,4 +269,49 @@ spring-boot-maven-multiple-module-master
         <finalName>dubbo-provider</finalName>
     </build>
 </project>
+```
+多模块文档构建命令参考：
+```shell
+# 生成spring-boot-web的文档
+mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web -am
+# 生成spring-boot-web2的文档
+mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web2 -am
+# 生成spring-boot-web3的文档,web3依赖sub-module中的simple-api
+mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web3 -am
+# 生成spring-boot-web4的文档,web3依赖module2
+mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web4 -am
+# 生成sub-module中子模块web-test的文档
+mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :web-test -am
+# dubbo文档生成测试
+mvn smart-doc:rpc-html -Dfile.encoding=UTF-8  -pl :dubbo-provider -am
+```
+针对多模块的场景，由于构建命令过长，应该可以放入`Makefile`中做编排，在自己的项目中新建一个`Makefile`文件，添加构建命令即可。
+
+```Makefile
+# 注意：window环境下先安装MinGW，idea中Makefile Support插件
+# Makefile 命令开头必须为tab键
+
+# 生成spring-boot-web模块的文档
+spring-boot-web@html-doc:
+	mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web -am
+
+# 生成spring-boot-web2模块的文档
+spring-boot-web2@html-doc:
+	mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web2 -am
+
+# 生成spring-boot-web模块文档,web3依赖sub-module中的simple-api
+spring-boot-web3@html-doc:
+	mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web3 -am
+
+# 生成spring-boot-web4模块文档,web3依赖module2
+spring-boot-web4@html-doc:
+	mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :spring-boot-web4 -am
+
+# 生成sub-module中子模块web-test的文档
+web-test-module@html-doc:
+	mvn smart-doc:html -Dfile.encoding=UTF-8  -pl :web-test -am
+
+# dubbo文档生成测试
+dubbo@rpc-doc:
+	mvn smart-doc:rpc-html -Dfile.encoding=UTF-8  -pl :dubbo-provider -am
 ```
