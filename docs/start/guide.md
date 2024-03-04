@@ -129,6 +129,7 @@ public String resp(@RequestBody String name){
 | [`@page`](#_4-page) | `@page` `tag` is used to annotate the method of `Controller` to indicate that the method is used to render and return a static page. If initiated when generating the `debug` page Test, the test page will automatically open a new tab in the browser to display the page. | `2.0.2` |
 | [`@ignoreParams`](#_5-ignoreparams) | `@ignoreParams` `tag` is used to mark the parameters that are ignored in the `Controller` method and do not want to be displayed in the document, for example: `@ignoreParams id name`, more Parameter names separated by spaces | `2.1.0` |
 | [`@response`(not recommended)](#_6-response is not recommended) | `@response` `tag` marked on the `Controller` method allows you to define the returned `json example` yourself. It is recommended to only use it when returning basic types, such as: `Result<String>` type. This generic type is a response to a simple native type. | `2.2.0` |
+| [`@extension`](#_7-extension) | `@extension` `tag` marked on the `Controller` method allows you to add a @extension tag to support openapi extension.  | `3.0.3` |
 
 > We are a tool that respects coding standards very much. We will not add anything randomly to mislead people. We will not provide things that are not provided by the current mainstream frameworks. We will only use tags more cautiously in the future.
 
@@ -322,6 +323,61 @@ For users who use `@response`, we can only think that your code is too unclear. 
 @GetMapping("/test")
 public CommonResult<String> create() {
      return null;
+}
+```
+
+### 7. `@extension`
+@extension is marked on the controller method. it's used to support the extension feature of OpenApi. it will add a "x-*" attribution for openapi.json
+```java
+/**
+ * json file config test
+ * @tag dev
+ * @author cqmike 2021-07-16 14:09
+ **/
+@RestController
+public class ConfigRequestParamController {
+
+    /**
+     * get request test query param
+     * @extension group ecs
+     * @extension key1 ["v1","v2"]
+     * @extension key2 {"x":"v1", "y":"v2"}
+     * @tag test
+     * @author cqmike
+     * @return
+     */
+    @GetMapping("configQueryParamGet")
+    public void configQueryParamGet(String configQueryParam) {
+
+    }
+}
+```
+it will output extension tags in openapi.json:
+```
+{
+  "paths":{
+    "/xxx/xxx": {
+      "post": {
+        "summary": "xxx",
+        "tags": [
+          ...
+        ],
+        "requestBody": {
+          ...
+        },
+        "responses": {
+        ...
+        },
+        "operationId": "xxx-POST",
+        "x-group": "ecs",
+        "x-key1": ["v1","v2"],
+        "x-key2": {"x":"v1", "y":"v2"},
+        "parameters": [
+             ...
+        ]
+      }
+    }
+  }
 }
 ```
 

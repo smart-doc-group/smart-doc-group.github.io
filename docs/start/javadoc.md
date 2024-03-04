@@ -72,6 +72,7 @@ There are relatively few native Javadoc tags in Java, which cannot meet some usa
 | @ignoreParams             | @since smart-doc 2.1.0, ignoreParams tag is used to mark the parameters that do not want to be displayed in the document on the controller method, for example: @ignoreParams id name, multiple parameter names are separated by spaces                                                                                                                                                                                                                                                                                                                                                            |
 | @response                 | @since smart-doc 2.2.0, the response tag is marked on the controller method to allow you to define the returned json example by yourself. It is recommended to use it only when returning basic types, such as: Result<String> This generic type is a response of a simple primitive type.                                                                                                                                                                                                                                                                                                         |
 | @tag                      | @since 2.2.5, @tag is used to classify controller methods. You can assign methods under different controllers to multiple categories, and you can also directly assign controllers to one category or multiple categories.                                                                                                                                                                                                                                                                                                                                                                         |
+| @extension                | @since 3.0.3, @extension is marked on the controller method. it's used to support the extension feature of OpenApi. it will add a "x-*" attribution for openapi.json                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ## 2.1 @ignore use(deprecated using on field since 2.6.9)
 The @ignore annotation can only be applied to methods or classes, not on fields.
@@ -359,6 +360,61 @@ public class ConfigRequestParamController {
 }
 ```
 @tag is used to classify controller methods. You can assign methods under different controllers to multiple categories, and you can also directly assign controllers to one category or multiple categories.
+
+## 2.8 @extension use
+@extension is marked on the controller method. it's used to support the extension feature of OpenApi. it will add a "x-*" attribution for openapi.json
+```java
+/**
+ * json file config test
+ * @tag dev
+ * @author cqmike 2021-07-16 14:09
+ **/
+@RestController
+public class ConfigRequestParamController {
+
+    /**
+     * get request test query param
+     * @extension group ecs
+     * @extension key1 ["v1","v2"]
+     * @extension key2 {"x":"v1", "y":"v2"}
+     * @tag test
+     * @author cqmike
+     * @return
+     */
+    @GetMapping("configQueryParamGet")
+    public void configQueryParamGet(String configQueryParam) {
+
+    }
+}
+```
+it will output extension tags in openapi.json:
+```
+{
+  "paths":{
+    "/xxx/xxx": {
+      "post": {
+        "summary": "xxx",
+        "tags": [
+          ...
+        ],
+        "requestBody": {
+          ...
+        },
+        "responses": {
+        ...
+        },
+        "operationId": "xxx-POST",
+        "x-group": "ecs",
+        "x-key1": ["v1","v2"],
+        "x-key2": {"x":"v1", "y":"v2"},
+        "parameters": [
+             ...
+        ]
+      }
+    }
+  }
+}
+```
 
 
 # IDEA custom tag prompt
