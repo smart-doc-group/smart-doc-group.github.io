@@ -60,8 +60,8 @@
 |                   `randomMock`                    | `2.6.9` | ❌  |   `Boolean`    |       `false`       | `randomMock`用于控制是否让`smart-doc`生成随机`mock`值，在`2.6.9`之前的版本中`smart-doc`会自动给参数和自动生成随机值， 每次生成的值都不一样，现在你可以设置为`false`来控制随机值的生成。                                                                                                    |
 |                  `componentType`                  | `2.7.8` | ❌  |    `String`    |      `RANDOM`       | `openapi component key generator`<br />`RANDOM` : 支持 `@Validated` 分组校验 <br />`NORMAL`: 不支持 `@Validated`, 用于 `openapi` 生成代码                                                                                                 |
 |                    `increment`                    | `3.0.0` | ❌  |   `Boolean`    |       `false`       | `increment`用于控制是否让`smart-doc`根据`GIT`代码的变更实现文档的增量推送                                                                                                                                                                         |
-|                 ·`apiUploadNums`                  | `3.0.2` | ❌  |   `Integer`    |      `RANDOM`       | 上传torna时，支持文档分批上传，设置文档批次的大小。                                                                                                                                                                                               |
-
+|                  `apiUploadNums`                  | `3.0.2` | ❌  |   `Integer`    |                     | 上传torna时，支持文档分批上传，设置文档批次的大小。不配置则一次上传所有                                                                                                                                                                                     |
+|                 `showValidation`                  | `3.0.3` | ❌  |   `Boolean`    |       `true`        | `showValidation`用于控制`smart-doc`是否提取JSR字段验证信息展示到文档中                                                                                                                                                                         |
 
 ```json
 {
