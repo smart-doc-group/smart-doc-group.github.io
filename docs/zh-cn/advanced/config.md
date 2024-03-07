@@ -494,22 +494,35 @@
 
 > PS: 分组不对postman.json和openApi.json生效
 
-| 配置     | 类型       | 描述          |
-|--------|----------|-------------|
-| `name` | `String` | 分组名称        |
-| `apis` | `String` | 分组url, 支持正则 |
+| 配置     | 类型       | 描述                      |
+|--------|----------|-------------------------|
+| `name` | `String` | 分组名称                    |
+| `apis` | `String` | 分组url, 支持正则 ，多个值用英文逗号隔开 |
 
 ```json
 {
     "groups": [
         {
             "name": "测试分组",
-            "apis": "com.power.doc.controller.app.*"  
+            "apis": "com.example.controller.*",
+            "apis": "com.example.controller.PetController", // 只包含 PetController 的接口
+            "apis": "com.example.controller.*Controller", // 包含controller 包下以 Controller 后缀为类名的所有接口
+            "apis": "com.example.controller.Pet.*", // 包含 controller 包下以 Pet 开头为类名的所有接口
+            "apis": "com.example.controller.Pet.*Controller" // 包含 controller 包下符合 Pet*Controller 类名的所有接口
         }
     ]
 }
 ```
-
+`apis`如果配置后在支持分组的模版上不生效，可能是正则配置有问题。可以自行调用`smart-doc`中`DocUtil`工具验证。
+验证例子参考如下：
+```
+@Test
+public void testIsMatch() {
+    String pattern = "com.aaa.*.controller";
+    String controllerName = "com.aaa.cc.controlle";
+    System.out.println(DocUtil.isMatch(pattern, controllerName));
+}
+```
 
 
 

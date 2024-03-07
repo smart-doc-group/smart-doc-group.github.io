@@ -10,7 +10,7 @@
 ![gitee star](https://gitee.com/smart-doc-team/smart-doc/badge/star.svg)
 ![git star](https://img.shields.io/github/stars/smart-doc-group/smart-doc.svg)
 
-> smart-doc是一款同时支持JAVA REST API和JAVA WebSocket和Apache Dubbo RPC接口文档生成的工具。
+> smart-doc是一款同时支持JAVA REST API、JAVA WebSocket和Apache Dubbo RPC接口文档生成的工具。
 
 ### 概述
 `smart-doc[smɑːt dɒk]`在业内率先提出基于`JAVA`泛型定义推导的理念， 完全基于接口源码来分析生成接口文档，不采用任何注解侵入到业务代码中。

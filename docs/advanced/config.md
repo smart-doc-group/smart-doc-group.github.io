@@ -378,14 +378,14 @@ Customize added fields and comments, and general users deal with third-party `ja
 
 Customize added fields and comments, and general users deal with third-party `jar` package libraries.
 
-| Configuration | Type | Description |
-|---------------- | --------- | ------------------ |
-| `name` | `String` | Property name |
-| `desc` | `String` | Description |
-| `ownerClassName` | `String` | The full path of the class corresponding to the attribute |
-| `ignore` | `Boolean` | Whether to ignore |
-| `required` | `Boolean` | Is it required |
-| `value` | `String` | Default value or mock value |
+| Configuration    | Type      | Description                                               |
+|------------------|-----------|-----------------------------------------------------------|
+| `name`           | `String`  | Property name                                             |
+| `desc`           | `String`  | Description                                               |
+| `ownerClassName` | `String`  | The full path of the class corresponding to the attribute |
+| `ignore`         | `Boolean` | Whether to ignore                                         |
+| `required`       | `Boolean` | Is it required                                            |
+| `value`          | `String`  | Default value or mock value                               |
 
 ```json
 {
@@ -408,11 +408,11 @@ Customize added fields and comments, and general users deal with third-party `ja
 
 The open `Dubbo API` interface module of the project depends on it. After configuration, it is output to the document to facilitate user integration.
 
-| Configuration | Type | Description |
-| ------------ | -------- | ------------ |
-| `artifactId` | `String` | `artifactId` |
-| `groupId` | `String` | `groupId` |
-| `version` | `String` | Version number |
+| Configuration | Type     | Description    |
+|---------------|----------|----------------|
+| `artifactId`  | `String` | `artifactId`   |
+| `groupId`     | `String` | `groupId`      |
+| `version`     | `String` | Version number |
 
 ```json
 {
@@ -472,9 +472,9 @@ Use custom classes to override other classes for document rendering.
 
 Set the `RequestBodyAdvice` unified request wrapper class.
 
-| Configuration | Type | Description |
-| ----------- | -------- | ---------- |
-| `className` | `String` | Universal request body |
+| Configuration | Type     | Description            |
+|---------------|----------|------------------------|
+| `className`   | `String` | Universal request body |
 
 ```json
 {
@@ -492,19 +492,35 @@ Group different `Controllers`.
 
 > PS: Grouping does not take effect on postman.json and openApi.json
 
-| Configuration | Type | Description |
-| ------ | -------- | ------------------ |
-| `name` | `String` | Group name |
-| `apis` | `String` | Group url, supports regular expressions |
+| Configuration | Type     | Description                                                                           |
+|---------------|----------|---------------------------------------------------------------------------------------|
+| `name`        | `String` | Group name                                                                            |
+| `apis`        | `String` | Group url, supports regular expressions,with multiple expressions separated by commas |
 
 ```json
 {
-    "groups": [
-        {
-            "name": "测试分组",
-            "apis": "com.power.doc.controller.app.*"  
-        }
-    ]
+  "groups": [
+    {
+      "name": "Test Group",
+      "apis": "com.example.controller.*",
+      "apis": "com.example.controller.PetController", // Contains only the interface of PetController
+      "apis": "com.example.controller.Controller", // Contains all interfaces under the controller package with a class name suffixed by Controller
+      "apis": "com.example.controller.Pet.", // Contains all interfaces under the controller package with a class name starting with Pet
+      "apis": "com.example.controller.Pet.Controller" // Contains all interfaces under the controller package that match the class name PetController
+    }
+  ]
+}
+```
+If the `apis` configuration does not take effect in templates that support grouping, there might be an issue with the regular expression configuration. You can validate this using the `DocUtil` tool in `smart-doc`.
+
+Here is an example of how to verify:
+
+```
+@Test
+public void testIsMatch() {
+    String pattern = "com.aaa.*.controller";
+    String controllerName = "com.aaa.cc.controlle";
+    System.out.println(DocUtil.isMatch(pattern, controllerName));
 }
 ```
 
