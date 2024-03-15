@@ -139,12 +139,12 @@ Of course, whether constants are written in interfaces or ordinary constant clas
 ## Response fields ignored
 
 Some students asked when using `smart-doc`: "How to ignore a certain field in the response entity?" For example, sensitive fields such as password `password` were considered when `smart-doc` was first developed. When this happens,
-Therefore, we have supported some `json` serialization libraries of `Java`, such as `Jackson` used by default in the Spring framework and `Fastjson` used by domestic users.
+Therefore, we have supported some `json` serialization libraries of `Java`, such as `Jackson` used by default in the `Spring` framework and `Fastjson` used by domestic users.
 - Why not use `@ignore` to mark the returned fields as ignored? This is a deceptive approach. Only the superficial document is not displayed, but the data is still returned. Therefore, this is the reason why `smart-doc` does not support it. Let’s use the framework’s annotations to control it.
 
 ### Use jackson annotation to ignore
 
-Generally, the spring framework uses `jackson` as the json serialization and deserialization library by default.
+Generally, the `Spring` framework uses `jackson` as the json serialization and deserialization library by default.
 
 ```java
 public class JacksonAnnotation {
@@ -187,6 +187,22 @@ public class FastJson {
 ```
 If you use `Fastjson` instead of the default `Jackson` in your project, after writing the annotations according to the `idCard` field above, whether it is a real data response or a `smart-doc` document can help you
 Ignore relevant fields.
+
+### Using customResponseFields to Ignore
+The `customResponseFields` in smart-doc provides a configuration option called `ignore` to ignore specified fields. The configuration reference is as follows:
+```json
+{
+    "customResponseFields": [
+        {
+            "name": "code",
+            "desc": "response code",
+            "ownerClassName": "org.springframework.data.domain.Pageable",
+            "ignore": true,
+            "value": "00000"
+        }
+    ]
+}
+```
 
 ### Ignore advanced settings
 `smart-doc` officially also supports advanced ignore configuration of `Fastjson` and `Jackson`, examples are as follows:
@@ -298,13 +314,13 @@ Let’s first look at how to use `classifier` to load the source code package.
 <dependency>
      <groupId>com.ly.smart-doc</groupId>
      <artifactId>common-util</artifactId>
-     <version>1.8.6</version>
+     <version>2.2.2</version>
 </dependency>
 <!--Depending on library source code, plug-ins using smart-doc do not need to load sources in this way-->
 <dependency>
      <groupId>com.ly.smart-doc</groupId>
      <artifactId>common-util</artifactId>
-     <version>1.8.6</version>
+     <version>2.2.2</version>
      <classifier>sources</classifier>
      <!--Set to test, the source will not be put into the final product package when the project is released-->
      <scope>test</scope>
@@ -322,7 +338,7 @@ When you publish a public `jar` package or a `Dubbo` application `API` interface
 <plugin>
      <groupId>org.apache.maven.plugins</groupId>
      <artifactId>maven-source-plugin</artifactId>
-     <version>3.2.1</version>
+     <version>3.3.0</version>
      <executions>
          <execution>
              <phase>package</phase>
@@ -370,7 +386,7 @@ Of course, you must also introduce the source code of `mybatis-plus` into the pr
   <dependency>
       <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus-extension</artifactId>
-      <version>3.2.0</version>
+      <version>3.5.5</version>
       <classifier>sources</classifier>
       <scope>test</scope>
 </dependency>

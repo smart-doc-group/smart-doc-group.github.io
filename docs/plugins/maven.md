@@ -2,7 +2,7 @@
 Starting from `smart-doc 1.7.9`, the `Maven` plug-in is officially provided, and documents can be generated directly by running the plug-in in the project.
 
 ## Environmental requirements
-- `Maven` 3.3.9+
+- `Maven` 3.8+
 - `JDK`1.8+
 
 ## Plug-in usage scope
