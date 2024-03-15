@@ -60,7 +60,7 @@
 |                   `randomMock`                    | `2.6.9` | ❌  |   `Boolean`    |       `false`       | `randomMock`用于控制是否让`smart-doc`生成随机`mock`值，在`2.6.9`之前的版本中`smart-doc`会自动给参数和自动生成随机值， 每次生成的值都不一样，现在你可以设置为`false`来控制随机值的生成。                                                                                                    |
 |                  `componentType`                  | `2.7.8` | ❌  |    `String`    |      `RANDOM`       | `openapi component key generator`<br />`RANDOM` : 支持 `@Validated` 分组校验 <br />`NORMAL`: 不支持 `@Validated`, 用于 `openapi` 生成代码                                                                                                 |
 |                    `increment`                    | `3.0.0` | ❌  |   `Boolean`    |       `false`       | `increment`用于控制是否让`smart-doc`根据`GIT`代码的变更实现文档的增量推送                                                                                                                                                                         |
-|                  `apiUploadNums`                  | `3.0.2` | ❌  |   `Integer`    |                     | 上传torna时，支持文档分批上传，设置文档批次的大小。不配置则一次上传所有                                                                                                                                                                                     |
+|                  `apiUploadNums`                  | `3.0.2` | ❌  |   `Integer`    |                     | 上传`torna`时，支持文档分批上传，设置文档批次的大小。不配置则一次上传所有                                                                                                                                                                                   |
 |                 `showValidation`                  | `3.0.3` | ❌  |   `Boolean`    |       `true`        | `showValidation`用于控制`smart-doc`是否提取JSR字段验证信息展示到文档中                                                                                                                                                                         |
 
 ```json
@@ -352,13 +352,13 @@
 
 自定义添加字段和注释，一般用户处理第三方`jar`包库。
 
-| 配置               | 类型        | 描述                    |
-|------------------|-----------|-----------------------|
-| `name`           | `String`  | 覆盖响应码字段               |
-| `desc`           | `String`  | 覆盖响应码的字段注释            |
-| `ownerClassName` | `String`  | 指定你要添加注释的类名           |
-| `ignore`         | `Boolean` | 设置true会被自动忽略掉不会出现在文档中 |
-| `value`          | `String`  | 设置响应码的值               |
+| 配置               | 类型        | 描述                      |
+|------------------|-----------|-------------------------|
+| `name`           | `String`  | 覆盖响应码字段                 |
+| `desc`           | `String`  | 覆盖响应码的字段注释              |
+| `ownerClassName` | `String`  | 指定你要添加注释的类名             |
+| `ignore`         | `Boolean` | 设置`true`会被自动忽略掉不会出现在文档中 |
+| `value`          | `String`  | 设置响应码的值                 |
 
 ```json
 {
@@ -380,14 +380,14 @@
 
 自定义添加字段和注释，一般用户处理第三方`jar`包库。
 
-| 配置               | 类型        | 描述         |
-|------------------|-----------|------------|
-| `name`           | `String`  | 属性名        |
-| `desc`           | `String`  | 描述         |
-| `ownerClassName` | `String`  | 属性对应的类全路径  |
-| `ignore`         | `Boolean` | 是否忽略       |
-| `required`       | `Boolean` | 是否必填       |
-| `value`          | `String`  | 默认值或者mock值 |
+| 配置               | 类型        | 描述           |
+|------------------|-----------|--------------|
+| `name`           | `String`  | 属性名          |
+| `desc`           | `String`  | 描述           |
+| `ownerClassName` | `String`  | 属性对应的类全路径    |
+| `ignore`         | `Boolean` | 是否忽略         |
+| `required`       | `Boolean` | 是否必填         |
+| `value`          | `String`  | 默认值或者`mock`值 |
 
 ```json
 {

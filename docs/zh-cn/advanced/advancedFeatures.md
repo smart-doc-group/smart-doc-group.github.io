@@ -88,7 +88,7 @@ public CommonResult<Void> configQueryParamPost(String configQueryParam) {
 ```
 
 ## 静态常量替换
-**`2.4.2`版本开始，这个配置无需在手动添加，`smart-doc`可以自动识别静态常量的使用。**
+**`2.4.2`版本开始，这个配置无需再手动添加，`smart-doc`可以自动识别静态常量的使用。**
 
 在`Java Web`接口开发的过程中，有用户会在`Controller`的`path`中使用静态场景。因此也是希望`smart-doc`能够解析静态常量获取到真实的值。
 下面来看下例子：
@@ -144,12 +144,12 @@ config.setApiConstants(
 ## 响应字段忽略
 
 有同学在使用`smart-doc`时提问：“如何忽略响应实体中的某个字段？”，例如像密码`password`这种字段敏感字段，`smart-doc`在一开始开发的时候就考虑到了这种情况，
-因此我们对`Java`的一些`json`序列化库做了支持，像Spring框架默认使用的`Jackson`和国内用户使用较多的`Fastjson`都是支持的。
+因此我们对`Java`的一些`json`序列化库做了支持，像`Spring`框架默认使用的`Jackson`和国内用户使用较多的`Fastjson`都是支持的。
 - 为什么不用`@ignore`来标注返回字段忽略？这是一种掩耳盗铃的做法，仅仅是表面文档不展示，数据依旧返回了，因此这是`smart-doc`不支持的原因。还是使用框架的注解来控制吧。
 
 ### 使用jackson注解忽略
 
-一般spring框架默认使用的是`jackson`作为json序列化和反序列化库。
+一般`Spring`框架默认使用的是`jackson`作为`json`序列化和反序列化库。
 
 ```java
 public class JacksonAnnotation {
@@ -192,6 +192,22 @@ public class FastJson {
 ```
 如果你在项目中使用了`Fastjson`替代默认的`Jackson`，按照上面的`idCard`字段这样写上注解后，无论是真实的数据响应还是`smart-doc`的文档都能帮你
 忽略掉相关字段。
+
+### 使用customResponseFields实现忽略
+`smart-doc`的`customResponseFields`提供了一个`ignore`的配置选项也可以忽略指定的字段，配置参考如下：
+```json
+{
+    "customResponseFields": [
+        {
+            "name": "code",
+            "desc": "response code",
+            "ownerClassName": "org.springframework.data.domain.Pageable",
+            "ignore": true,
+            "value": "00000"
+        }
+    ]
+}
+```
 
 ### 忽略高级设置
 `smart-doc`官方还支持`Fastjson`和`Jackson`的高级忽略配置，例子如下：
@@ -303,13 +319,13 @@ config.setSourceCodePaths(
 <dependency>
     <groupId>com.ly.smart-doc</groupId>
     <artifactId>common-util</artifactId>
-    <version>1.8.6</version>
+    <version>2.2.2</version>
 </dependency>
 <!--依赖库源码，使用smart-doc的插件无需使用这种方式加载sources-->
 <dependency>
     <groupId>com.ly.smart-doc</groupId>
     <artifactId>common-util</artifactId>
-    <version>1.8.6</version>
+    <version>2.2.2</version>
     <classifier>sources</classifier>
     <!--设置为test,项目发布时source不会放入最终的产品包-->
     <scope>test</scope>
@@ -327,7 +343,7 @@ config.setSourceCodePaths(
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-source-plugin</artifactId>
-    <version>3.2.1</version>
+    <version>3.3.0</version>
     <executions>
         <execution>
             <phase>package</phase>
@@ -376,7 +392,7 @@ public Page<Order> queryPage(@PathVariable int pageIndex , @PathVariable int pag
  <dependency>
      <groupId>com.baomidou</groupId>
      <artifactId>mybatis-plus-extension</artifactId>
-     <version>3.2.0</version>
+     <version>3.5.5</version>
      <classifier>sources</classifier>
      <scope>test</scope>
 </dependency>

@@ -327,7 +327,7 @@ public CommonResult<String> create() {
 ```
 
 ### 7. `@extension`
-@extension is marked on the controller method. it's used to support the extension feature of OpenApi. it will add a "x-*" attribution for openapi.json
+`@extension` is marked on the controller method. it's used to support the `extension` feature of `OpenAPI`. it will add a `"x-*"` attribution for `openapi.json`
 ```java
 /**
  * json file config test
@@ -381,7 +381,7 @@ it will output extension tags in openapi.json:
 }
 ```
 
-## jsr
+## JSR
 
 | Function | Annotation |
 | ---------- | ---------- |

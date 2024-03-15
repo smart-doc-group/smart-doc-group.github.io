@@ -59,7 +59,7 @@
 | `framework` | `2.2.5` | ❌ | `String` | `spring` or `dubbo` | `Spring` and `Apache Dubbo` are frameworks that support parsing and generating documents by `smart-doc` by default and are not configured` framework` automatically selects `Spring` or `Dubbo` according to the triggered document construction scenario. `smart-doc` currently also supports the `JAX-RS` standard, so use a framework that supports the `JAX-RS` standard (such as: ` Quarkus`) can be used as an experience, but it is not complete yet. <br />Optional values: `spring`, `dubbo`, `JAX-RS`, `solon` |
 | `randomMock` | `2.6.9` | ❌ | `Boolean` | `false` | `randomMock` is used to control whether `smart-doc` generates random `mock` values, in versions before `2.6.9` `smart-doc` will automatically assign parameters and automatically generate random values. The generated values are different each time. Now you can set it to `false` to control the generation of random values. |
 | `componentType` | `2.7.8` | ❌ | `String` | `RANDOM` | `openapi component key generator`<br />`RANDOM`: supports `@Validated` group verification<br />`NORMAL` : Does not support `@Validated`, used for `openapi` generated code |
-| `apiUploadNums` | `3.0.2` | ❌ | `Integer` |  | When uploading Torna, batch uploading of documents is supported, and the size of document batches can be set. |
+| `apiUploadNums` | `3.0.2` | ❌ | `Integer` |  | When uploading `Torna`, batch uploading of documents is supported, and the size of document batches can be set. |
 | `showValidation`| `3.0.3` | ❌ | `Boolean` | `true` | `showValidation` is used to control whether `smart-doc` extracts the JSR validation information of fields for display in the documentation.        |                                                                                                                                                                |
 
 ```json
@@ -96,7 +96,7 @@
     "appToken": "c16931fa6590483fb7a4e85340fcbfef",
     "isReplace": true,
     "openUrl": "http://localhost:7700/api",
-    "debugEnvName": "测试环境",
+    "debugEnvName": "Test ENV",
     "debugEnvUrl": "http://127.0.0.1",
     "tornaDebug": false,
     "ignoreRequestParams": [
@@ -104,7 +104,7 @@
     ],
     "dataDictionaries": [
         {
-            "title": "http状态码字典",
+            "title": "http status",
             "enumClassName": "com.power.common.enums.HttpCodeEnum",
             "codeField": "code",
             "descField": "message"
@@ -141,7 +141,7 @@
     "customResponseFields": [
         {
             "name": "code",
-            "desc": "响应代码",
+            "desc": "code",
             "ownerClassName": "org.springframework.data.domain.Pageable",
             "ignore": true,
             "value": "00000"
@@ -150,7 +150,7 @@
     "customRequestFields": [
         {
             "name": "code",
-            "desc": "状态码",
+            "desc": "code",
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200",
             "required": true,
@@ -162,7 +162,7 @@
             "name": "token",
             "type": "string",
             "desc": "desc",
-            "value": "token请求头的值",
+            "value": "token value",
             "required": false,
             "since": "-",
             "pathPatterns": "/app/test/**",
@@ -172,7 +172,7 @@
             "name": "appkey",
             "type": "string",
             "desc": "desc",
-            "value": "appkey请求头的值",
+            "value": "appkey value",
             "required": false,
             "pathPatterns": "/test/add,/testConstants/1.0",
             "since": "-"
@@ -229,7 +229,7 @@
     },
     "groups": [
         {
-            "name": "测试分组",
+            "name": "Test Group",
             "apis": "com.power.doc.controller.app.*"
         }
     ],
@@ -363,7 +363,7 @@ Customize added fields and comments, and general users deal with third-party `ja
     "customResponseFields": [
         {
             "name": "code", 
-            "desc": "响应代码", 
+            "desc": "response code", 
             "ownerClassName": "org.springframework.data.domain.Pageable",
             "ignore": true, 
             "value": "00000" 
@@ -392,7 +392,7 @@ Customize added fields and comments, and general users deal with third-party `ja
     "customRequestFields": [
         {
             "name": "code", 
-            "desc": "状态码", 
+            "desc": "code", 
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200", 
             "required": true, 
@@ -454,9 +454,9 @@ Use custom classes to override other classes for document rendering.
 
 `ResponseBodyAdvice` is a hook reserved in the `Spring` framework. It acts after the `Controller` method is executed and before the `http` response body is written back to the client. It can conveniently weave in some of its own business logic processing. Therefore, `smart-doc` also provides support for unified return settings of `ResponseBodyAdvice` (do not configure it casually according to the technology of the project), which can be ignored by `ignoreResponseBodyAdvice` `tag`.
 
-| Configuration | Type | Description |
-| ----------- | -------- | ---------- |
-| `className` | `String` | Universal response body |
+| Configuration | Type     | Description             |
+|---------------|----------|-------------------------|
+| `className`   | `String` | Universal response body |
 
 ```json
 {

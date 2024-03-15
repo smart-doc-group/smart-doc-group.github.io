@@ -21,7 +21,7 @@ public class CommonResult<T> implements Serializable {
 
 
 ### Interface request
-This definition unifies the return structure and clear return object definition. Smart-doc can help you deduce the field definition of the class based on the interface definition, including nested object definitions.
+This definition unifies the return structure and clear return object definition. `Smart-doc` can help you deduce the field definition of the class based on the interface definition, including nested object definitions.
 ```java
 /**
  * Add user information
@@ -46,7 +46,7 @@ public CommonResult<Page<User>> addUser(@RequestBody UserQuery query){
 
 ### Error example
 #### 1. Use `Map` in the interface
-Because it cannot analyze the key value of the Map in the code, smart-doc cannot generate good documentation.
+Because it cannot analyze the key value of the Map in the code, `smart-doc` cannot generate good documentation.
 
 ```java
 @GetMapping(value = "/object")

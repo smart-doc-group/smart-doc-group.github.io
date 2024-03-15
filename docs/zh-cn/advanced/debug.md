@@ -92,8 +92,8 @@ public class WebConfig implements WebMvcConfigurer {
 
 ## `swagger UI`集成
 
-`smart-doc`支持生成`openapi 3.0+`规范的接口文档，因此你可以使用支持`openapi 3.0+`规范的文档管理系统或者`ui`界面来
-展示`smart-doc`生成的文档。 本文来说下如何快速集成`swagger ui`来在开发中测试你的接口。
+`smart-doc`支持生成`OpenAPI 3.0+`规范的接口文档，因此你可以使用支持`OpenAPI 3.0+`规范的文档管理系统或者`UI`界面来
+展示`smart-doc`生成的文档。 本文来说下如何快速集成`Swagger UI`来在开发中测试你的接口。
 
 ### 添加依赖
 
@@ -105,8 +105,8 @@ public class WebConfig implements WebMvcConfigurer {
     <version>1.5.0</version>
 </dependency>
 ```
-`smart-doc`支持的`openapi`规范版本比较高，因此需要集成`1.5.0`或者是更高的版本。
-### 配置swagger ui
+`smart-doc`支持的`OpenAPI`规范版本比较高，因此需要集成`1.5.0`或者是更高的版本。
+### 配置Swagger UI
 在`application`配置文件中添加如下配置
 ```
 # custom path for swagger-ui
@@ -117,10 +117,10 @@ springdoc:
    #custom path for api docs
     url: /doc/openapi.json
 ```
-- `url`是配置的关键，代表指向`smart-doc`生成的`openapi.json`文件。并且你需要将`openapi`生成到`src/main/resources/static/doc`下。
+- `url`是配置的关键，代表指向`smart-doc`生成的`openapi.json`文件。并且你需要将`OpenAPI`生成到`src/main/resources/static/doc`下。
 
 
-生成好`api`文件后启动你的应用访问`localhost:8080/swagger-ui-custom.html`即可看到文档。
+生成好`API`文件后启动你的应用访问`localhost:8080/swagger-ui-custom.html`即可看到文档。
 接下来你就可以在开发的时候使用这个ui界面来自测了。
 
-**提醒：** 关于`swagger ui`的其他配置就自行研究吧，我们也不会。
+**提醒：** 关于`Swagger UI`的其他配置就自行研究吧，我们也不会。

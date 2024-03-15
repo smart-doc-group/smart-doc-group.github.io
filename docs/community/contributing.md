@@ -1,56 +1,55 @@
-Welcome to the smart-doc community! Thank you for contributing code, documents and cases to smart-doc!
-Since smart-doc was open sourced in 2018, it has attracted the attention of many friends in the community. I sincerely hope that more and more community students can participate in the smart-doc project.
-Let’s make smart-doc a success together!
+Welcome to the `smart-doc` community! Thank you for contributing code, documentation, and cases to `smart-doc`! Since its open-source launch in 2018, `smart-doc` has attracted a lot of attention from the community. We sincerely hope that more community members will participate in the `smart-doc` project, and together we can make `smart-doc` even better!
 
-## How to contribute?
-If you would like to contribute to smart-doc, you can follow these steps:
+## How to Contribute?
+If you would like to contribute to `smart-doc`, you can follow these steps:
 
-1. Fork the smart-doc code base to your personal repository on GitHub.
+1. Fork the `smart-doc` code repository on GitHub into your personal repository.
 
-2. Clone your forked project to the local warehouse and create other branches for modification.
+2. Clone the forked project to your local repository and create another branch for modifications.
 
-3. Run smart-doc in the local environment and confirm whether the changes have taken effect. Please refer to [Quick Start](zh-cn/start/quickStart.md) to learn how to start smart-doc and generate API documentation.
+3. Run `smart-doc` in your local environment to confirm that your changes are effective. You can refer to [Quick Start](start/quickStart.md) to learn how to start `smart-doc` and generate API documentation.
 
-4. After completing the modification, push the submission and submit the Pull Request to the main warehouse of smart-doc. Please refer to the [Pull Request](zh-cn/community/pull-request-process.md) process to submit a merge request.
+4. After completing your modifications, push the commits and submit a Pull Request to the main `smart-doc` repository. Please refer to the [Pull Request](community/pull-request-process.md) process to submit your merge request.
 
-5. Wait for the community committer to review and merge your Pull Request.
+5. Wait for the community Committers to review and merge your Pull Request.
 
-6. If the merger is successful, congratulations on your successful contribution!
+6. If the merge is successful, congratulations, you have made a successful contribution!
 
-## Things to note
-When submitting contributions to smart-doc, please note the following:
+- [Reference Document for PR Submission Process](community/pull-request-process.md)
 
-- If you want to add new features or upgrade features, please open an Issue for discussion first.
 
-- In order to facilitate the author's review of the code, it is recommended that each Pull Request only submit the fix or feature addition of a single issue to avoid large-scale changes.
+## Points to Note
+When contributing to `smart-doc`, please pay attention to the following:
 
-- smart-doc is a tool that serves global developers. Please use English comments when submitting code, which also facilitates the community to better promote internationalization.
+- If you want to add new features or upgrade functions, please start an Issue discussion first.
 
-- Please abide by coding style conventions to ensure code readability and maintainability.
+- To facilitate the author's code review, it is recommended that each Pull Request only submits fixes or feature additions for a single issue to avoid large-scale changes.
 
-- Please ensure that all submitted code has unit test coverage to ensure code quality.
+- As `smart-doc` is a tool serving developers worldwide, please use English comments when submitting code to also facilitate the international promotion of the community.
 
-- If necessary, update the appropriate documentation to reflect your changes.
+- Adhere to code style conventions to ensure code readability and maintainability.
 
-- Finally, we welcome contributions in any form, including but not limited to code, documentation, Issue submissions, etc.
+- Ensure that all submitted code is covered by unit tests to guarantee code quality.
 
-## Code review
-All code needs to be reviewed by the Committer. Here are some principles we recommend:
-- Readability: Please follow good coding standards and documentation standards for all submissions.
-- Elegance: The code is concise, highly reusable, and has a complete design.
-- Test: For ordinary methods, add unit tests on smart-doc. For user interface code, please add unit tests on [smart-doc-example-cn](https://github.com/smart-doc-group/smart-doc- example-cn)
-Add test cases and complete submission test verification.
+- If necessary, update the corresponding documentation to reflect your changes.
 
-## Case Studies
-You are more than welcome to share any use cases about smart-doc. Everyone is welcome to contribute and share smart-doc use cases.
-For outstanding case sharers, the community will also provide some rewards in the future.
+- Finally, we welcome any form of contribution, including but not limited to code, documentation, and Issue submissions.
 
-## Participate in community discussions
-If you encounter any problems when using smart-doc, please go to [Discussions](https://github.com/TongchengOpenSource/smart-doc/discussions) for communication and interaction.
-You are also welcome to help other users answer some usage questions here.
+## Code Review
+All code must go through a `Committer` review. Here are some principles we recommend:
+- Readability: All submissions should follow good coding and documentation standards.
+- Elegance: The code should be concise, highly reusable, and well-designed.
+- Testing: Add unit tests for ordinary methods in `smart-doc`, and for user interface code, please add test cases and complete submission testing validation in [smart-doc-demo](https://github.com/smart-doc-group/smart-doc-demo).
 
-Discussion Category:
-- Announcements: smart-doc official announcement.
-- Help: I have encountered problems using smart-doc and would like to seek help from the community.
-- Ideas: If you have any ideas about smart-doc, please feel free to share them.
-- Show and tell: You can display any work related to smart-doc here, such as some tools, cases, etc.
+## Case Sharing
+We very much welcome you to share any usage cases related to `smart-doc`. We encourage everyone to submit articles and share their `smart-doc` usage cases.
+
+## Participating in Community Discussions
+If you encounter any problems using `smart-doc`, you are welcome to join discussions on [Discussions](https://github.com/TongchengOpenSource/smart-doc/discussions).
+You are also welcome to help other users here by answering questions they may have about using the tool.
+
+`Discussion` categories:
+- `Announcements`: Official announcements from `smart-doc`.
+- `Help`: Encountering problems while using `smart-doc` and seeking help from the community.
+- `Ideas`: Ideas about `smart-doc` are always welcome and can be discussed at any time.
+- `Show and tell`: This is where you can showcase any work related to `smart-doc`, such as various tools and cases.
