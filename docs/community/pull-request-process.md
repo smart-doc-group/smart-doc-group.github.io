@@ -1,9 +1,9 @@
 # PR Contribution Process
-[Open Source Guide](https://docs.github.com/zh/pull-requests)
+[Open Source Guide](https://docs.github.com/pull-requests)
 
 ## 1. Sync Fork from Upstream
 
-[Github Documentation: syncing-a-fork](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
+[Github Documentation: syncing-a-fork](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
 
 To prevent conflicts caused by changes in the upstream repository, you should `sync fork` before making a `pr`, and resolve conflicts (try to resolve conflicts locally).
 
@@ -12,11 +12,11 @@ To prevent conflicts caused by changes in the upstream repository, you should `s
 ## 2. Sync from Remote Repository && Resolve Conflicts Locally
 1. Use the `git pull` command locally to sync code from the remote repository
 
-2. If there are no conflicts, that's great. If there are conflicts, [refer to about-merge-conflicts](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) to resolve them.
+2. If there are no conflicts, that's great. If there are conflicts, [refer to about-merge-conflicts](https://docs.github.com/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) to resolve them.
 
 ## 3. Commit && Push to Remote Repository
 
-1. A `pull request` can only contain one `commit`. If there are multiple `commits`, use the [Rebase command to merge commits](zh-cn/community/rebase-option.md)
+1. A `pull request` can only contain one `commit`. If there are multiple `commits`, use the [Rebase command to merge commits](community/rebase-option.md)
 2. Each `commit` should add corresponding modification records in the `CHANGELOG`.
 3. Use `git push` or `git push -f`(add `-f` if merging remote `commits`) to push `commit` to the remote repository.
 

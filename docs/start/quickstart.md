@@ -57,7 +57,7 @@ If the project depends on other internal public modules and second-party package
 <plugin>
      <groupId>org.apache.maven.plugins</groupId>
      <artifactId>maven-source-plugin</artifactId>
-     <version>3.2.1</version>
+     <version>3.3.0</version>
      <executions>
          <execution>
              <phase>package</phase>
