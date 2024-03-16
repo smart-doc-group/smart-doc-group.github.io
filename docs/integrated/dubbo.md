@@ -183,6 +183,6 @@ public class UserServiceImpl implements UserService {
 ```
 ## Generate operations
 Run the plug-in's document generation command directly through the `mvc` command or directly click the plug-in's visual command in `IDEA`.
-![maven-smart-doc](https://img-blog.csdnimg.cn/20200705230512435.png)
+![maven-smart-doc](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/20200705230512435.png "1.png")
 
 Run `rpc-html` etc. to generate `Dubbo RPC` document

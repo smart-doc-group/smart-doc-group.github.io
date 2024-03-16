@@ -37,9 +37,9 @@ When contributing to `smart-doc`, please pay attention to the following:
 
 ## Code Review
 All code must go through a `Committer` review. Here are some principles we recommend:
-- Readability: All submissions should follow good coding and documentation standards.
-- Elegance: The code should be concise, highly reusable, and well-designed.
-- Testing: Add unit tests for ordinary methods in `smart-doc`, and for user interface code, please add test cases and complete submission testing validation in [smart-doc-demo](https://github.com/smart-doc-group/smart-doc-demo).
+- **Readability:** All submissions should follow good coding and documentation standards.
+- **Elegance:** The code should be concise, highly reusable, and well-designed.
+- **Testing:** Add unit tests for ordinary methods in `smart-doc`, and for user interface code, please add test cases and complete submission testing validation in [smart-doc-demo](https://github.com/smart-doc-group/smart-doc-demo).
 
 ## Case Sharing
 We very much welcome you to share any usage cases related to `smart-doc`. We encourage everyone to submit articles and share their `smart-doc` usage cases.

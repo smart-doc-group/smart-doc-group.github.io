@@ -146,6 +146,10 @@ mvn -Dfile.encoding=UTF-8 smart-doc:postman
 mvn -Dfile.encoding=UTF-8 smart-doc:openapi
 // 生成文档推送到Torna平台
 mvn -Dfile.encoding=UTF-8 smart-doc:torna-rest
+// 生成word格式文档，推荐使用smart-doc 3.0.2及更高版本
+mvn -Dfile.encoding=UTF-8 smart-doc:word
+// 生成jmeter性能压测脚本
+mvn -Dfile.encoding=UTF-8 smart-doc:jmeter
 
 // Apache Dubbo RPC文档
 // Generate html
@@ -205,7 +209,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 
 ## 添加断点
 添加断点如图所示
-![输入图片说明](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/232807_f88b94b2_144669.png "maven-debug1.png")
+![输入图片说明](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/maven-plugin-debug.png "maven-debug1.png")
 
 ## Debug模式运行构建目标
 `maven`插件在`idea`中运行`debug`非常简单，操作如下图。
