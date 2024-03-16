@@ -2,26 +2,6 @@
 # 社区角色
 `smart-doc`社区包含`Maintainer`、`Committer`、`Contributor`等角色，每种角色的标准定义如下。
 
-
-# smart-doc开发团队
-感谢所有开发者对社区的贡献！我们会定期将所有贡献者的名字进行展示，当然也可以自己提交`PR`添加。
-> 注：排名不分先后。如有遗漏，请提交 PR 添加。
-
-### PMC(项目管理委员会，Project Management Committee)
-- Yu Sun([@shalousun](https://github.com/shalousun))
-
-### Committer
-- Xingzhi Li([@netdied](https://github.com/netdied))
-- Qi Chen([@chenqi146](https://github.com/chenqi146))
-- Bing Li([@abing22333](https://github.com/abing22333))
-
-
-### Contributor
-https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
-
-
----
-
 ### Maintainer
 对`smart-doc`项目演进和发展做出显著贡献的个人。
 
@@ -35,7 +15,7 @@ https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
 - 参与新晋`Committer`或`Maintainer`的提名及投票。
 
 ### Committer
-是对`smart-doc`社区某些特定领域做出突出贡献的人 
+是对`smart-doc`社区某些特定领域做出突出贡献的人
 
 成为`Committer`的标准：
 - 能够长时间地并持续性地贡献`Issue`、`PR`代码、测试用例、文档、案例)，社区贡献`10`个及以上高质量`PR`；
@@ -61,6 +41,30 @@ https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
 只要您对`smart-doc`项目有兴趣，每个人都可以成为`smart-doc`项目的`Contributor`。
 您可以从贡献文档开始参与社区贡献，并逐步参与代码的贡献。
 如果您成为了`Smart-doc Contributor`并且持续地做出贡献，达到了`Committer`的要求，我们将邀请您成为`Smart-doc Committer`.
+
+
+# smart-doc开发团队
+感谢所有开发者对社区的贡献！我们会定期将所有贡献者的名字进行展示，当然也可以自己提交`PR`添加。
+> 注：排名不分先后。如有遗漏，请提交 PR 添加。
+
+### PMC(项目管理委员会，Project Management Committee)
+- Yu Sun([@shalousun](https://github.com/shalousun))
+
+### Committer
+- Xingzhi Li([@netdied](https://github.com/netdied))
+- Qi Chen([@chenqi146](https://github.com/chenqi146))
+- Bing Li([@abing22333](https://github.com/abing22333))
+
+#### 相关宣传
+- [第一批Committer晋升公告](https://www.oschina.net/news/282477)
+
+### Contributor
+https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
+
+
+
+
+
 
 
 

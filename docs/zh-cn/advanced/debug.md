@@ -80,11 +80,11 @@ public class WebConfig implements WebMvcConfigurer {
 
 
 导入`json`到`Postma`n效果如下图：
-![输入图片说明](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/095300_24a7f126_144669.png "postman.png")
+![输入图片说明](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/postman-import.png "postman.png")
 
 ### postman中设置环境变量
 
-![输入图片说明](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/141540_aed7de0b_144669.png "postman_set_env.png")
+![输入图片说明](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/postman-add-env.png "postman_set_env.png")
 **注意：** 在`Add Environment`中不要忘记给环境设置名称(例如：本地开发测试)，否则按上图不能保存成功。
 
 > smart-doc自动生成的Json文件会贴心的给在Postman中给填充上注释，如果你自己写了mock值也会携带进入，

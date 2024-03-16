@@ -381,11 +381,11 @@ PostmanJsonBuilder.buildPostmanCollection(config);
 
 
 example：
-![输入图片说明](../../_images/095300_24a7f126_144669.png "postman.png")
+![输入图片说明](../../_images/postman-import.png "postman.png")
 
 ### postman中设置环境变量
 
-![输入图片说明](../../_images/141540_aed7de0b_144669.png "postman_set_env.png")
+![输入图片说明](../../_images/postman-add-env.png "postman_set_env.png")
 ** Note: ** Do not forget to set the name of the environment in Add Environment (for example: local development test), otherwise the environment cannot be saved successfully according to the above figure.
 
 

@@ -99,7 +99,7 @@ https://gitee.com/smart-doc-team/smart-doc-gradle-plugin-demo
 #### Generated document
 ##### Use Gradle command
 ```bash
-//生成html
+//生成文档到html中
 gradle smartDocRestHtml
 //生成markdown
 gradle smartDocRestMarkdown
@@ -111,6 +111,11 @@ gradle smartDocPostman
 gradle smartDocOpenApi
 //生成rest接口文档并推送到Torna平台,@since 2.0.9
 gradle tornaRest
+//生成Jmeter性能压测脚本,since 3.0.0
+gradle smartDocJmeter
+//生成文档输出到Word,since 3.0.0
+gradle word
+
 
 // Apache Dubbo Rpc生成
 // Generate html
@@ -148,7 +153,7 @@ dependencies {
 }
 ```
 找到`smart-doc`源码打上断点。操作如下图：
-![打断点示例](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/002115_04d0246d_144669.png "debug1.png")
+![打断点示例](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/gradle-debug.png "debug1.png")
 ### 命令行终端设置debug模式
 `Gradle`插件的调试并不像调试`JAVA`程序和`Maven`插件那么简单。在`IDEA`上直接点击`debug`启动相关操作就可以直接调试了。
 需要实现在命令行设置调试模式。操作如下图：
@@ -172,7 +177,7 @@ gradle wrapper
 点击 **Edit Configurations**
 ![输入图片说明](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/004033_cd63df34_144669.png "remote1.png")
 点开左边的"**+**"号，点击"**Remote**"
-![添加remote](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/004113_df83ee8d_144669.png "remote2.png")
+![添加remote](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/set-gradle-debug-name.png "remote2.png")
 ### 执行调试
 完成上面的操作后即可用`debug`调试进入插件和`smart-doc`了，然后查看`smart-doc`的执行情况。操作如下图
-![执行调试](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/004808_63ad37db_144669.png "debug3.png")
+![执行调试](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/gradle-run-debug.png "debug3.png")

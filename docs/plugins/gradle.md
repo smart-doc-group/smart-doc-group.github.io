@@ -98,27 +98,31 @@ For example, create `/src/main/resources/smart-doc.json` in the project. The con
 #### Generated document
 ##### Use Gradle command
 ```bash
-//generate html
+// Generate documentation into HTML
 gradle smartDocRestHtml
-//Generate markdown
+// Generate markdown
 gradle smartDocRestMarkdown
-//Generate adoc
+// Generate adoc
 gradle smartDocRestAdoc
-//Generate postmanjson data
+// Generate Postman JSON data
 gradle smartDocPostman
-//Generate Open Api 3.0+ standard json document, since smart-doc-gradle-plugin 1.1.4
+// Generate Open API 3.0 + specification JSON documentation, since smart-doc-gradle-plugin 1.1.4
 gradle smartDocOpenApi
-//Generate rest interface documents and push them to Torna platform, @since 2.0.9
+// Generate REST API documentation and push to Torna platform, @since 2.0.9
 gradle tornaRest
+// Generate JMeter performance test scripts, since 3.0.0
+gradle smartDocJmeter
+// Generate documentation output to Word, since 3.0.0
+gradle word
 
-// Apache Dubbo Rpc
+// Apache Dubbo RPC generation
 // Generate html
 gradle smartDocRpcHtml
 // Generate markdown
 gradle smartDocRpcMarkdown
 // Generate adoc
 gradle smartDocRpcAdoc
-// push torna rpc
+// Push RPC interfaces to torna
 gradle tornaRpc
 ```
 ##### Use IDEA
@@ -147,7 +151,7 @@ dependencies {
 }
 ```
 Find the `smart-doc` source code and put a breakpoint. The operation is as follows:
-![Break point example](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/002115_04d0246d_144669.png "debug1.png")
+![Break point example](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/gradle-debug.png "debug1.png")
 ### Command line terminal to set debug mode
 Debugging the `Gradle` plugin is not as simple as debugging `JAVA` programs and `Maven` plugins. You can debug directly by clicking `debug` on `IDEA` to start related operations.
 It is necessary to set the debugging mode on the command line. The operation is as follows:
@@ -171,7 +175,7 @@ gradle wrapper
 Click **Edit Configurations**
 ![Enter picture description](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/004033_cd63df34_144669.png "remote1.png")
 Click on the "+" sign on the left and click "Remote"
-![Add remote](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/004113_df83ee8d_144669.png "remote2.png")
+![Add remote](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/set-gradle-debug-name.png "remote2.png")
 ### Perform debugging
 After completing the above operation, you can use `debug` to debug the plug-in and `smart-doc`, and then check the execution status of `smart-doc`. The operation is as shown below
-![Execute debugging](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/004808_63ad37db_144669.png "debug3.png")
+![Execute debugging](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/gradle-run-debug.png "debug3.png")

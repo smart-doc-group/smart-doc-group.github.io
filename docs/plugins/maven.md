@@ -49,12 +49,12 @@ The usage reference is as follows:
 ```
 ### configuration
 #### configFile
-Specifies the configuration file used to generate documentation. Please use ./ at the beginning of the relative path, eg: `./src/main/resources/smart-doc.json`
+Specifies the configuration file used to generate documentation. Please use `./` at the beginning of the relative path, eg: `./src/main/resources/smart-doc.json`
 
 #### projectName
-Specify the project name. It is recommended to use dynamic parameters, such as ${project.description}.
+Specify the project name. It is recommended to use dynamic parameters, such as `${project.description}`.
 
-Starting from 2.3.4, if the projectName is not set in smart-doc.json or here, the plug-in is automatically set to the projectName in the pom.
+Starting from `2.3.4`, if the projectName is not set in `smart-doc.json` or here, the plug-in is automatically set to the projectName in the pom.
 
 #### excludes & includes
 
@@ -86,7 +86,7 @@ Usually the only dependencies we need are a few common third-party libraries, th
 <includes>
     <!--Load all dependencies with groupId com.xxx-->
     <include>com.xxx:.*</include>
-<includes>
+</includes>
 ```
 
 
@@ -96,15 +96,15 @@ When running the plug-in, if some Class cannot be loaded, exclude the dependenci
 
 ```xml
 <exclude>
-      <!-Exclude mongodb dependency-->
+      <!--Exclude mongodb dependency-->
       <exclude>org.springframework.boot:spring-boot-mongodb</exclude>
-<exclude>
+</exclude>
 ```
 
 ##### excludes & includes best practices
 1. To use include, load the required source code. If you don’t need other dependencies, you can write the project’s own `groupId:artifactId`
 
-2. After encountering an error, use excludes to exclude the dependencies of the error.
+   2. After encountering an error, use `excludes` to `exclude` the dependencies of the error.
  
 
 
@@ -129,13 +129,21 @@ In the above `json` configuration example, only `"outPath"` is required. Other c
 
 ```
 mvn -Dfile.encoding=UTF-8 smart-doc:html
+//  Generate document output to Markdown
 mvn -Dfile.encoding=UTF-8 smart-doc:markdown
+// Generate document output to Adoc
 mvn -Dfile.encoding=UTF-8 smart-doc:adoc
+// Generate Postman.
 mvn -Dfile.encoding=UTF-8 smart-doc:postman
 // build Open Api 3.0+,Since smart-doc-maven-plugin 1.1.5
 mvn -Dfile.encoding=UTF-8 smart-doc:openapi
-// build to torna
+// Generate document and push to torna
 mvn -Dfile.encoding=UTF-8 smart-doc:torna-rest
+// Generate document output to Word.
+mvn -Dfile.encoding=UTF-8 smart-doc:word
+// Generate Jmeter performance pressure test scripts.
+mvn -Dfile.encoding=UTF-8 smart-doc:
+
 
 // Apache Dubbo RPC
 // Generate html
@@ -194,7 +202,7 @@ Usually the actual debugged code is `smart-doc`. But this process is mainly chec
 
 ## Add breakpoint
 Add breakpoints as shown in the figure
-![Enter image description](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/232807_f88b94b2_144669.png "maven-debug1.png")
+![Enter image description](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/maven-plugin-debug.png "maven-debug1.png")
 
 ## Run the build target in Debug mode
 It is very simple for the `maven` plug-in to run `debug` in `idea`. The operation is as shown below.
