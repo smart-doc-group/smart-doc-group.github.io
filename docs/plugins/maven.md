@@ -49,7 +49,11 @@ The usage reference is as follows:
 ```
 ### configuration
 #### configFile
-Specifies the configuration file used to generate documentation. Please use `./` at the beginning of the relative path, eg: `./src/main/resources/smart-doc.json`
+Specify the configuration file used for generating documents. When using relative paths, please start with './', for example: `./src/main/resources/smart-doc.json`.
+If you are using the plugin through the `mvn` command, you can also specify it in the command line by using the `-DconfigFile` parameter, such as:
+```shell
+mvn -Dfile.encoding=UTF-8 -DconfigFile="src/main/resources/smart-doc.json" smart-doc:html
+```
 
 #### projectName
 Specify the project name. It is recommended to use dynamic parameters, such as `${project.description}`.

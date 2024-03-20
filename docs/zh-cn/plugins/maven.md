@@ -52,7 +52,11 @@
 ```
 ### 插件 configuration
 #### configFile
-指定生成文档的使用的配置文件。相对路径时请用./开头，eg: `./src/main/resources/smart-doc.json`
+指定生成文档的使用的配置文件。相对路径时请用./开头，eg: `./src/main/resources/smart-doc.json`。
+如果你通过`mvn`命令来使用插件，那么你也可以通过在命令行中使用`-DconfigFile`参数来指定, 例如：
+```shell
+mvn -Dfile.encoding=UTF-8  -DconfigFile="src/main/resources/smart-doc.json"  smart-doc:html
+```
 
 #### projectName
 指定项目名称，推荐使用动态参数，例如`${project.description}`。
