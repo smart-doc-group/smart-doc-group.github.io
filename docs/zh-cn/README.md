@@ -67,17 +67,25 @@ smart-doc + [Torna](http://torna.cn/) 组成行业领先的文档生成和管理
 
 > 排名不分先后，更多接入公司，欢迎在[此处](https://github.com/smart-doc-group/smart-doc/issues/12)登记（仅供开源用户参考）
 
-<img src="../_images/known-users/iflytek.png">
-&nbsp;&nbsp;<img src="../_images/known-users/oneplus.png" title="一加" width="83px" height="83px"/>
-&nbsp;&nbsp;<img src="../_images/known-users/xiaomi.png" title="小米" width="170px" height="83px"/>
-&nbsp;&nbsp;<img src="../_images/known-users/neusoft.png" title="东软集团" width="180px" height="83px"/>
-&nbsp;&nbsp;<img src="../_images/known-users/zhongkezhilian.png" title="中科智链" width="272px" height="83px"/>
-&nbsp;&nbsp;<img src="https://www.hand-china.com/static/img/hand-logo.svg" title="上海汉得信息技术股份有限公司" width="260px" height="83px"/>
-&nbsp;&nbsp;<img src="../_images/known-users/shunfeng.png" title="顺丰" width="83px" height="83px"/>
-&nbsp;&nbsp;<img src="../_images/known-users/yuanmengjiankang.png" title="远盟健康" width="260px" height="83px"/>
-&nbsp;&nbsp;<img src="../_images/known-users/ly.jpeg" title="同程旅行" width="200px" height="100px"/>
-&nbsp;&nbsp;<img src="../_images/known-users/tcsklogo.jpeg" title="同程数科" width="200px" height="83px"/>
-  <img src="https://raw.githubusercontent.com/smart-doc-group/smart-doc/master/images/known-users/kuaishou.svg" width="130px" height="83px">
+<img src="../_images/known-users/iflytech.png" title="科大讯飞">
+&nbsp;&nbsp;<img src="../_images/known-users/oneplus.png" title="一加" >
+&nbsp;&nbsp;<img src="../_images/known-users/xiaomi.png" title="小米" >
+&nbsp;&nbsp;<img src="../_images/known-users/shunfeng.png" title="顺丰">
+&nbsp;&nbsp;<img src="../_images/known-users/ly.jpeg" title="同程旅行" width="160px" height="70px"/>
+&nbsp;&nbsp;<img src="../_images/known-users/kuishou.png" title="快手">
+&nbsp;&nbsp;<img src="../_images/known-users/mafengwo.png" title="马蜂窝">
+&nbsp;&nbsp;<img src="../_images/known-users/yunda.png" title="韵达速递" width="192px" height="64px">
+&nbsp;&nbsp;<img src="../_images/known-users/zhongtongzhiyun.png" title="中通智运">
+&nbsp;&nbsp;<img src="../_images/known-users/tcsklogo.jpeg" title="同程数科" width="170px" height="64px"/>
+&nbsp;&nbsp;<img src="../_images/known-users/flipboard.png" title="红板报">
+&nbsp;&nbsp;<img src="../_images/known-users/dianxin.png" title="中国电信">
+&nbsp;&nbsp;<img src="../_images/known-users/yidong.png" title="中国移动">
+&nbsp;&nbsp;<img src="../_images/known-users/neusoft.png" title="东软集团">
+&nbsp;&nbsp;<img src="../_images/known-users/zhongkezhilian.png" title="中科智链" width="240px" height="64px"/>
+&nbsp;&nbsp;<img src="https://www.hand-china.com/static/img/hand-logo.svg" title="上海汉得信息技术股份有限公司" width="240px" height="64px"/>
+&nbsp;&nbsp;<img src="../_images/known-users/yuanmengjiankang.png" title="远盟健康" width="230px" height="64px"/>
+
+ 
 
 ### 获奖情况
 
