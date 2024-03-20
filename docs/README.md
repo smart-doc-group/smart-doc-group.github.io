@@ -41,7 +41,7 @@ smart-doc does not need to inject annotations into the code like Swagger.
 
 
 ### TODO
-- Jakarta RS-API 2.x
+- GRPC
 
 
 ### License
