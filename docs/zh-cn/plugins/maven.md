@@ -57,6 +57,8 @@
 ```shell
 mvn -Dfile.encoding=UTF-8  -DconfigFile="src/main/resources/smart-doc.json"  smart-doc:html
 ```
+**注意：** `pom.xml`中`smart-doc`插件的`configFile`配置优先级高于命令行，如果要使用命令指定`configFile`，
+那么请删除`pom.xml`中的`configFile`配置。
 
 #### projectName
 指定项目名称，推荐使用动态参数，例如`${project.description}`。

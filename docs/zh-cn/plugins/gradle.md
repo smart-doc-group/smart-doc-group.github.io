@@ -75,7 +75,7 @@ smartdoc {
 ```shell
 gradle smartdoc -Psmartdoc.configFile=src/main/resources/smart-doc.json
 ```
-在`3.0.3`之后，`build.gradle`中配置动态配置`configFile`很简单，插件完全具备覆盖的功能。
+从`3.0.3`版本开始，命令行动态配置`configFile`很简单，插件完全具备覆盖`build.gradle`中`configFile`配置项的能力。
 ```groovy
 smartdoc {
     configFile =  file("src/main/resources/smart-doc.json")

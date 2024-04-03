@@ -74,7 +74,7 @@ After configuring, you can directly override it through the command line:
 ```shell
 gradle smartdoc -Psmartdoc.configFile=src/main/resources/smart-doc.json
 ```
-From version `3.0.3` onwards, the configuration of dynamically configuring `configFile` in `build.gradle` is very simple, and the plugin has the ability to completely override it.
+From version `3.0.3`, dynamic configuration of the `configFile` via the command line is very simple, as the plugin is fully capable of overriding the `configFile` configuration item in `build.gradle`.
 ```groovy
 smartdoc {
     configFile =  file("src/main/resources/smart-doc.json")

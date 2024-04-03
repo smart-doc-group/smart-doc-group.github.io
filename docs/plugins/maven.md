@@ -54,6 +54,7 @@ If you are using the plugin through the `mvn` command, you can also specify it i
 ```shell
 mvn -Dfile.encoding=UTF-8 -DconfigFile="src/main/resources/smart-doc.json" smart-doc:html
 ```
+**Note:** In the `pom.xml` file, the `configFile` setting of the `smart-doc` plugin has a higher priority than the command line. If you want to specify the `configFile` using the command line, please remove the `configFile` configuration from the `pom.xml`.
 
 #### projectName
 Specify the project name. It is recommended to use dynamic parameters, such as `${project.description}`.
@@ -108,7 +109,7 @@ When running the plug-in, if some Class cannot be loaded, exclude the dependenci
 ##### excludes & includes best practices
 1. To use include, load the required source code. If you don’t need other dependencies, you can write the project’s own `groupId:artifactId`
 
-   2. After encountering an error, use `excludes` to `exclude` the dependencies of the error.
+2. After encountering an error, use `excludes` to `exclude` the dependencies of the error.
  
 
 
