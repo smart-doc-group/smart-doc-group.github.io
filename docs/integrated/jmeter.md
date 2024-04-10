@@ -5,7 +5,7 @@
 ## Generating JMeter Scripts
 
 Usually, `smart-doc` is integrated during development to generate documentation.
-You can directly use the `Mojo` or `Task` of the `maven` or `gradle` plugin to generate the `JMeter` performance testing script.
+You can directly use the `Mojo` or `Task` of the `Maven` or `Gradle` plugin to generate the `JMeter` performance testing script.
 After running, you will get an `.jmx` document that can be imported into `JMeter`. Currently,
 the generated scripts are relatively simple and lack high-level function support.
 
