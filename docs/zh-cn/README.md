@@ -18,7 +18,7 @@
 
 > 无论你是很有经验的大佬、还是刚入行的萌新。遇到使用疑惑时，我们希望你能仔细阅读smart-doc官方码云的wiki文档。我们将smart-doc及其插件的 每一个配置项和可能在日常中遇到的问题都整理到了文档中。仔细阅读文档就是对开源项目最大的支持。
 
-查看[快速开始](zh-cn/start/quickstart.md)了解详情。
+查看[快速开始](zh-cn/start/quickstart)了解详情。
 
 ### 特性
 
@@ -45,7 +45,7 @@
 smart-doc + [Torna](http://torna.cn/) 组成行业领先的文档生成和管理解决方案，使用`smart-doc`无侵入完成`JAVA`源代码分析和提取注释生成`API`文档，自动将文档推送到`Torna`企业级接口文档管理平台。
 ![smart-doc + Torna](../_images/smart-to-torna.png)
 
-[smart-doc+Torna文档自动化](zh-cn/diy/integrated.md)
+[smart-doc+Torna文档自动化](zh-cn/diy/integrated)
 
 > Torna是由smart-doc官方独家推动联合研发的企业级文档管理系统，因此smart-doc官方不会对接其它任何的外部文档管理系统，例如像showdoc、yapi 之类的对接请自定内部处理，也不要再给我们提其他文档系统对接的PR。我们核心是把smart-doc+Torna的这套方案打造好
 
@@ -55,7 +55,7 @@ smart-doc + [Torna](http://torna.cn/) 组成行业领先的文档生成和管理
 
 ### Contact
 
-愿意参与构建`smart-doc`或者是需要交流问题可以扫描微信二维码发送`smart-doc`备注信息后管理员拉进群，[常见问题答疑](https://smart-doc-group.github.io/#/zh-cn/faq)
+愿意参与构建`smart-doc`或者是需要交流问题可以扫描微信二维码发送`smart-doc`备注信息后管理员拉进群，[常见问题答疑](zh-cn/faq/faq)
 
 <img src="../_images/smart-doc-qq.jpg" title="qq群" width="200px" height="210px"/>
 <img src="../_images/smart-doc-qq2.jpeg" title="qq群2" width="200px" height="210px"/>
