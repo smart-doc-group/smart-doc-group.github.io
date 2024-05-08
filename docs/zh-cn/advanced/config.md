@@ -39,6 +39,7 @@
 |                     `replace`                     | `2.2.4` | ❌  |   `Boolean`    |       `true`        | 推送`torna`时替换旧的文档。改动还是会推送过去覆盖的，这个功能主要是保证代码删除了，`torna`上没有删除。                                                                                                                                                                 |
 |                   `debugEnvUrl`                   | `2.0.9` | ❌  |    `String`    |                     | 推送`torna`配置接口服务地址。                                                                                                                                                                                                         |
 |                   `tornaDebug`                    | `2.0.9` | ❌  |   `Boolean`    |       `true`        | 是否打印`torna`推送日志。                                                                                                                                                                                                           |
+|                     `author`                      | `2.0.9` | ❌  |    `String`    |                     | 指定推送到Torna的用户名                                                                                                                                                                                                             |
 |               `ignoreRequestParams`               | `1.9.2` | ❌  | `List<String>` |                     | 忽略请求参数对象，把不想生成文档的参数对象屏蔽掉。                                                                                                                                                                                                  |
 |      [`dataDictionaries`](#datadictionaries)      |         | ❌  | `List<Object>` |                     | 配置数据字典<br />`2.4.6`开始可以配置枚举实现的接口， 当配置接口时title将使用实现枚举的类描述，如果有已经实现的枚举需要忽略的话，可以在实现枚举类上增加`@ignore`进行忽略。                                                                                                                        |
 | [`errorCodeDictionaries`](#errorcodedictionaries) |         | ❌  | `List<Object>` |                     | 错误码列表<br />`2.4.6`开始可以配置枚举实现的接口， 当配置接口时title将使用实现枚举的类描述，如果有已经实现的枚举需要忽略的话，可以在实现枚举类上增加`@ignore`进行忽略。                                                                                                                         |
@@ -62,6 +63,7 @@
 |                    `increment`                    | `3.0.0` | ❌  |   `Boolean`    |       `false`       | `increment`用于控制是否让`smart-doc`根据`GIT`代码的变更实现文档的增量推送                                                                                                                                                                         |
 |                  `apiUploadNums`                  | `3.0.2` | ❌  |   `Integer`    |                     | 上传`torna`时，支持文档分批上传，设置文档批次的大小。不配置则一次上传所有                                                                                                                                                                                   |
 |                 `showValidation`                  | `3.0.3` | ❌  |   `Boolean`    |       `true`        | `showValidation`用于控制`smart-doc`是否提取JSR字段验证信息展示到文档中                                                                                                                                                                         |
+|                     `jmeter`                      | `3.0.4` | ❌  |    `Object`    |                     | 生成`JMeter`性能测试脚本一些配置。                                                                                                                                                                                                      |
 
 ```json
 {
@@ -100,6 +102,7 @@
     "debugEnvName": "测试环境",
     "debugEnvUrl": "http://127.0.0.1",
     "tornaDebug": false,
+    "author": "smart-doc",
     "increment": false,
     "ignoreRequestParams": [
         "org.springframework.ui.ModelMap"
@@ -237,7 +240,10 @@
     ],
     "requestParamsTable": true,
     "responseParamsTable": true,
-    "componentType": 1
+    "componentType": 1,
+    "jmeter": {
+        "addPrometheusListener": true
+    }
 }
 ```
 
@@ -524,11 +530,21 @@ public void testIsMatch() {
 }
 ```
 
+## jmeter
 
+`3.0.4`版本开始增加，生成`JMeter`性能测试脚本时的自定义配置项
 
+| 配置                      | 类型        | 描述                       |
+|-------------------------|-----------|--------------------------|
+| `addPrometheusListener` | `Boolean` | 生成脚本时是否添加`Prometheus`监听器 |
 
-
-
+```json
+{
+  "jmeter": {
+    "addPrometheusListener": true
+  }
+}
+```
 
 
 

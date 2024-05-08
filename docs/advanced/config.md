@@ -61,6 +61,7 @@
 | `componentType` | `2.7.8` | ❌ | `String` | `RANDOM` | `openapi component key generator`<br />`RANDOM`: supports `@Validated` group verification<br />`NORMAL` : Does not support `@Validated`, used for `openapi` generated code |
 | `apiUploadNums` | `3.0.2` | ❌ | `Integer` |  | When uploading `Torna`, batch uploading of documents is supported, and the size of document batches can be set. |
 | `showValidation`| `3.0.3` | ❌ | `Boolean` | `true` | `showValidation` is used to control whether `smart-doc` extracts the JSR validation information of fields for display in the documentation.        |                                                                                                                                                                |
+| `jmeter`| `3.0.4` | ❌  |`Object`|    | Custom Configurations for JMeter Performance Test Script Generation|
 
 ```json
 {
@@ -523,10 +524,20 @@ public void testIsMatch() {
     System.out.println(DocUtil.isMatch(pattern, controllerName));
 }
 ```
+## jmeter
+Starting from version `3.0.4`, the following custom configuration options have been added when generating `JMeter` performance test scripts:
 
+| Configuration           | Type      | Description                                                       |
+|-------------------------|-----------|-------------------------------------------------------------------|
+| `addPrometheusListener` | `Boolean` | Whether to add a `Prometheus` listener when generating the script |
 
-
-
+```json
+{
+  "jmeter": {
+    "addPrometheusListener": true
+  }
+}
+```
 
 
 
