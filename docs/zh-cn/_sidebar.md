@@ -3,7 +3,7 @@
   * [简介](zh-cn/README.md)
   * [快速开始](zh-cn/start/quickstart.md)
   * [使用指南](zh-cn/start/guide.md)
-  * [最佳实践](zh-cn/start/bestPractice.md)
+  * [实践规范](zh-cn/start/bestPractice.md)
   * [示例](zh-cn/start/example.md)
 
 
@@ -30,3 +30,5 @@
   * [理念](zh-cn/community/idea.md)
   - [开发者](zh-cn/community/developer.md)
   - [贡献指南](zh-cn/community/contributing.md)
+- 社区案例
+  * [社区案例](zh-cn/use-cases.md)
