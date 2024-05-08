@@ -77,6 +77,10 @@ smart-doc will automatically analyze the dependency tree and load all dependent 
 ##### includes
 Use includes to load dependencies on demand and reduce unnecessary dependency resolution.
 
+**Note:** If `includes` are configured, the plugin will only load dependencies specified in `includes`.
+The loading is no longer based on the dependency resolution specified in the `pom`.
+
+
 Usually the only dependencies we need are a few common third-party libraries, the company's internal second-party libraries, and other modules in the project.
 
 ```xml

@@ -81,6 +81,8 @@ mvn -Dfile.encoding=UTF-8  -DconfigFile="src/main/resources/smart-doc.json"  sma
 ##### includes
 使用`includes`，按需加载依赖，减少不必要的依赖解析。
 
+**注意：** 如果配置了`includes`, 插件只会加载`includes`中指定的依赖。不再按照`pom`中的依赖解析来加载。
+
 通常我们需要的依赖就除了几个常见的三方库，就是公司内部的二方库，和项目中的其他模块。
 
  
