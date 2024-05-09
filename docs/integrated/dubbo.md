@@ -22,25 +22,13 @@ Add `smart-doc-maven-plugin` to your `dubbo api` or `dubbo provider` module. Of 
          <configFile>./src/main/resources/smart-doc.json</configFile>
          <!--Specify project name-->
          <projectName>Test</projectName>
-         <!--smart-doc implements automatic analysis of the dependency tree to load the source code of third-party dependencies. If some framework dependency libraries cannot be loaded and an error is reported, please use excludes to exclude them -->
-         <excludes>
-             <!--The format is: groupId:artifactId; refer to the following -->
-             <!--Starting from version 1.0.7, you can also use regular matching to exclude, such as: poi.* -->
-             <exclude>com.alibaba:fastjson</exclude>
-         </excludes>
-         <!--Since version 1.0.8, the plug-in provides includes support-->
-         <!--smart-doc can automatically analyze the dependency tree and load all dependent source codes, which in principle will affect the efficiency of document construction, so you can use includes to let the plug-in load the components you configure-->
-         <includes>
-             <!--The format is: groupId:artifactId; refer to the following -->
-             <include>com.alibaba:fastjson</include>
-         </includes>
      </configuration>
      <executions>
          <execution>
              <!--If you do not need to start smart-doc when compiling, comment out phase-->
              <phase>compile</phase>
              <goals>
-                 <goal>html</goal>
+                 <goal>dubbo</goal>
              </goals>
          </execution>
      </executions>
@@ -70,7 +58,7 @@ Regarding `smart-doc`, if you need more detailed configuration when generating d
 If you want `dubbo consumer` integration to be faster, you can add the integration configuration example `consumer-example.conf`,
 `smart-doc` will output the example directly into the documentation.
 
-```
+```yaml
 Dubbo:
    registry:
      protocol: zookeeper
