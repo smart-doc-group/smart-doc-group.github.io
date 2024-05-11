@@ -13,6 +13,17 @@ For details on how to use the maven plugin, please refer to:
 
 ![idea-jmeter](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/idea-jmeter.png)
 
+Starting from version `3.0.4`, the community has introduced the feature to add a `Prometheus Listener`. 
+To enable this feature, you need to add the `addPrometheusListener` configuration option in `smart-doc.json`.
+
+```json
+{
+  "jmeter": {
+    "addPrometheusListener": true
+  }
+}
+```
+
 ## Importing JMeter
 
 - First, download the latest `JMeter` from the `Apache` official website, [JMeter Download](https://jmeter.apache.org/download_jmeter.cgi)
