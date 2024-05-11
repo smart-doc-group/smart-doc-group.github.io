@@ -9,7 +9,7 @@ You can directly use the `Mojo` or `Task` of the `Maven` or `Gradle` plugin to g
 After running, you will get an `.jmx` document that can be imported into `JMeter`. Currently,
 the generated scripts are relatively simple and lack high-level function support.
 
-For details on how to use the maven plugin, please refer to:
+For details on how to use the `maven` plugin, please refer to:
 
 ![idea-jmeter](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/idea-jmeter.png)
 
