@@ -6,7 +6,7 @@
 通常在开发生成文档的时候已经集成好`smart-doc`。直接使用`Maven`或者`Gradle`插件的里生成`JMeter`性能测试脚本的`Mojo`或`Task`执行即可。
 运行后将生成`.jmx`文档导入`JMeter`即可。当然目前生成的脚本相对比较基础，缺乏高阶的函数支持。
 
-maven插件操作参看
+`maven`插件操作参看
 
 ![idea-jmeter](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/idea-jmeter.png)
 

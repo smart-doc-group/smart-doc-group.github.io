@@ -331,3 +331,25 @@ for(int i=0;i<arr.length;i++){
 ```
 > Record is currently a keyword in Java. If the problem is caused by record, it is recommended not to use record in your business code. This will affect the subsequent upgrade to jdk 17.
 If the error is caused by local dependencies, it is recommended to exclude the error-reported dependency directly through the exclude configuration item of the plug-in according to the package of the error code.
+
+
+### package-info.java Error
+In Java, a valid `package` must be set in the `package-info.java` file. Therefore, if you manually add a `package-info.java` file to your project, make sure to follow the specifications when writing it; otherwise, `qdox` will encounter syntax parsing errors during document analysis, which affects the generation of documents by `smart-doc`.
+
+```java
+//package com.smartdoc.example.controller;
+package com.smartdoc.example.repository;
+```
+- A valid `package` setting must be present and not commented out.
+
+If commented out, it will cause an error on line 174 of `qdox`'s `SourceLibrary`, so it is recommended to write according to the specifications:
+
+```
+File packageInfo = new File(file.getParentFile(), "package-info.java");
+if( packageInfo.exists() )
+{
+    JavaPackage pckg = parse( new FileInputStream( packageInfo ),
+                                                  packageInfo.toURI().toURL() ).getSource().getPackage();
+    context.add( pckg );
+}
+```
