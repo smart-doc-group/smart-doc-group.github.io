@@ -29,3 +29,5 @@
    * [idea](community/idea.md)
    - [Developer](community/developer.md)
    - [How to contribute](community/contributing.md)
+- Use Case
+   - [Use Cases](usecase/use-cases.md)
