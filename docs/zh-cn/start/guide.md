@@ -153,17 +153,17 @@ public interface DubboInterface {
 |-------------------------------------|------------------------------------------------------------------------------------------------------------------------|---------|
 | [`@ignore`](#_1-ignore)             | `@ignore` 如果`@ignore`加到方法上，则接口方法不会输出到文档。从`1.8.4`开始`@ignore`支持添加到`Controller`上进行忽略不想生成文档的接口类。`@ignore`也可以用于方法上忽略某个请求参数。 | -       |
 | [`@mock`](#_2-mock)                 | `@mock` `tag`用于在对象基本类型字段设置自定义文档展示值。设置值后`smart-doc`不再帮你生成随机值。方便可以通过`smart-doc`直接输出交付文档。                                 | `1.8.0` |
-| `@dubbo`                            | `@dubbo` `tag`用于在`Dubbo`的`API`接口类上添加让`smart-doc`可以扫描到`Dubbo RPC`的接口生成文档。                                               | `1.8.7` |
-| `@restApi`                          | `@restApi` `tag`用于支持`smart-doc`去扫描`Spring Cloud Feign`的定义接口生成文档。                                                       | `1.8.8` |
+| [`@restApi`](#_3-restApi)           | `@restApi` `tag`用于支持`smart-doc`去扫描`Spring Cloud Feign`的定义接口生成文档。                                                       | `1.8.8` |
 | `@order`                            | `@order` `tag`用于设置`Controller`接口或者`API`入口的自定义排序序号，`@order 1`就表示设置序号为`1`。                                               | `1.9.4` |
 | `@ignoreResponseBodyAdvice`         | `@ignoreResponseBodyAdvice` `tag`用于忽略`ResponseBodyAdvice`设置的包装类。                                                       | `1.9.8` |
-| [`@download`](#_3-download)         | `@download` `tag`用于标注在`Controller`的文件下载方法上，生成`debug`页面时可实现文件下载测试。并且支持下载文件带请求头参数测试。                                     | `2.0.1` |
-| [`@page`](#_4-page)                 | `@page` `tag`用于标注在`Controller`的方法上表示该方法用来渲染返回一个静态页面，生成`debug`页面时如果发起测试，测试页面会自动在浏览器开启新标签显示页面。                           | `2.0.2` |
-| [`@ignoreParams`](#_5-ignoreparams) | `@ignoreParams` `tag`用于标注在`Controller`方法上忽略掉不想显示在文档中的参数，例如：`@ignoreParams id name`，多个参数名用空格隔开                          | `2.1.0` |
-| [`@response`(不推荐)](#_6-response不推荐) | `@response` `tag`标注在`Controller`方法上可以允许用这自己定义返回的`json example`。建议只在返回基础类型时使用，如：`Result<String>`类型这种泛型是简单原生类型的响应。       | `2.2.0` |
-| [`@service`](#_7-service)           | `@service` `tag`用于标注`Dubbo`的`API`接口的服务名称。                                                                              | `3.0.1` |
-| [`@protocol`](#_8-protocol)         | `@protocol` `tag`用于标注`Dubbo`的`API`接口的协议类型。                                                                             | `3.0.1` |
-| [`@extension`](#_9-extension)       | `@extension` `tag` 用于对`OpenAPI`扩展能力 的支持。                                                                               | `3.0.3` |
+| [`@download`](#_4-download)         | `@download` `tag`用于标注在`Controller`的文件下载方法上，生成`debug`页面时可实现文件下载测试。并且支持下载文件带请求头参数测试。                                     | `2.0.1` |
+| [`@page`](#_5-page)                 | `@page` `tag`用于标注在`Controller`的方法上表示该方法用来渲染返回一个静态页面，生成`debug`页面时如果发起测试，测试页面会自动在浏览器开启新标签显示页面。                           | `2.0.2` |
+| [`@ignoreParams`](#_6-ignoreparams) | `@ignoreParams` `tag`用于标注在`Controller`方法上忽略掉不想显示在文档中的参数，例如：`@ignoreParams id name`，多个参数名用空格隔开                          | `2.1.0` |
+| [`@response`(不推荐)](#_7-response不推荐) | `@response` `tag`标注在`Controller`方法上可以允许用这自己定义返回的`json example`。建议只在返回基础类型时使用，如：`Result<String>`类型这种泛型是简单原生类型的响应。       | `2.2.0` |
+| [`@dubbo` ]( #_8-dubbo)             | `@dubbo` `tag`用于在`Dubbo`的`API`接口类上添加让`smart-doc`可以扫描到`Dubbo RPC`的接口生成文档。                                               | `1.8.7` |
+| [`@service`](#_9-service)           | `@service` `tag`用于标注`Dubbo`的`API`接口的服务名称。                                                                              | `3.0.1` |
+| [`@protocol`](#_10-protocol)        | `@protocol` `tag`用于标注`Dubbo`的`API`接口的协议类型。                                                                             | `3.0.1` |
+| [`@extension`](#_11-extension)      | `@extension` `tag` 用于对`OpenAPI`扩展能力 的支持。                                                                               | `3.0.3` |
 
 > 以上的一些自定义tag，我们建议国内的同学认真阅读这部分全部文档。包括后面对于一些tag的使用当中官方也给 了文字提示，不要去乱用。也不要觉得可以说服官方能够对当前的一些自定义tag做丰富。 首先我们是一个非常尊重编码规范的工具，我们不会去随便乱加一个东西来误导人，当前主流框架不提供的东西，我们不会在提供， 以后对tag的使用只会更加谨慎。
 
@@ -230,10 +230,29 @@ public class SimpleUser {
     "password":"12356"
 }
 ```
+### 3. `@restApi`
+`@restApi`用于支持`smart-doc`去扫描`Spring Cloud Feign`的定义接口生成文档
 
+```java
+/**
+ * @restApi
+ * @author yu 2020/6/21.
+ */
+@FeignClient(value = "SER0",path = "/")
+public interface AFeignInterface {
 
+    /**
+     * test
+     * @param id id
+     * @param name username
+     * @return un
+     */
+    @GetMapping(value = "/{id}/{name}")
+    String test(@PathVariable String id,@PathVariable String name);
+}
+```
 
-### 3. `@download`
+### 4. `@download`
 
 用于告诉`smart-doc`。你的`Controller`中某一个方法是文件下载接口， `smart-doc`在生成`debug`调试页面时，可以生成一个文件下载的请求。后台参考代码如下：
 
@@ -294,7 +313,7 @@ public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
 
 
 
-### 4. `@page`
+### 5. `@page`
 
 这个例子中用`beetl`来编写了一个`html`模板，正常情况下访问`arthas-output.html`。 会返回渲染后的界面，如果你想在`debug`页面中点击请求直接访问该页面， 那么你可以用`@page`来告诉`smart-doc`你的渲染页面名称。这样在`debug`页面上就可以直接帮你打开新的页签来访问页面。
 
@@ -318,7 +337,7 @@ public String render() {
 
 
 
-### 5. `@ignoreParams`
+### 6. `@ignoreParams`
 
 例如把`id`参数忽略掉，不要展示在文档中，这种主要是传统的有状态后台管理系统中的用户状态参数。
 
@@ -339,7 +358,7 @@ public CommonResult<DateEntity> test(int id,@RequestBody DateEntity dateEntity){
 
 
 
-### 6. `@response`(不推荐)
+### 7. `@response`(不推荐)
 
 对于使用`@response`的用户，我们只能认为你的代码是在太不清晰了，最好的就是代码写规范，让`smart-doc`能够自动生成返回样例。
 
@@ -361,9 +380,31 @@ public CommonResult<String> create() {
     return null;
 }
 ```
-### 7. `@service`
+### 8. `@dubbo`
 
-`@service`用户标注`Dubbo`服务的接口名称。不标注时`smart-doc`使用全类名。通常情况下无需标注。
+`@dubbo`用于标注`Dubbo`的接口。标注后`smart-doc`会将`interface`视作`RPC`接口，然后扫描生成文档。
+
+```java
+/**
+ * Dubbo Interface
+ * @author yusun
+ * @dubbo
+ */
+public interface DubboInterface {
+
+  /**
+   * Say Hello
+   * @param word
+   * @return
+   */
+  String sayHello(String word);
+}
+
+```
+
+### 9. `@service`
+
+`@service`用于标注`Dubbo`服务的接口名称。不标注时`smart-doc`使用全类名。通常情况下无需标注。
 
 ```java
 /**
@@ -383,7 +424,7 @@ public interface DubboInterface {
 }
 ```
 
-### 8. `@protocol`
+### 10. `@protocol`
 
 `@protocol`用户标注`Dubbo`服务的协议类型。不标注时`smart-doc`默认设置为`dubbo`。
 
@@ -404,7 +445,7 @@ public interface DubboInterface {
   String sayHello(String word);
 }
 ```
-### 9. `@extension`
+### 11. `@extension`
 `@extension`标记在`controller method`上. 用于支持`OpenAPI`的扩展属性，它将在`openapi.json`中添加对应的`"x-*"`属性
 ```java
 /**
