@@ -130,6 +130,7 @@ public String resp(@RequestBody String name){
 | [`@ignoreParams`](#_5-ignoreparams) | `@ignoreParams` `tag` is used to mark the parameters that are ignored in the `Controller` method and do not want to be displayed in the document, for example: `@ignoreParams id name`, more Parameter names separated by spaces | `2.1.0` |
 | [`@response`(not recommended)](#_6-response is not recommended) | `@response` `tag` marked on the `Controller` method allows you to define the returned `json example` yourself. It is recommended to only use it when returning basic types, such as: `Result<String>` type. This generic type is a response to a simple native type. | `2.2.0` |
 | [`@extension`](#_7-extension) | `@extension` `tag` marked on the `Controller` method allows you to add a @extension tag to support openapi extension.  | `3.0.3` |
+| [`@javadoc`](#_12-javadoc)          | `@javadoc` `tag` is used for some interface classes and static utility classes.                        | `3.0.5` |
 
 > We are a tool that respects coding standards very much. We will not add anything randomly to mislead people. We will not provide things that are not provided by the current mainstream frameworks. We will only use tags more cautiously in the future.
 
@@ -379,6 +380,28 @@ it will output extension tags in openapi.json:
     }
   }
 }
+```
+
+### 12. `@javadoc`
+
+`@javadoc` is used for interface classes and static utility classes to generate documents. `smart-doc` will scan this tag and generate documents.
+
+```java
+/**
+ * Simple Interface
+ * @author yusun
+ * @javadoc
+ */
+public interface SimpleInterface {
+
+  /**
+   * Say Hello
+   * @param word
+   * @return
+   */
+  String sayHello(String word);
+}
+
 ```
 
 ## JSR

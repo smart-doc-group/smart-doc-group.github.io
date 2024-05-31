@@ -164,6 +164,7 @@ public interface DubboInterface {
 | [`@service`](#_9-service)           | `@service` `tag`用于标注`Dubbo`的`API`接口的服务名称。                                                                              | `3.0.1` |
 | [`@protocol`](#_10-protocol)        | `@protocol` `tag`用于标注`Dubbo`的`API`接口的协议类型。                                                                             | `3.0.1` |
 | [`@extension`](#_11-extension)      | `@extension` `tag` 用于对`OpenAPI`扩展能力 的支持。                                                                               | `3.0.3` |
+| [`@javadoc`](#_12-javadoc)          | `@javadoc` `tag` 用于对接口类，静态工具类的支持。                                                                                      | `3.0.5` |
 
 > 以上的一些自定义tag，我们建议国内的同学认真阅读这部分全部文档。包括后面对于一些tag的使用当中官方也给 了文字提示，不要去乱用。也不要觉得可以说服官方能够对当前的一些自定义tag做丰富。 首先我们是一个非常尊重编码规范的工具，我们不会去随便乱加一个东西来误导人，当前主流框架不提供的东西，我们不会在提供， 以后对tag的使用只会更加谨慎。
 
@@ -500,6 +501,27 @@ it will output extension tags in openapi.json:
 }
 ```
 
+### 12. `@javadoc`
+
+`@javadoc`用于标注期望生成文档的接口类，静态工具类。标注后`smart-doc`会扫描并生成文档。
+
+```java
+/**
+ * Simple Interface
+ * @author yusun
+ * @javadoc
+ */
+public interface SimpleInterface {
+
+  /**
+   * Say Hello
+   * @param word
+   * @return
+   */
+  String sayHello(String word);
+}
+
+```
 
 ## JSR参数验证
 
