@@ -163,6 +163,14 @@ mvn -Dfile.encoding=UTF-8 smart-doc:rpc-markdown
 mvn -Dfile.encoding=UTF-8 smart-doc:rpc-adoc
 
 mvn -Dfile.encoding=UTF-8 smart-doc:torna-rpc
+
+// Generate documentation for some interface classes and static utility classes marked with `@javadoc`
+// Generate html
+mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-html
+// Generate markdown
+mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-markdown
+// Generate adoc
+mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-adoc
 ```
 If you want to view the `debug` log when building using the `mvn` command, the `debug` log can also help you analyze the source code loading status of the `smart-doc-maven` plug-in, you can add a `-X` parameter. For example:
 ```

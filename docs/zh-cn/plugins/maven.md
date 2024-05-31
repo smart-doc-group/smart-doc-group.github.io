@@ -169,6 +169,14 @@ mvn -Dfile.encoding=UTF-8 smart-doc:rpc-adoc
 
 // 生成dubbo接口文档推送到torna
 mvn -Dfile.encoding=UTF-8 smart-doc:torna-rpc
+
+// 标注 `@javadoc` 的普通接口或者静态工具类生成文档
+// Generate html
+mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-html
+// Generate markdown
+mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-markdown
+// Generate adoc
+mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-adoc
 ```
 在使用`mvn`命令构建时如果想查看`debug`日志，`debug`日志也能够帮助你去分析`smart-doc-maven`插件的源码加载情况，可以加一个`-X`参数。例如：
 ```
