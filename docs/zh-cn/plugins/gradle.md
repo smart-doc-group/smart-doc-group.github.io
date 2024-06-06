@@ -146,6 +146,14 @@ gradle smartDocRpcMarkdown
 gradle smartDocRpcAdoc
 // 推送rpc接口到torna中
 gradle tornaRpc
+
+// 标注 `@javadoc` 的普通接口或者静态工具类生成文档, 3.0.5版本开始支持
+// Generate html
+gradle javadocHtml
+// Generate markdown
+gradle javadocMarkdown
+// Generate adoc
+gradle javadocAdoc
 ```
 ##### Use IDEA
 当你使用`Idea`时，可以通过`Gradle Helper`插件选择生成何种文档。

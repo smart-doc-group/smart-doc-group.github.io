@@ -117,31 +117,36 @@ public String resp(@RequestBody String name){
 
 ## smart-doc
 
-| tag | description | since |
-| -------------------------- | -------------------------- --------------------------------------- | ------- |
-| [`@ignore`](#_1-ignore) | `@ignore` If `@ignore` is added to a method, the interface method will not be output to the document. Starting from `1.8.4`, `@ignore` supports being added to `Controller` to ignore interface classes that do not want to generate documents. `@ignore` can also be used on methods to ignore certain request parameters. | - |
-| [`@mock`](#_2-mock) | `@mock` `tag` is used to set a custom document display value in the object's basic type field. `smart-doc` will no longer help you generate random values after setting the value. It is convenient to directly output the delivery document through `smart-doc`. | `1.8.0` |
-| `@dubbo` | `@dubbo` `tag` is used to add the `API` interface class of `Dubbo` so that `smart-doc` can scan the `Dubbo RPC` interface to generate documents. | `1.8.7` |
-| `@restApi` | `@restApi` `tag` is used to support `smart-doc` to scan the defined interface of `Spring Cloud Feign` to generate documents. | `1.8.8` |
-| `@order` | `@order` `tag` is used to set the custom sorting sequence number of the `Controller` interface or `API` entrance. `@order 1` means setting the sequence number to `1`. | `1.9.4` |
-| `@ignoreResponseBodyAdvice` | `@ignoreResponseBodyAdvice` `tag` is a wrapper class used to ignore `ResponseBodyAdvice` settings. | `1.9.8` |
-| [`@download`](#_3-download) | `@download` `tag` is used to mark the file download method of `Controller`, and the file download test can be implemented when generating the `debug` page. It also supports testing of downloaded files with request header parameters. | `2.0.1` |
-| [`@page`](#_4-page) | `@page` `tag` is used to annotate the method of `Controller` to indicate that the method is used to render and return a static page. If initiated when generating the `debug` page Test, the test page will automatically open a new tab in the browser to display the page. | `2.0.2` |
-| [`@ignoreParams`](#_5-ignoreparams) | `@ignoreParams` `tag` is used to mark the parameters that are ignored in the `Controller` method and do not want to be displayed in the document, for example: `@ignoreParams id name`, more Parameter names separated by spaces | `2.1.0` |
-| [`@response`(not recommended)](#_6-response is not recommended) | `@response` `tag` marked on the `Controller` method allows you to define the returned `json example` yourself. It is recommended to only use it when returning basic types, such as: `Result<String>` type. This generic type is a response to a simple native type. | `2.2.0` |
-| [`@extension`](#_7-extension) | `@extension` `tag` marked on the `Controller` method allows you to add a @extension tag to support openapi extension.  | `3.0.3` |
-| [`@javadoc`](#_12-javadoc)          | `@javadoc` `tag` is used for some interface classes and static utility classes.                        | `3.0.5` |
+Here's the translation into English:
+
+| tag                                                            | description                                                                                                                                                                                                                                                                                                                                                 | since   |
+|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| [`@ignore`](#_1-ignore)                                        | The `@ignore` tag, if applied to a method, prevents the interface method from being output to the documentation. Starting with version `1.8.4`, `@ignore` supports being added to `Controller` to ignore interface classes that you do not want to generate documentation for. `@ignore` can also be used on methods to ignore specific request parameters. | -       |
+| [`@mock`](#_2-mock)                                            | The `@mock` tag is used to set custom document display values for object basic type fields. Once set, `smart-doc` no longer generates random values for you. This makes it convenient to directly output delivery documents through `smart-doc`.                                                                                                            | `1.8.0` |
+| [`@restApi`](#_3-restApi)                                      | The `@restApi` tag is used to support `smart-doc` in scanning `Spring Cloud Feign` definition interfaces to generate documentation.                                                                                                                                                                                                                         | `1.8.8` |
+| `@order`                                                       | The `@order` tag is used to set a custom sorting sequence number for `Controller` interfaces or API entry points. `@order 1` means setting the sequence number to `1`. There was a bug before version `3.0.5`, which has been fixed after that version.                                                                                                     | `1.9.4` |
+| `@ignoreResponseBodyAdvice`                                    | The `@ignoreResponseBodyAdvice` tag is used to ignore wrapped classes set by `ResponseBodyAdvice`.                                                                                                                                                                                                                                                          | `1.9.8` |
+| [`@download`](#_4-download)                                    | The `@download` tag is used to annotate file download methods on `Controller`, allowing for file download testing when generating the `debug` page. It also supports downloading files with request header parameters for testing.                                                                                                                          | `2.0.1` |
+| [`@page`](#_5-page)                                            | The `@page` tag is used to annotate methods on `Controller` indicating that the method is meant to render a static page. When testing on the generated `debug` page, the test page will automatically open in a new browser tab to display the page.                                                                                                        | `2.0.2` |
+| [`@ignoreParams`](#_6-ignoreParams)                            | The `@ignoreParams` tag is used to annotate methods on `Controller` to ignore parameters that you do not want to appear in the documentation, such as: `@ignoreParams id name`, with multiple parameter names separated by spaces.                                                                                                                          | `2.1.0` |
+| [`@response`(not recommended)](#_7-response-(not recommended)) | The `@response` tag, when annotated on `Controller` methods, allows you to define your own JSON example responses. It is recommended only for responses of basic types, such as generics of simple native types like `Result<String>`.                                                                                                                      | `2.2.0` |
+| [`@dubbo`](#_8-dubbo)                                          | The `@dubbo` tag is used to add to Dubbo's API interface classes to allow `smart-doc` to scan and generate documentation for Dubbo RPC interfaces.                                                                                                                                                                                                          | `1.8.7` |
+| [`@service`](#_9-service)                                      | The `@service` tag is used to annotate the service name of Dubbo's API interfaces.                                                                                                                                                                                                                                                                          | `3.0.1` |
+| [`@protocol`](#_10-protocol)                                   | The `@protocol` tag is used to annotate the protocol type of Dubbo's API interfaces.                                                                                                                                                                                                                                                                        | `3.0.1` |
+| [`@extension`](#_11-extension)                                 | The `@extension` tag is used for support of OpenAPI extension capabilities.                                                                                                                                                                                                                                                                                 | `3.0.3` |
+| [`@javadoc`](#_12-javadoc)                                     | The `@javadoc` tag is used for support of interface classes and static utility classes. ｜ `3.0.5`                                                                                                                                                                                                                                                           |
 
 > We are a tool that respects coding standards very much. We will not add anything randomly to mislead people. We will not provide things that are not provided by the current mainstream frameworks. We will only use tags more cautiously in the future.
 
+Here's the translation into English:
+
 ### 1. `@ignore`
 
-**Starting from 2.6.9, `@ignore` no longer supports marking on fields. In the future, `@ignore` can only be used to annotate methods and classes. **
+**Starting from version 2.6.9, `@ignore` no longer supports marking on fields. In the future, `@ignore` can only be used to annotate methods and class comments.**
 
-> For entity fields, it is recommended to use the annotations of the Json conversion framework to ignore them. The above is an early error demonstration of smart-doc. In future versions, the function of @ignore to ignore fields will be offline. The annotations of Jackson and Fastjson smart-doc All are supported, and the official does not recommend using this method that cannot achieve consistent performance and behavior.
+For entity fields, it is recommended to use the annotations of JSON conversion frameworks to ignore them, which was an incorrect approach used by smart-doc in the early stages. The annotations of Jackson and Fastjson are supported by smart-doc, and the official does not recommend using a method that cannot maintain consistent behavior and performance.
 
 ```java
-
 /**
  * Invoice management
  * @ignore
@@ -152,161 +157,164 @@ public String resp(@RequestBody String name){
 @RequiredArgsConstructor
 public class InvoiceController {
 
-     /**
-      * Create invoice
-      * @ignore
-      */
-     @PostMapping("/createInvoice")
-     public CommonResult<DateEntity> createInvoice(@RequestBody InvoiceCreateRequest request) {
-       return null;
-     }
+    /**
+     * Create invoice
+     * @ignore
+     */
+    @PostMapping("/createInvoice")
+    public CommonResult<DateEntity> createInvoice(@RequestBody InvoiceCreateRequest request) {
+        return null;
+    }
 }
 ```
-
-
-
-
 
 ### 2. `@mock`
 
 ```java
 public class SimpleUser {
-     /**
-      * username
-      * @mock Zhang San
-      * @since v1.0
-      */
-     @NotNull
-     private String username;
-     /**
-      * password
-      * @mock 12356
-      * @since v1.0
-      */
-     private String password;
+    /**
+     * Username
+     * @mock 张三
+     * @since v1.0
+     */
+    @NotNull
+    private String username;
+    /**
+     * Password
+     * @mock 12356
+     * @since v1.0
+     */
+    private String password;
 }
 ```
 
-Use `SimpleUser` as a parameter in the `Controller` layer, and `smart-doc` no longer uses random values. Example of parameter request output by `smart-doc`:
+When `SimpleUser` is used as a parameter in the `Controller`, smart-doc will no longer use random values. smart-doc output parameter request example:
 
 ```json
 {
-     "username":"Zhang San",
-     "password":"12356"
+    "username": "张三",
+    "password": "12356"
 }
 ```
 
-
-
-### 3. `@download`
-
-Used to tell `smart-doc`. A certain method in your `Controller` is a file download interface. `smart-doc` can generate a file download request when generating the `debug` debugging page. The background reference code is as follows:
-
-* The interface has no return value and needs to be marked with `tag`
+### 3. `@restApi`
 
 ```java
 /**
- * Download common file files
- * @apiNote method does not return an object that can be identified and needs to be marked as download
+ * @restApi
+ * @author yu 2020/6/21.
+ */
+@FeignClient(value = "SER0", path = "/")
+public interface AFeignInterface {
+
+    /**
+     * test
+     * @param id id
+     * @param name username
+     * @return un
+     */
+    @GetMapping(value = "/{id}/{name}")
+    String test(@PathVariable String id, @PathVariable String name);
+}
+```
+
+### 4. `@download`
+
+This tells smart-doc that one of your `Controller` methods is a file download interface, and smart-doc can generate a file download request when generating the `debug` debug page. The backend reference code is as follows:
+
+```java
+/**
+ * Download plain text files
+ * @apiNote The method has no return object that can be recognized for download, do mark with @download
  * @param response
  * @return
- * @throwsIOException
+ * @throws IOException
  * @download
  */
 @PostMapping("text/")
 public void download(HttpServletResponse response) throws IOException {
-     String randomStr = RandomUtil.randomNumbers(50);
-     String fileName = "test.log";
-     // urlDecode is used to process the file name
-     // Since 2.0.2, there is no need to set filename in the response header.
-     response.setHeader("filename", urlEncode(fileName));
-     ServletOutputStream outputStream = this.downloadText(fileName, response);
-     outputStream.write(randomStr.getBytes());
+    String randomStr = RandomUtil.randomNumbers(50);
+    String fileName = "test.log";
+    // urlDecode used to handle file names
+    // since 2.0.2, there is no need to set filename in the response header
+    response.setHeader("filename", urlEncode(fileName));
+    ServletOutputStream outputStream = this.downloadText(fileName, response);
+    outputStream.write(randomStr.getBytes());
 }
 ```
 
-> smart-doc version 2.0.2 will automatically read the file name from the download response header `Content-Disposition: attachment; filename=xx`, and there is no need to set `response.setHeader("filename", urlEncode in the response header) (fileName));`
+Starting from smart-doc 2.0.2, the file name will automatically be read from the download response header `Content-Disposition: attachment; filename=xx`, so there is no need to set `response.setHeader("filename", urlEncode(fileName));` in the response header.
 
+If the response type is one of the following:
+- `org.springframework.core.io.Resource`
+- `org.springframework.core.io.InputStreamSource`
+- `org.springframework.core.io.ByteArrayResource`
+- `org.noear.solon.core.handle.DownloadedFile` domestic `solon` framework
 
-
-* When the interface response type is the following
-   * `org.springframework.core.io.Resource`
-   * `org.springframework.core.io.InputStreamSource`
-   * `org.springframework.core.io.ByteArrayResource`
-   * `org.noear.solon.core.handle.DownloadedFile` domestic `solon` framework
-
-The following is an example of returning `org.springframework.core.io.Resource`
+Below is an example returning `org.springframework.core.io.Resource`:
 
 ```java
 /**
- * download file
- * @apiNote smart-doc automatically identifies file stream objects and does not need to use @download to mark file downloads.
- * @param filename filename|me
+ * Download file
+ * @apiNote smart-doc automatically recognizes the file stream object, no need to use @download for file download marking
+ * @param filename file name|me
  * @return
  */
 @PostMapping("download1/{filename}")
 public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
-     String fileName = filename+".log";
-     String randomStr = RandomUtil.randomNumbers(50);
-     Resource resource = new ByteArrayResource(randomStr.getBytes());
-     return ResponseEntity.ok()
-             .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
-             .body(resource);
+    String fileName = filename + ".log";
+    String randomStr = RandomUtil.randomNumbers(50);
+    Resource resource = new ByteArrayResource(randomStr.getBytes());
+    return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
+            .body(resource);
 }
 ```
 
+### 5. `@page`
 
-
-
-
-### 4. `@page`
-
-In this example, `beetl` is used to write an `html` template, and `arthas-output.html` is accessed under normal circumstances. The rendered interface will be returned. If you want to click the request in the `debug` page to access the page directly, then you can use `@page` to tell `smart-doc` the name of your rendered page. In this way, on the `debug` page, you can directly open a new tab to access the page.
+In this example, `beetl` is used to write an HTML template. Normally, visiting `arthas-output.html` will return a rendered interface. If you want to visit this page directly in the `debug` page and click on the request, you can use `@page` to tell smart-doc your rendering page name. In this way, the `debug` page can directly open a new tab to visit the page.
 
 ```java
 /**
- * List of arthas flame graphs
+ * arthas flamegraph list
  *
  * @return
  * @page /arthas-output.html
- * @apiNote returns an arthas-output.html displaying the flame graph file
+ * @apiNote Returns an arthas-output.html showing flamegraph files
  */
 @GetMapping("arthas-output.html")
 public String render() {
-     Template template = BeetlTemplateUtil.getByName("arthas-output.tpl");
-     List<FileInfo> files = FileUtil.getFilesFromFolder(environment.getProperty("arthas.output.path", OUTPUT_PATH));
-     template.binding("path", "arthas-output");
-     template.binding("fileInfoList", files);
-     return template.render();
+    Template template = BeetlTemplateUtil.getByName("arthas-output.tpl");
+    List<FileInfo> files = FileUtil.getFilesFromFolder(environment.getProperty("arthas.output.path", OUTPUT_PATH));
+    template.binding("path", "arthas-output");
+    template.binding("fileInfoList", files);
+    return template.render();
 }
 ```
 
+### 6. `@ignoreParams`
 
+For example, the `id` parameter is ignored and not displayed in the documentation. This is mainly for traditional backend management systems with user status parameters.
 
-### 5. `@ignoreParams`
-
-For example, ignore the `id` parameter and do not display it in the document. This is mainly the user status parameter in the traditional stateful background management system.
-
-> If what you want to ignore is a parameter of a top open source project such as `Spring` or `JAX-RS` or a unified specification, please submit an `issue` to the official. For example, if you find that `smart-doc` cannot ignore the parameters of `@SessionAttribute` annotation of `Spring`, then you can raise an `issue` to the official.
+If you want to ignore a parameter of `Spring` or `JAX-RS` or any other top-level project or standardized specification parameters, please submit an issue to the official. For example, if you find that smart-doc cannot ignore the `@SessionAttribute` annotation parameter of `Spring`, you can definitely submit an issue to the official.
 
 ```java
 /**
- * testing time
+ * Test time
  * @ignoreParams id
  * @param id number
  * @param dateEntity
  */
 @PostMapping("data-date")
-public CommonResult<DateEntity> test(int id,@RequestBody DateEntity dateEntity){
-     return null;
+public CommonResult<DateEntity> test(int id, @RequestBody DateEntity dateEntity){
+    return null;
 }
 ```
 
+### 7. `@response` (not recommended)
 
-
-### 6. `@response`(not recommended)
-
-For users who use `@response`, we can only think that your code is too unclear. The best thing is to write the code in a standard so that `smart-doc` can automatically generate return samples.
+For users using `@response`, our code is too unclear, and the best practice is to write the code in a standardized manner so that smart-doc can automatically generate the return example.
 
 ```java
 /**
@@ -323,12 +331,69 @@ For users who use `@response`, we can only think that your code is too unclear. 
  */
 @GetMapping("/test")
 public CommonResult<String> create() {
-     return null;
+    return null;
+}
+```
+### 8. `@dubbo`
+
+```java
+/**
+ * Dubbo Interface
+ * @author yusun
+ * @dubbo
+ */
+public interface DubboInterface {
+
+  /**
+   * Say Hello
+   * @param word
+   * @return
+   */
+  String sayHello(String word);
 }
 ```
 
-### 7. `@extension`
-`@extension` is marked on the controller method. it's used to support the `extension` feature of `OpenAPI`. it will add a `"x-*"` attribution for `openapi.json`
+### 9. `@service`
+
+```java
+/**
+ * Dubbo Interface
+ * @author yusun
+ * @dubbo
+ * @service test
+ */
+public interface DubboInterface {
+
+  /**
+   * Say Hello
+   * @param word
+   * @return
+   */
+  String sayHello(String word);
+}
+```
+
+### 10. `@protocol`
+
+```java
+/**
+ * Dubbo Interface
+ * @author yusun
+ * @dubbo
+ * @protocol dubbo
+ */
+public interface DubboInterface {
+
+  /**
+   * Say Hello
+   * @param word
+   * @return
+   */
+  String sayHello(String word);
+}
+```
+### 11. `@extension`
+
 ```java
 /**
  * json file config test
@@ -336,6 +401,7 @@ public CommonResult<String> create() {
  * @author cqmike 2021-07-16 14:09
  **/
 @RestController
+@RequestMapping("configRequestParamTest")
 public class ConfigRequestParamController {
 
     /**

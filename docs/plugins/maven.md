@@ -164,7 +164,7 @@ mvn -Dfile.encoding=UTF-8 smart-doc:rpc-adoc
 
 mvn -Dfile.encoding=UTF-8 smart-doc:torna-rpc
 
-// Generate documentation for some interface classes and static utility classes marked with `@javadoc`
+// Generate documentation for some interface classes and static utility classes marked with `@javadoc`. Supported from version 3.0.5
 // Generate html
 mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-html
 // Generate markdown

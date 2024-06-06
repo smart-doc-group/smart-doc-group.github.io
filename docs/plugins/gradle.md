@@ -143,6 +143,15 @@ gradle smartDocRpcMarkdown
 gradle smartDocRpcAdoc
 // Push RPC interfaces to torna
 gradle tornaRpc
+
+
+// Generate documentation for interfaces or static utility classes annotated with `@javadoc`. Supported from version 3.0.5
+// Generate html
+gradle javadocHtml
+// Generate markdown
+gradle javadocMarkdown
+// Generate adoc
+gradle javadocAdoc
 ```
 ##### Use IDEA
 When you use `Idea`, you can choose what kind of documentation to generate through the `Gradle Helper` plugin.
