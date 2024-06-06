@@ -116,8 +116,8 @@ public String resp(@RequestBody String name){
 
 
 ## smart-doc
-
-Here's the translation into English:
+For certain special scenarios, the official Java `javaFor certain special scenarios, the official Java `java limited and cannot fully meet some the official Java `javadoc` tags are somewhat limited and cannot fully meet some user requirements. Therefore, the smart-doc team has judiciously defined some custom tags.
+The usage is introduced as follows:
 
 | tag                                                            | description                                                                                                                                                                                                                                                                                                                                                 | since   |
 |----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
@@ -134,7 +134,7 @@ Here's the translation into English:
 | [`@service`](#_9-service)                                      | The `@service` tag is used to annotate the service name of Dubbo's API interfaces.                                                                                                                                                                                                                                                                          | `3.0.1` |
 | [`@protocol`](#_10-protocol)                                   | The `@protocol` tag is used to annotate the protocol type of Dubbo's API interfaces.                                                                                                                                                                                                                                                                        | `3.0.1` |
 | [`@extension`](#_11-extension)                                 | The `@extension` tag is used for support of OpenAPI extension capabilities.                                                                                                                                                                                                                                                                                 | `3.0.3` |
-| [`@javadoc`](#_12-javadoc)                                     | The `@javadoc` tag is used for support of interface classes and static utility classes. ｜ `3.0.5`                                                                                                                                                                                                                                                           |
+| [`@javadoc`](#_12-javadoc)                                     | The `@javadoc` tag is used for support of interface classes and static utility classes.                                                                                                                                                                                                                                                                     | `3.0.5` |
 
 > We are a tool that respects coding standards very much. We will not add anything randomly to mislead people. We will not provide things that are not provided by the current mainstream frameworks. We will only use tags more cautiously in the future.
 
@@ -174,7 +174,7 @@ public class InvoiceController {
 public class SimpleUser {
     /**
      * Username
-     * @mock 张三
+     * @mock zhangsan
      * @since v1.0
      */
     @NotNull
@@ -192,7 +192,7 @@ When `SimpleUser` is used as a parameter in the `Controller`, smart-doc will no 
 
 ```json
 {
-    "username": "张三",
+    "username": "zhangsan",
     "password": "12356"
 }
 ```
@@ -312,7 +312,7 @@ public CommonResult<DateEntity> test(int id, @RequestBody DateEntity dateEntity)
 }
 ```
 
-### 7. `@response` (not recommended)
+### 7. `@response`(not recommended)
 
 For users using `@response`, our code is too unclear, and the best practice is to write the code in a standardized manner so that smart-doc can automatically generate the return example.
 
@@ -472,16 +472,16 @@ public interface SimpleInterface {
 
 ## JSR
 
-| Function | Annotation |
-| ---------- | ---------- |
-| `Field required` | `@NotNull` |
-| | `@NotEmpty` |
-| | `@NotBlank` |
-| `Field is empty` | `@Null` |
-| `length limit` | `@Min` |
-| | `@Max` |
-| | `@Length` |
-| | `@Size` |
+| Function         | Annotation  |
+|------------------|-------------|
+| `Field required` | `@NotNull`  |
+|                  | `@NotEmpty` |
+|                  | `@NotBlank` |
+| `Field is empty` | `@Null`     |
+| `length limit`   | `@Min`      |
+|                  | `@Max`      |
+|                  | `@Length`   |
+|                  | `@Size`     |
 
 ### Group verification
 
