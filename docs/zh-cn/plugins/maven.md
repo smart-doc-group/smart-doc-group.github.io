@@ -170,7 +170,7 @@ mvn -Dfile.encoding=UTF-8 smart-doc:rpc-adoc
 // 生成dubbo接口文档推送到torna
 mvn -Dfile.encoding=UTF-8 smart-doc:torna-rpc
 
-// 标注 `@javadoc` 的普通接口或者静态工具类生成文档
+// 标注 `@javadoc` 的普通接口或者静态工具类生成文档, 3.0.5版本开始支持
 // Generate html
 mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-html
 // Generate markdown

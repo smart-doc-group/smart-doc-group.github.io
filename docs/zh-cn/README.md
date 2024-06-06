@@ -36,6 +36,7 @@
 - 支持生成`JMeter`性能测试脚本。
 - 支持`Maven`、`Gradle`插件式轻松集成。
 - 支持`Apache Dubbo RPC`接口文档生成。
+- 支持普通`Java`类生成`javadoc`文档。
 - 支持基于`Git`管理项目的变更增量文档生成。
 - `debug`接口调试`html5`页面完全支持文件上传，下载(`@download tag`标记下载方法)测试。
 
@@ -57,7 +58,7 @@ smart-doc + [Torna](http://torna.cn/) 组成行业领先的文档生成和管理
 
 愿意参与构建`smart-doc`或者是需要交流问题可以扫描微信二维码发送`smart-doc`备注信息后管理员拉进群，[常见问题答疑](zh-cn/faq/faq)
 
-<img src="../_images/smart-doc-qq.jpg" title="qq群" width="200px" height="210px"/>
+<img src="../_images/wechat.png" title="qq群" width="200px" height="210px"/>
 <img src="../_images/smart-doc-qq2.jpeg" title="qq群2" width="200px" height="210px"/>
 
 > 1群已满，有问题请加2群。

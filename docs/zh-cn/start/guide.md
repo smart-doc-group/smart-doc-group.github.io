@@ -154,7 +154,7 @@ public interface DubboInterface {
 | [`@ignore`](#_1-ignore)             | `@ignore` 如果`@ignore`加到方法上，则接口方法不会输出到文档。从`1.8.4`开始`@ignore`支持添加到`Controller`上进行忽略不想生成文档的接口类。`@ignore`也可以用于方法上忽略某个请求参数。 | -       |
 | [`@mock`](#_2-mock)                 | `@mock` `tag`用于在对象基本类型字段设置自定义文档展示值。设置值后`smart-doc`不再帮你生成随机值。方便可以通过`smart-doc`直接输出交付文档。                                 | `1.8.0` |
 | [`@restApi`](#_3-restApi)           | `@restApi` `tag`用于支持`smart-doc`去扫描`Spring Cloud Feign`的定义接口生成文档。                                                       | `1.8.8` |
-| `@order`                            | `@order` `tag`用于设置`Controller`接口或者`API`入口的自定义排序序号，`@order 1`就表示设置序号为`1`。                                               | `1.9.4` |
+| `@order`                            | `@order` `tag`用于设置`Controller`接口或者`API`入口的自定义排序序号，`@order 1`就表示设置序号为`1`。 `3.0.5`版本之前有`bug`，`3.0.5`版本之后修复。              | `1.9.4` |
 | `@ignoreResponseBodyAdvice`         | `@ignoreResponseBodyAdvice` `tag`用于忽略`ResponseBodyAdvice`设置的包装类。                                                       | `1.9.8` |
 | [`@download`](#_4-download)         | `@download` `tag`用于标注在`Controller`的文件下载方法上，生成`debug`页面时可实现文件下载测试。并且支持下载文件带请求头参数测试。                                     | `2.0.1` |
 | [`@page`](#_5-page)                 | `@page` `tag`用于标注在`Controller`的方法上表示该方法用来渲染返回一个静态页面，生成`debug`页面时如果发起测试，测试页面会自动在浏览器开启新标签显示页面。                           | `2.0.2` |
@@ -209,7 +209,7 @@ public class InvoiceController {
 public class SimpleUser {
     /**
      * 用户名
-     * @mock 张三
+     * @mock zhangsan
      * @since v1.0
      */
     @NotNull
@@ -227,7 +227,7 @@ public class SimpleUser {
 
 ```json
 {
-    "username":"张三",
+    "username":"zhangsan",
     "password":"12356"
 }
 ```
