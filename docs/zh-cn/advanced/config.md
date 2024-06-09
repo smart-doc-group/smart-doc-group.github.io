@@ -64,6 +64,7 @@
 |                  `apiUploadNums`                  | `3.0.2` | ❌  |   `Integer`    |                     | 上传`torna`时，支持文档分批上传，设置文档批次的大小。不配置则一次上传所有                                                                                                                                                                                   |
 |                 `showValidation`                  | `3.0.3` | ❌  |   `Boolean`    |       `true`        | `showValidation`用于控制`smart-doc`是否提取JSR字段验证信息展示到文档中                                                                                                                                                                         |
 |                     `jmeter`                      | `3.0.4` | ❌  |    `Object`    |                     | 生成`JMeter`性能测试脚本一些配置。                                                                                                                                                                                                      |
+|             `addDefaultHttpStatuses`              | `3.0.5` | ❌  |   `Boolean`    |       `false`       | 生成文档时是否添加框架默认的`http`状态码，例如`Spring MVC`默认的`500`和`404`, 当前只有生成`OenAPI`文档时支持。                                                                                                                                                 |
 
 ```json
 {
@@ -99,7 +100,7 @@
     "appToken": "c16931fa6590483fb7a4e85340fcbfef",
     "isReplace": true,
     "openUrl": "http://localhost:7700/api",
-    "debugEnvName": "测试环境",
+    "debugEnvName": "Test ENV",
     "debugEnvUrl": "http://127.0.0.1",
     "tornaDebug": false,
     "author": "smart-doc",
@@ -109,7 +110,7 @@
     ],
     "dataDictionaries": [
         {
-            "title": "http状态码字典",
+            "title": "http status",
             "enumClassName": "com.power.common.enums.HttpCodeEnum",
             "codeField": "code",
             "descField": "message"
@@ -146,7 +147,7 @@
     "customResponseFields": [
         {
             "name": "code",
-            "desc": "响应代码",
+            "desc": "response code",
             "ownerClassName": "org.springframework.data.domain.Pageable",
             "ignore": true,
             "value": "00000"
@@ -155,7 +156,7 @@
     "customRequestFields": [
         {
             "name": "code",
-            "desc": "状态码",
+            "desc": "status code",
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200",
             "required": true,
@@ -167,7 +168,7 @@
             "name": "token",
             "type": "string",
             "desc": "desc",
-            "value": "token请求头的值",
+            "value": "token value",
             "required": false,
             "since": "-",
             "pathPatterns": "/app/test/**",
@@ -177,7 +178,7 @@
             "name": "appkey",
             "type": "string",
             "desc": "desc",
-            "value": "appkey请求头的值",
+            "value": "appkey value",
             "required": false,
             "pathPatterns": "/test/add,/testConstants/1.0",
             "since": "-"
@@ -234,16 +235,17 @@
     },
     "groups": [
         {
-            "name": "测试分组",
+            "name": "test group",
             "apis": "com.power.doc.controller.app.*"
         }
     ],
     "requestParamsTable": true,
     "responseParamsTable": true,
-    "componentType": 1,
+    "componentType": "RANDOM",
     "jmeter": {
         "addPrometheusListener": true
-    }
+    },
+    "addDefaultHttpStatuses": true
 }
 ```
 
