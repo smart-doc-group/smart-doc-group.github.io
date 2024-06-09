@@ -62,6 +62,7 @@
 | `apiUploadNums` | `3.0.2` | ❌ | `Integer` |  | When uploading `Torna`, batch uploading of documents is supported, and the size of document batches can be set. |
 | `showValidation`| `3.0.3` | ❌ | `Boolean` | `true` | `showValidation` is used to control whether `smart-doc` extracts the JSR validation information of fields for display in the documentation.        |                                                                                                                                                                |
 | `jmeter`| `3.0.4` | ❌  |`Object`|    | Custom Configurations for JMeter Performance Test Script Generation|
+| `addDefaultHttpStatuses`| `3.0.5` | ❌  |   `Boolean`    |       `false`       | When generating documentation, consider whether to include the default HTTP status codes from frameworks such as Spring MVC's default `500` and `404` errors. Currently, only the generation of `OpenAPI` documentation supports this feature.                                                                                                                                                 |
 
 ```json
 {
@@ -100,6 +101,8 @@
     "debugEnvName": "Test ENV",
     "debugEnvUrl": "http://127.0.0.1",
     "tornaDebug": false,
+    "author": "smart-doc",
+    "increment": false,
     "ignoreRequestParams": [
         "org.springframework.ui.ModelMap"
     ],
@@ -142,7 +145,7 @@
     "customResponseFields": [
         {
             "name": "code",
-            "desc": "code",
+            "desc": "response code",
             "ownerClassName": "org.springframework.data.domain.Pageable",
             "ignore": true,
             "value": "00000"
@@ -151,7 +154,7 @@
     "customRequestFields": [
         {
             "name": "code",
-            "desc": "code",
+            "desc": "status code",
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200",
             "required": true,
@@ -230,19 +233,19 @@
     },
     "groups": [
         {
-            "name": "Test Group",
+            "name": "test group",
             "apis": "com.power.doc.controller.app.*"
         }
     ],
     "requestParamsTable": true,
     "responseParamsTable": true,
-    "componentType": 1,
-    "apiUploadNums": 1
+    "componentType": "RANDOM",
+    "jmeter": {
+        "addPrometheusListener": true
+    },
+    "addDefaultHttpStatuses": true
 }
 ```
-
-
-
 ## packageFilters
 
 `Controller` packet filtering, multiple packets are separated by commas.
