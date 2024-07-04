@@ -1,0 +1,28 @@
+{
+  "name": "smart-doc document",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "smart-doc",
+  "packageManager": "pnpm@9.4.0",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "keywords": [],
+  "author": "smart-doc",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "esbuild": "^0.23.0",
+    "sass": "^1.77.6",
+    "vitepress": "^1.2.3"
+  },
+  "dependencies": {
+    "@lunariajs/core": "^0.1.1",
+    "markdown-it-mathjax3": "^4.3.2",
+    "open-cli": "^8.0.0"
+  }
+}
