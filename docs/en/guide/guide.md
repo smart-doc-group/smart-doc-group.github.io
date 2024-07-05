@@ -417,7 +417,7 @@ public interface DubboInterface {
 }
 ```
 ### 11. `@extension`
-
+`@extension` is marked on the controller method. it's used to support the extension feature of OpenApi. it will add a "x-*" attribution for openapi.json
 ```java
 /**
  * json file config test
@@ -443,7 +443,7 @@ public class ConfigRequestParamController {
     }
 }
 ```
-it will output extension tags in openapi.json:
+it will add a "x-*" attribution for openapi.json
 ```
 {
   "paths":{

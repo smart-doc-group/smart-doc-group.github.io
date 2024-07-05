@@ -74,7 +74,7 @@ There are relatively few native Javadoc tags in Java, which cannot meet some usa
 | @tag                      | @since 2.2.5, @tag is used to classify controller methods. You can assign methods under different controllers to multiple categories, and you can also directly assign controllers to one category or multiple categories.                                                                                                                                                                                                                                                                                                                                                                         |
 | @extension                | @since 3.0.3, @extension is marked on the controller method. it's used to support the extension feature of OpenApi. it will add a "x-*" attribution for openapi.json                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## 2.1 @ignore use(deprecated using on field since 2.6.9)
+## 2.1 @ignore use (deprecated using on field since 2.6.9)  <Badge type="danger" text="2.6.9" />
 The @ignore annotation can only be applied to methods or classes, not on fields.
 Use the @JsonIgnore annotation from the JSON library for instead.
 Cause using @ignore on a field doesn't actually prevent it from being returned.
@@ -110,7 +110,9 @@ public class SubUser {
 
 In the future, @ignore will only be used in method and class comments.
 
-> For entity fields, it is recommended to use the Json Transformation Framework's annotations to ignore them. The use of @ignore on fields is an early mistake demonstrated by smart-doc, and the ability of @ignore to ignore fields will be taken down in future releases. Jackson and Fastjson annotations are supported by smart-doc, and it is not officially recommended to use this approach, which fails to achieve consistency in presentation and behavior.
+> For entity fields, it is recommended to use the Json Transformation Framework's annotations to ignore them. 
+> The use of @ignore on fields is an early mistake demonstrated by smart-doc, and the ability of @ignore to ignore fields will be taken down in future releases. 
+> Jackson and Fastjson annotations are supported by smart-doc, and it is not officially recommended to use this approach, which fails to achieve consistency in presentation and behavior.
 
 In the Controller layer, use SubUser as a parameter to receive, and the parameter request document output by smart-doc:
 
@@ -364,7 +366,7 @@ public class ConfigRequestParamController {
 ```
 @tag is used to classify controller methods. You can assign methods under different controllers to multiple categories, and you can also directly assign controllers to one category or multiple categories.
 
-## 2.8 @extension use
+## 2.8 @extension use <Badge type="tip" text="3.0.3" />
 @extension is marked on the controller method. it's used to support the extension feature of OpenApi. it will add a "x-*" attribution for openapi.json
 ```java
 /**
@@ -390,7 +392,7 @@ public class ConfigRequestParamController {
     }
 }
 ```
-it will output extension tags in openapi.json:
+it will add a "x-*" attribution for openapi.json
 ```
 {
   "paths":{

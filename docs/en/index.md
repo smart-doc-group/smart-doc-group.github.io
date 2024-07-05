@@ -5,7 +5,7 @@ layout: home
 hero:
   title: Smart-Doc
   name: Smart-Doc
-  text: "A non-intrusive api interface document generator."
+  text: "A non-intrusive api interface document generator"
   tagline: A java restful api document generation tool.Smart-doc is based on interface source code analysis to generate interface documentation, completely zero-injection.
   actions:
     - theme: brand
@@ -17,7 +17,10 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/TongchengOpenSource/smart-doc
-    
+  image:
+    src: /logo/smart-doc-logo.svg
+    alt: Smart-Doc
+
 features:
   - icon: 📝️
     title: Zero Intrusion

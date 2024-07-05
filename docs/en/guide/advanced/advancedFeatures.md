@@ -31,8 +31,7 @@ Many users said in the `issue` that their `token` was intercepted through an int
 
 > smart-doc completely draws on the matching of Spring's PathMatcher, so the relevant path regular rules are also consistent with PathMatcher.
 Please study PathMatcher yourself and write the correct regular expression when using it, otherwise the effect after configuration may be different from what you want.
-## Public request parameters
-* @since `2.2.3`
+## Public request parameters  <Badge type="tip" text="^2.2.3" />
 
 **requestParams**
 

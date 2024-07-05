@@ -33,10 +33,9 @@
 使用时请自行研究下PathMatcher并书写正确正则表达式，否则可能配置了后效果和你想的不一样。
 
 
-## 公共请求参数
-* @since `2.2.3`
+## 公共请求参数 <Badge type="tip" text="^2.2.3" />
 
-**requestParams**
+### **requestParams**
 
 ```json
 {

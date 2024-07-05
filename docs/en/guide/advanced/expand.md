@@ -195,7 +195,7 @@ Then configure the framework name you use when using `smart-doc` in your project
 ```
 The development process is like this. The main difficulty lies in the implementation of `IDocBuildTemplate`.
 
-## Other Framework Documentation Parsing Development (Based on `JAVA SPI`) `@since 3.0.6`
+## Other Framework Documentation Parsing Development (Based on `JAVA SPI`) <Badge type="tip" text="^3.0.6" />
 :::tip
 Starting from version `3.0.6`, it is possible to add document parsing for other frameworks without modifying the source code 🎉
 :::

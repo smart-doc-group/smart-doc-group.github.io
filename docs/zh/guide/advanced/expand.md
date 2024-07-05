@@ -199,7 +199,7 @@ public enum FrameworkEnum {
 开发流程就是这样，主要的难点在于`IDocBuildTemplate`的实现处理。
 
 
-## 其他框架文档解析开发（基于`JAVA SPI`） `@since 3.0.6`
+## 其他框架文档解析开发（基于`JAVA SPI`） <Badge type="tip" text="^3.0.6" />
 :::tip
 `@since 3.0.6` 开始，支持不修改源码的情况下，新增其他框架文档的解析🎉
 :::

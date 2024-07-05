@@ -1,4 +1,4 @@
-# smart-doc
+# 常见问题
 
 
 ## 如何提升smart-doc生成文档的速度？
@@ -133,7 +133,7 @@ public abstract class BaseResult<BR> implements Serializable {
 - 如果你使用`smart-doc`单元测试方式来生成文档，那么在单元测试代码中设置外部源代码路径。让`smart-doc`加载到源代码来分析。当然官方并不推荐使用单元测试，在多人开发的团队每个人电脑路径不一致，在规范的公司代码的打包通常使用自动化构建工具完成，设置代码路径不好维护。单元测试只适合于个人开发项目使用。
 - 如果你使用的`smart-doc-maven-plugin`或者是`smart-doc-gradle-plugin`。对于无法访问国外中央仓库下载第三方源码库的同学，请在`Maven`中配置国内的阿里云`Maven`仓库，即便你是使用自己公司的`Nexus`那么也请找相关管理人员给`Nexus`配置阿里云的仓库代码。
 最终目的是确保让插件通过你`Maven`环境指定的库能够加载到第三方库的`source `源码`jar`包。有源代码生成的文档效果就会更好。
-- 如果你是像上面一样使用了不太规范的泛型定义，分析结果也会不理想，那么请你按照 [**《smart-doc最佳实践》**](https://smart-doc-group.github.io/#/zh-cn/start/bestPractice) 中的泛型定义规范了修改你的泛型定义。 
+- 如果你是像上面一样使用了不太规范的泛型定义，分析结果也会不理想，那么请你按照 [**《最佳实践》**](/zh/guide/bestPractice) 中的泛型定义规范了修改你的泛型定义。 
   
 **注意你不要祈求官方会去修改支持多字母泛型定义，`smart-doc`在为大家带来方便的同时，规范一直是我们坚守的信念。** 
 
@@ -292,7 +292,7 @@ Yapi这些过去的开源产品，目前已经不怎么更新维护，也不像T
 
 ### could not match input？
 
-```java
+```text
 Exception in thread "main" java.lang.Error: Error: could not match input
         at com.thoughtworks.qdox.parser.impl.JFlexLexer.zzScanError(JFlexLexer.java:1984)
         at com.thoughtworks.qdox.parser.impl.JFlexLexer.yylex(JFlexLexer.java:3328)
@@ -303,7 +303,7 @@ Exception in thread "main" java.lang.Error: Error: could not match input
 来加载必要的源码。避免插件自动加载了一些和API文档生成无关的旧依赖，同时也可以显著提升生成文档的速度。
 
 打印上面错误： 如果使用`maven`插件，你可以试用`mvn -X`参数让插件打印`debug`，然后查看是到加载那个`resource`出现了错误，例如：
-```java
+```shell
 mvn -X -Dfile.encoding=UTF-8 smart-doc:html
 ```
 通过添加`-X`然后通过命令行去让`smart-doc`生成文档时，插件会自动打印`debug`信息。然后从控制台日志中搜索`smart-doc loaded jar source:`,
@@ -313,7 +313,7 @@ mvn -X -Dfile.encoding=UTF-8 smart-doc:html
 
 ### syntax error？
 在使用`smart-doc`时有同学经常会看到`[WARNING] syntax error`的告警信息输出，例如：
-```java
+```text
 [WARNING] syntax error @[17,20] in file:/D:/MyConfiguration/USER/IdeaProjects/smart-doc-example-cn/src/main/java/com/power/doc/model/PersonCreateDto.java
 ```
 如果错误是来自第三方依赖的代码，基本不用管，因为生成文档时很少会需要用到第三方库的类。

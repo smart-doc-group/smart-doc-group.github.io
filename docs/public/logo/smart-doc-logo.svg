@@ -1,0 +1,20 @@
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="770" height="770">
+  <svg version="1.0" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="770" height="770" viewBox="0 0 154.378 202.074" preserveAspectRatio="xMidYMid meet" color-interpolation-filters="sRGB">
+    <defs></defs>
+    <g fill="#ffffff" class="icon-text-wrapper icon-svg-group iconsvg" transform="translate(0, 0)">
+      <g class="iconsvg-imagesvg" transform="translate(0,0)">
+        <g>
+          <rect fill="#ffffff" fill-opacity="0" stroke-width="2" x="0" y="0" width="154.378" height="202.074" class="image-rect"></rect>
+          <svg x="0" y="0" width="154.378" height="202.074" class="image-svg-svg primary" style="overflow: visible;">
+            <svg viewBox="0 0 154.378 202.074" xmlns="http://www.w3.org/2000/svg">
+              <path fill="none" pointer-events="none" d="M0 0h154.378v202.074H0z"/>
+              <path class="st14" d="M92.279 98.392c0 52.6-43.6 95.3-43.6 95.3s-43.6-42.6-43.6-95.3c0-52.6 43.6-95.3 43.6-95.3s43.6 42.7 43.6 95.3z" opacity=".6" fill="#8dc63f"/>
+              <path class="st14" d="M116.779 145.092c-21 36.5-68.3 48.5-68.3 48.5s-13.2-47 7.9-83.5c21-36.4 68.3-48.5 68.3-48.5s13.1 47-7.9 83.5z" opacity=".6" fill="#8dc63f"/>
+              <path class="st14" d="M111.179 187.592c-27.3 15.8-62.6 5.9-62.6 5.9s9.1-35.5 36.4-51.3c27.3-15.8 62.6-5.9 62.6-5.9s-9.1 35.6-36.4 51.3z" opacity=".6" fill="#8dc63f"/>
+            </svg>
+          </svg>
+        </g>
+      </g>
+    </g>
+  </svg>
+</svg>
