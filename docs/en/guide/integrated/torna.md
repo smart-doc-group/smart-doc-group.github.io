@@ -10,7 +10,7 @@ However, smart-doc and smart-doc's maven and gradle plug-ins are free. The basic
 ## Full document process automation
 smart-doc + [Torna](http://torna.cn) form an industry-leading document generation and management solution. Use `smart-doc` to complete Java source code analysis and extract comments to generate API documents without intrusion, and automatically push the documents to `Torna` enterprise-level interface document management platform.
 
-![smart-doc+torna](/assets/smart-to-torna.png)
+![smart-doc+torna](/assets/smart-doc-torn-en.png)
 
 >Smart-doc 2.0.9 is required to support pushing documents to torna. Of course, it is recommended that students using smart-doc pay attention to the release of the new version. It is recommended to use the latest versions of both smart-doc and torna.
 ## How to automatically push documents to torna

@@ -73,18 +73,18 @@ public class WebConfig implements WebMvcConfigurer {
 当然smart-doc的调试页面对于文件上传你只能传一个文件，这点相比Swagger UI要弱。但是smart-doc也有比Swagger UI强的地方，
 例如：文档展示更清晰明了；支持测试文件下载
 
-## Postman导入调试
+## `Postman` 导入调试
 从`smart-doc 1.7.8`版本开始，`smart-doc`支持生成`Postman`的`json`文件，
 你可以使用`smart-doc`生成整个项目的或者某个微服务所有接口的`Postman`的`json`文件，
 然后通过将这个`json`文件导入`Postman`的`Collections`做测试。导出`json`.
 
 
 导入`json`到`Postma`n效果如下图：
-![输入图片说明](/assets/postman-import.png "postman.png")
+![postman](/assets/postman-import.png "postman.png")
 
 ### postman中设置环境变量
 
-![输入图片说明](/assets/postman-add-env.png "postman_set_env.png")
+![postman_set_env](/assets/postman-add-env.png "postman_set_env.png")
 **注意：** 在`Add Environment`中不要忘记给环境设置名称(例如：本地开发测试)，否则按上图不能保存成功。
 
 > smart-doc自动生成的Json文件会贴心的给在Postman中给填充上注释，如果你自己写了mock值也会携带进入，
