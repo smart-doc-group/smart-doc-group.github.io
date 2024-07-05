@@ -158,7 +158,7 @@ gradle javadocAdoc
 #### 使用 IDEA
 当你使用`Idea`时，可以通过`Gradle Helper`插件选择生成何种文档。
 
-![idea中smart-doc-gradle插件使用](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/idea-gradle-plugin.png "usage.png")
+![idea中smart-doc-gradle插件使用](/assets/idea-gradle-plugin.png "usage.png")
 
 ## 插件源码
 

@@ -14,7 +14,7 @@ export const zh = defineConfig({
         },
 
         editLink: {
-            pattern: 'https://github.com/smart-doc-group/smart-doc-group.github.io/edit/main/docs/:path',
+            pattern: 'https://github.com/smart-doc-group/smart-doc-group.github.io/edit/master/docs/:path',
             text: '在 GitHub 上编辑此页面'
         },
 
