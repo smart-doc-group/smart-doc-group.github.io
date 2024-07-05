@@ -13,7 +13,7 @@ export const en = defineConfig({
         },
 
         editLink: {
-            pattern: 'https://github.com/smart-doc-group/smart-doc-group.github.io/edit/main/docs/:path',
+            pattern: 'https://github.com/smart-doc-group/smart-doc-group.github.io/edit/master/docs/:path',
             text: 'Edit this page on GitHub'
         },
 
