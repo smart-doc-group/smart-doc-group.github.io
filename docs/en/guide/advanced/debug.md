@@ -73,7 +73,7 @@ Dependency, so if you want to debug the interface, you can only generate html do
 Of course, the smart-doc debugging page can only upload one file for file upload, which is weaker than the Swagger UI. But smart-doc also has advantages over Swagger UI.
 For example: the document display is clearer; support for downloading test files
 
-## Postman import debugging
+## `Postman` import debugging
 Starting from `smart-doc 1.7.8` version, `smart-doc` supports generating `json` files of `Postman`,
 You can use `smart-doc` to generate `Postman` `json` files for the entire project or all interfaces of a microservice.
 Then do the test by importing this `json` file into `Collections` of `Postman`. Export `json`.

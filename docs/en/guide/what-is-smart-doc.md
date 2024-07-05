@@ -45,6 +45,8 @@ Just want to try it out? Skip to the [Quickstart](getting-started).
 `smart-doc` + [Torna](http://torna.cn/) form an industry-leading document generation and management solution, using smart-doc to complete `Java` source code analysis and extract annotations to generate API documents without intrusion, and automatically push the documents to the `Torna` enterprise-level interface document management platform.
 ![smart-doc + Torna](/assets/smart-doc-en.png)
 
+[smart-doc+Torna Full document process automation](integrated/torna#full-document-process-automation)
+
 > Torna is an open source API document management system, developed by the `smart-doc` official team. Torna provides convenience for enterprise API document management.
 
 ## TODO
