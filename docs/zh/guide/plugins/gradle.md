@@ -182,7 +182,7 @@ dependencies {
 }
 ```
 找到`smart-doc`源码打上断点。操作如下图：
-![打断点示例](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/gradle-debug.png "debug1.png")
+![打断点示例](/assets/gradle-debug.png)"debug1.png")
 ### 命令行终端设置debug模式
 `Gradle`插件的调试并不像调试`JAVA`程序和`Maven`插件那么简单。在`IDEA`上直接点击`debug`启动相关操作就可以直接调试了。
 需要实现在命令行设置调试模式。操作如下图：

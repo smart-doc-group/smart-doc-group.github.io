@@ -44,11 +44,11 @@ apply(plugin = "com.ly.smart-doc")
 ### Plugin options
 Using the `smart-doc` plug-in also requires adding some common configurations to `build.gradle`
 
-| Option | Default value | Required| Description |
-| ------ | ------------- | -------------|-------------- -------------------------------------------------- ----------------------------------|
-|configFile|`src/main/resources/default.json`|`true`| Plug-in configuration file |
-|exclude|None|`false`| Exclude some `java lib sources` that cannot be downloaded automatically, for example: `exclude 'org.springframework.boot:spring-boot-starter-tomcat'` |
-|include|None|`false`| Let the plug-in download the specified `java lib sources`, for example: `include 'org.springframework.boot:spring-boot-starter-tomcat'` |
+| Option     | Default value                     | Required | Description                                                                                                                                           |
+|------------|-----------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| configFile | `src/main/resources/default.json` | `true`   | Plug-in configuration file                                                                                                                            |
+| exclude    | None                              | `false`  | Exclude some `java lib sources` that cannot be downloaded automatically, for example: `exclude 'org.springframework.boot:spring-boot-starter-tomcat'` |
+| include    | None                              | `false`  | Let the plug-in download the specified `java lib sources`, for example: `include 'org.springframework.boot:spring-boot-starter-tomcat'`               |
 
 Example setting of options:
 ```gradle
@@ -179,7 +179,7 @@ dependencies {
 }
 ```
 Find the `smart-doc` source code and put a breakpoint. The operation is as follows:
-![Break point example](https://github.com/smart-doc-group/smart-doc-group.github.io/raw/master/docs/_images/gradle-debug.png)
+![Break point example](/assets/gradle-debug.png)
 ### Command line terminal to set debug mode
 Debugging the `Gradle` plugin is not as simple as debugging `JAVA` programs and `Maven` plugins. You can debug directly by clicking `debug` on `IDEA` to start related operations.
 It is necessary to set the debugging mode on the command line. The operation is as follows:
