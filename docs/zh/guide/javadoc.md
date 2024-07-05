@@ -74,13 +74,14 @@ Java 中原生的 Javadoc 标签比较少，不能满足某些使用场景，因
 | @tag                      | @since 2.2.5，@tag 用于分类控制器方法。您可以将不同控制器下的方法分配到多个类别中，也可以直接将控制器分配到一个或多个类别中。                                                                                                                                                                                                                                                                                                                                                                         |
 | @extension                | @since 3.0.3，@extension 标记在控制器方法上，用于支持 OpenApi 的扩展功能。它将为 openapi.json 添加一个 "x-*" 属性。                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## 2.1 @ignore 使用（自 2.6.9 版本后废弃在字段上使用）
-@ignore 注解只能应用于方法或类，而不能应用于字段上。
-在字段上使用 @ignore，应改用 JSON 库中的 @JsonIgnore 注解。
-因为在字段上使用 @ignore 实际上并不会阻止其返回。
+## 2.1 @ignore 使用（自 2.6.9 版本后废弃在字段上使用） <Badge type="danger" text="2.6.9" />
+@ignore 注解只能应用于方法或类上，不能用于字段上。
+建议使用 JSON 库中的 @JsonIgnore 注解代替。
+因为在字段上使用 @ignore 并不能真正防止它被返回。
+
 ```java
 /**
-* 这是一个错误示范的早期版本
+* 这是一个早期的错误示例
 */
 public class SubUser {
 
@@ -90,7 +91,7 @@ public class SubUser {
     private String subUserName;
 
     /**
-     * 身份证号
+     * 身份证
      */
     private String idCard;
 
@@ -101,14 +102,325 @@ public class SubUser {
     private int gender;
 
     /**
-     *  创建时间
-     *  @ignore
+     * 创建时间
+     * @ignore
      */
     private Timestamp createTime;
 }
 ```
-将来，@ignore 将仅在方法和类注释中使用。
 
-> 对于实体字段，建议使用 Json 转换框架的注解来忽略它们。在字段上使用 @ignore 是 smart-doc 展示早期的错误示范，@
+未来，@ignore 将只用于方法和类的注释中。
 
-JsonIgnore 代码时可以 daher möchte Buch ersteller aus. kopieren indem kopiert vielen  QText
+> 对于实体字段，建议使用 Json 转换框架的注解来忽略它们。
+> 在字段上使用 @ignore 是 smart-doc 早期示例中的一个错误，未来版本中 @ignore 忽略字段的能力将会被取消。
+> smart-doc 支持 Jackson 和 Fastjson 的注解，不建议使用这种方式，因为它不能在展示和行为上保持一致。
+
+在 Controller 层使用 SubUser 作为接收参数时，smart-doc 输出的参数请求文档：
+
+| 参数         | 类型   | 描述    | 必填  |
+| ---         | ---    | ---    | ---  |
+| subUserName | string | 用户名  | false |
+| idCard      | string | 身份证  | false |
+| gender      | int    | 性别    | false |
+
+## 2.2 @mock 注解使用方法
+
+```java
+public class SimpleUser {
+
+    /**
+     * 用户名
+     * @mock Bob
+     * @since v1.0
+     */
+    @NotNull
+    private String username;
+
+    /**
+     * 密码
+     * @mock 12356
+     * @since v1.0
+     */
+    private String password;
+}
+```
+
+在 Controller 层使用 SimpleUser 作为接收参数时，smart-doc 不再使用随机值。smart-doc 输出的参数请求示例：
+
+```json
+{
+  "username": "Bob",
+  "password": "12356"
+}
+```
+
+## 2.3 @download 注解使用方法
+
+用于告诉 smart-doc 您的控制器中的某个方法是文件下载接口。当 smart-doc 生成调试页面时，它可以生成文件下载请求。参考代码如下：
+
+```java
+/**
+ * BaseController
+ */
+public abstract class BaseController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
+
+    /**
+     * Excel 文件
+     */
+    public static final String EXCEL_CONTENT_TYPE = "application/vnd.ms-excel;charset=utf-8";
+
+    /**
+     * 文本文件
+     */
+    public static final String TEXT_CONTENT_TYPE = "application/octet-stream;charset=utf-8";
+
+    /**
+     * 导出 Excel 文件，添加文件名时需要加后缀
+     *
+     * @param fileName 文件名（如 userInfo.xls）
+     * @param response HttpServletResponse
+     * @return ServletOutputStream
+     * @throws IOException 异常
+     */
+    protected ServletOutputStream exportExcel(String fileName, HttpServletResponse response) throws IOException {
+        return baseDownload(EXCEL_CONTENT_TYPE, fileName, response);
+    }
+
+    /**
+     * 基础文件下载
+     *
+     * @param contentType 下载文件的类型
+     * @param fileName 文件名
+     * @param response HttpServletResponse
+     * @return ServletOutputStream
+     * @throws IOException 异常
+     */
+    protected ServletOutputStream baseDownload(String contentType, String fileName, HttpServletResponse response)
+            throws IOException {
+        response.setContentType(contentType);
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename="
+                + new String(fileName.getBytes("gbk"), "iso-8859-1"));
+        return response.getOutputStream();
+    }
+
+    /**
+     * 下载文件
+     *
+     * @param fileName 下载文件名
+     * @param response HttpServletResponse
+     * @return ServletOutputStream
+     * @throws IOException 异常
+     */
+    protected ServletOutputStream downloadText(String fileName, HttpServletResponse response) throws IOException {
+        return baseDownload(TEXT_CONTENT_TYPE, fileName, response);
+    }
+
+}
+```
+
+文件下载处理控制器
+
+```java
+/**
+ * 文件下载测试
+ */
+@RestController
+@RequestMapping("download")
+public class DownloadController extends BaseController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DownloadController.class);
+    
+    /**
+     * 下载普通文件
+     *
+     * @param response
+     * @return
+     * @throws IOException
+     * @download
+     */
+    @PostMapping("text/{id}")
+    public void download(HttpServletResponse response) throws IOException {
+        String randomStr = RandomUtil.randomNumbers(50);
+        String fileName = "test.log";
+        // 使用 smart-doc 调试页面测试文件下载时，必须设置 filename 响应头，否则使用其他模拟工具测试。
+        // urlEncode 用于处理文件名
+        response.setHeader("filename", urlEncode(fileName)); // 自 2.0.2 版本起无需设置此项
+        ServletOutputStream outputStream = this.downloadText(fileName, response);
+        outputStream.write(randomStr.getBytes());
+    }
+
+    public String urlEncode(String str) {
+        if (StringUtil.isEmpty(str)) {
+            return null;
+        } else {
+            try {
+                return java.net.URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+    }
+}
+```
+> smart-doc 2.0.2 版本将自动从下载响应头 `Content-Disposition: attachment; filename=xx` 中读取文件名，无需在响应头文件中设置 `response.setHeader("filename", urlEncode())`。当然，对于 Content-Disposition，也要使用 urlEncode 处理文件名，否则中文文件名会出现乱码。如果直接使用浏览器打开生成的 smart-doc 测试页面，将无法在测试中获取 content-disposition，但会生成一个随机文件名。要验证正确性，请通过服务访问页面。
+
+## 2.4 @page 注解使用方法
+
+```java
+/**
+ * arthas 火焰图列表
+ *
+ * @return
+ * @page /arthas-output.html
+ * @apiNote 返回显示火焰图文件的 arthas-output.html
+ */
+@GetMapping("arthas-output.html")
+public String render() {
+    Template template = BeetlTemplateUtil.getByName("arthas-output.tpl");
+    List<FileInfo> files = FileUtil.getFilesFromFolder(environment.getProperty("arthas.output.path", OUTPUT_PATH));
+    template.binding("path", "arthas-output");
+    template.binding("fileInfoList", files);
+    return template.render();
+}
+```
+> 在此示例中，使用 beetl 编写一个 html 模板，正常情况下访问 arthas-output.html 时，将返回渲染的界面。如果希望在调试页面中点击请求后直接访问页面，可以使用 @page 告诉 smart-doc 您渲染页面的名称。这样，在调试页面中可以直接打开一个新标签页访问页面。
+
+## 2.5 @ignoreParams 注解使用方法
+
+```java
+/**
+ * 测试时间
+ * @ignoreParams id
+ * @param id id
+ * @param dateEntity
+ */
+@PostMapping("data-date")
+public CommonResult<DateEntity> test(int id, @RequestBody DateEntity dateEntity){
+    return null;
+}
+```
+
+忽略 id 参数，不在文档中显示。主要用于传统有状态后台管理系统中的用户状态参数。
+
+## 2.6 @response 注解使用方法
+
+```java
+/**
+ * 测试 response 标签
+ *
+ * @return
+ * @response {
+ * "success": true,
+ * "message": "成功",
+ * "data": "hello",
+ * "code": "68783",
+ * "timestamp": "2021-06-15 23:05:16"
+ * }
+ */
+@GetMapping("/test")
+public CommonResult<String> create() {
+    return null;
+}
+```
+
+忽略 id 参数，不在文档中显示。主要用于传统有状态后台管理系统中的用户状态参数。
+
+## 2.7 @tag 注解使用方法
+
+```java
+/**
+ * json 文件配置测试
+ * @tag dev
+ */
+@RestController
+public class ConfigRequestParamController {
+
+    /**
+     * GET 请求测试查询参数
+     * @tag test
+     * @return
+     */
+    @GetMapping("configQueryParamGet")
+    public void configQueryParamGet(String configQueryParam) {
+
+    }
+
+    /**
+     * POST 请求测试查询参数
+     * @tag test
+     * @return
+     */
+    @PostMapping("configQueryParamPost")
+    public void configQueryParamPost(String configQueryParam) {
+
+    }
+}
+```
+@tag 用于对控制器方法进行分类。您可以将不同控制器下的方法分配到多个类别，也可以直接将控制器分配到一个或多个类别。
+
+## 2.8 @extension 注解使用方法 <Badge type="tip" text="3.0.3" />
+
+@extension 标记在控制器方法上，用于支持 OpenApi 的扩展功能，它将为 openapi.json 添加 "x
+
+-*" 属性。
+
+```java
+/**
+ * json 文件配置测试
+ * @tag dev
+ */
+@RestController
+public class ConfigRequestParamController {
+
+    /**
+     * GET 请求测试查询参数
+     * @extension group ecs
+     * @extension key1 ["v1","v2"]
+     * @extension key2 {"x":"v1", "y":"v2"}
+     * @tag test
+     * @return
+     */
+    @GetMapping("configQueryParamGet")
+    public void configQueryParamGet(String configQueryParam) {
+
+    }
+}
+```
+它将在 openapi.json 中添加一个 "x-*" 属性。
+
+```json
+{
+  "paths":{
+    "/xxx/xxx": {
+      "post": {
+        "summary": "xxx",
+        "tags": [
+          ...
+        ],
+        "requestBody": {
+          ...
+        },
+        "responses": {
+        ...
+        },
+        "operationId": "xxx-POST",
+        "x-group": "ecs",
+        "x-key1": ["v1","v2"],
+        "x-key2": {"x":"v1", "y":"v2"},
+        "parameters": [
+             ...
+        ]
+      }
+    }
+  }
+}
+```
+
+# IDEA 自定义标签提示
+
+自定义标签默认不自动提示，需要用户在 IDEA 中进行设置。设置完成后即可使用。以下是 smart-doc 自定义 mock 标签设置的示例。设置操作如下：
+![idea设置自定义tag提示](/assets/idea_tag.png "idea_tag.png")
+
+使用其他开发工具的用户应自行查找相关工具的自定义标签提示设置。

@@ -6,7 +6,7 @@
 
 
 ## 最小化配置
-**请保证你的代码格式符合 [最佳实践](start/bestPractice.md) 中的格式规范**
+**请保证你的代码格式符合 [最佳实践](bestPractice) 中的格式规范**
 
 在项目启动类所在模块的`resources`目录下创建`smart-doc.json`文件.
 ```json

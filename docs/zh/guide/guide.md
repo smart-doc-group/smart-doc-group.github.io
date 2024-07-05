@@ -470,7 +470,7 @@ public class ConfigRequestParamController {
     }
 }
 ```
-it will output extension tags in openapi.json:
+它将在`openapi.json`中添加对应的`"x-*"`属性
 ```
 {
   "paths":{

@@ -1,4 +1,4 @@
-# smart-doc
+# FAQ
 
 
 ## How to improve the speed of document generation by smart-doc?
@@ -138,7 +138,7 @@ public abstract class BaseResult<BR> implements Serializable {
 - If you use the `smart-doc` unit test method to generate documentation, then set the external source code path in the unit test code. Let `smart-doc` load the source code for analysis. Of course, the official does not recommend the use of unit testing. In a multi-person development team, each person's computer path is inconsistent. In a standardized company, the packaging of code is usually completed using automated build tools, and the set code path is difficult to maintain. Unit testing is only suitable for personal development projects.
 - If you use `smart-doc-maven-plugin` or `smart-doc-gradle-plugin`. For students who cannot access the foreign central warehouse to download the third-party source code library, please configure the domestic Alibaba Cloud `Maven` warehouse in `Maven`. Even if you use your own company's `Nexus`, please find the relevant management personnel to `Nexus`. `Configure Alibaba Cloud's warehouse code.
 The ultimate goal is to ensure that the plug-in can be loaded into the `source` source code `jar` package of the third-party library through the library specified in your `Maven` environment. Documentation generated from source code will be better.
-- If you use a less standardized generic definition as above, the analysis results will be unsatisfactory, then please follow ["smart-doc best practices"] (https://smart-doc-group.github.io/#/zh-cn/start/bestPractice) standardizes modifying your generic definition.
+- If you use a less standardized generic definition as above, the analysis results will be unsatisfactory, then please follow [Best practices](/guide/bestPractice) standardizes modifying your generic definition.
   
 **Please note that you do not pray that the official will modify the definition to support multi-letter generics. While `smart-doc` brings convenience to everyone, standardization has always been our belief.**
 
@@ -290,7 +290,7 @@ If the text end in the above format appears, it generally indicates that there i
 
 ### could not match input？
 
-```java
+```text
 Exception in thread "main" java.lang.Error: Error: could not match input
         at com.thoughtworks.qdox.parser.impl.JFlexLexer.zzScanError(JFlexLexer.java:1984)
         at com.thoughtworks.qdox.parser.impl.JFlexLexer.yylex(JFlexLexer.java:3328)
@@ -301,7 +301,7 @@ If you encounter this error during use, it is recommended to explicitly pass the
 to load the necessary source code. This prevents the plug-in from automatically loading some old dependencies that are irrelevant to API document generation, and can also significantly increase the speed of document generation.
 
 Print the above error: If you use the `maven` plug-in, you can try the `mvn -X` parameter to let the plug-in print `debug`, and then check whether there is an error in loading the `resource`, for example:
-```java
+```shell
 mvn -X -Dfile.encoding=UTF-8 smart-doc:html
 ```
 By adding `-X` and then letting `smart-doc` generate documentation through the command line, the plug-in will automatically print `debug` information. Then search for `smart-doc loaded jar source:` from the console log,
@@ -311,7 +311,7 @@ The last `smart-doc loaded jar source:`log loaded after the `jar` has a problem 
 
 ### syntax error？
 When using `smart-doc`, some students often see the warning message output of `[WARNING] syntax error`, for example:
-```java
+```text
 [WARNING] syntax error @[17,20] in file:/D:/MyConfiguration/USER/IdeaProjects/smart-doc-example-cn/src/main/java/com/power/doc/model/PersonCreateDto.java
 ```
 If the error comes from third-party dependent code, basically don't worry about it, because third-party library classes are rarely needed when generating documents.

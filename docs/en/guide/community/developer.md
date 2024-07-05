@@ -5,18 +5,50 @@ The `smart-doc` community includes roles such as `Maintainer`, `Committer`, and 
 Thank you to all the developers for your contributions to the community! We will regularly showcase all contributors' names, and you can also submit a `PR` to add yourself.
 > Note: The ranking is not in order of priority. If there are any omissions, please submit a PR to add.
 
-## PMC (Project Management Committee)
-- Yu Sun([@shalousun](https://github.com/shalousun))
+<script setup>
+import {VPTeamMembers} from 'vitepress/theme';
 
-## Committer
-- Xingzhi Li([@netdied](https://github.com/netdied))
-- Qi Chen([@chenqi146](https://github.com/chenqi146))
-- Bing Li([@abing22333](https://github.com/abing22333))
+const members = [
+  {
+    avatar: 'https://github.com/shalousun.png',
+    name: 'Yu Sun',
+    title: 'Project Management Committee',
+    links: [
+      { icon: 'github', link: 'https://github.com/shalousun' },
+    ]
+  },
+  {
+    avatar: 'https://github.com/netdied.png',
+    name: 'Xingzhi Li',
+    title: 'Committer',
+    links: [
+      { icon: 'github', link: 'https://github.com/netdied' },
+    ]
+  },
+  {
+    avatar: 'https://github.com/chenqi146.png',
+    name: 'Qi Chen',
+    title: 'Committer',
+    links: [
+      { icon: 'github', link: 'https://github.com/chenqi146' },
+    ]
+  },
+  {
+    avatar: 'https://github.com/abing22333.png',
+    name: 'Bing Li',
+    title: 'Committer',
+    links: [
+      { icon: 'github', link: 'https://github.com/abing22333' },
+    ]
+  },
+]
+</script>
+
+<VPTeamMembers size="small" :members="members" />
 
 ## Contributor
 https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
 
----
 
 ## Maintainer
 Individuals who have made significant contributions to the evolution and development of the `smart-doc` project.

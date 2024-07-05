@@ -17,8 +17,9 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/TongchengOpenSource/smart-doc
-    
-
+  image:
+    src: /logo/smart-doc-logo.svg
+    alt: Smart-Doc
 
 features:
   - icon: 📝️
