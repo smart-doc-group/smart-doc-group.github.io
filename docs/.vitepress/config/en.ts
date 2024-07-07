@@ -38,7 +38,10 @@ function nav(): DefaultTheme.NavItem[] {
                 {
                     text: 'How To Use Smart-Doc To Generate JMeter Scripts',
                     link: 'https://dzone.com/articles/how-to-use-smart-doc-to-generate-jmeter-test-scripts',
-                },
+                },{
+                    text: 'Documenting a Spring REST API Using Smart-doc',
+                    link: 'https://dzone.com/articles/documenting-a-spring-rest-api-using-smart-doc',
+                }
             ],
         },
     ]
