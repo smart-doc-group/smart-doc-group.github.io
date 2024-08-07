@@ -27,16 +27,20 @@ features:
     details: 完全基于注释信息生成文档，实现代码零侵入。
   - icon: 📖
     title: 接口多样性
-    details: 同时支持JAVA RESTful API、JAVA WebSocket和Apache Dubbo RPC接口文档
+    details: 支持为Java RESTful API、Java WebSocket、Apache Dubbo RPC和gRPC接口生成文档
   - icon: 🔧
     title: 框架多样性
-    details: 支持 Torna、Spring Boot、JAX-RS、Solon等多种框架
+    details: 支持 Spring Boot、JAX-RS、Solon等多种框架
   - icon: 📚
     title: 文档丰富
     details: 支持生成 HTML、Asciidoc、Markdown、OpenAPI、Swagger、Postman、Word 等多种格式的文档
   - icon: 🔌
     title: 支持拓展
     details: 支持用户使用 Java SPI 对支持框架进行扩展。
+  - icon: 🚀
+    title: 文档协作管理
+    details: Smart-Doc 和 Torna 结合形成行业领先的文档解决方案。Smart-Doc 无侵入地从 Java 代码生成 API 文档，并自动同步到 Torna 企业级文档管理平台，极大地提高了开发团队的工作效率和协作水平。
+
 ---
 
 
