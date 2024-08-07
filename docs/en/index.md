@@ -27,16 +27,19 @@ features:
     details: Generate documentation entirely based on annotations, achieving zero code intrusion.
   - icon: 🔗
     title: Interface Diversity
-    details: Supports documentation for JAVA RESTful APIs, JAVA WebSocket, and Apache Dubbo RPC interfaces.
+    details: Supports generating documentation for Java RESTful APIs, Java WebSocket interfaces, Apache Dubbo RPC, and gRPC interfaces.
   - icon: 🔧
     title: Framework Diversity
-    details: Supports multiple frameworks including Torna, Spring Boot, JAX-RS, and Solon.
+    details: Supports multiple frameworks including Spring Boot, JAX-RS, and Solon.
   - icon: 📚
     title: Rich Documentation
     details: Capable of generating documentation in various formats such as HTML, Asciidoc, Markdown, OpenAPI, Swagger, Postman, and Word
   - icon: 🔌
     title: Extendable
     details: Allows users to extend supported frameworks using Java SPI.
+  - icon: 🚀
+    title: Document collaboration
+    details: Smart-Doc and Torna combine to form an industry-leading documentation solution. Smart-Doc non-intrusively generates API documentation from Java code and automatically synchronizes it with the Torna enterprise-level document management platform, significantly enhancing the productivity and collaboration levels of development teams.
 ---
 
 
