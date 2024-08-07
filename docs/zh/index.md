@@ -6,7 +6,7 @@ hero:
   title: Smart-Doc
   name: Smart-Doc
   text: "无侵入式的API接口文档生成器"
-  tagline: 同时支持JAVA RESTful API、JAVA WebSocket和Apache Dubbo RPC接口文档生成的工具。完全基于注释生成文档，做到零侵入
+  tagline: Smart-Doc是一款强大的基于Java的API文档生成工具。它通过对接口源代码进行分析来生成全面而准确的文档，完全不需要对代码进行任何注入。这种非侵入式的方法确保了无需添加特殊注解或修改代码即可生成文档，使得集成变得无缝且简单。
   actions:
     - theme: brand
       text: 什么是 Smart-Doc?

@@ -5,8 +5,8 @@ layout: home
 hero:
   title: Smart-Doc
   name: Smart-Doc
-  text: "A non-intrusive api interface document generator"
-  tagline: A java restful api document generation tool.Smart-doc is based on interface source code analysis to generate interface documentation, completely zero-injection.
+  text: "A non-intrusive API interface document generator"
+  tagline: Smart-Doc is a powerful Java-based API documentation generation tool. It operates by analyzing the source code of your interfaces, enabling it to generate comprehensive and accurate documentation with zero code injection. This non-intrusive approach ensures that no special annotations or modifications to your code are required, making the integration seamless and straightforward.
   actions:
     - theme: brand
       text: What is Smart-Doc?
