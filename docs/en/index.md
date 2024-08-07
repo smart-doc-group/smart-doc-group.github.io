@@ -39,7 +39,7 @@ features:
     details: Allows users to extend supported frameworks using Java SPI.
   - icon: 🚀
     title: Document collaboration
-    details: Smart-Doc and Torna combine to form an industry-leading documentation solution. Smart-Doc non-intrusively generates API documentation from Java code and automatically synchronizes it with the Torna enterprise-level document management platform, significantly enhancing the productivity and collaboration levels of development teams.
+    details: Smart-Doc and Torna create an industry-leading documentation solution. Smart-Doc non-intrusively generates API docs and syncs them with Torna's platform, enhancing team productivity and collaboration.
 ---
 
 
