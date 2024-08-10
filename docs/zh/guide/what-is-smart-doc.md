@@ -10,11 +10,11 @@
 | Gitee Star              | [![gitee star](https://gitee.com/smart-doc-team/smart-doc/badge/star.svg)](https://gitee.com/smart-doc-team/smart-doc/badge/star.svg)                                              |
 | GitHub Star             | [![git star](https://img.shields.io/github/stars/smart-doc-group/smart-doc.svg)](https://img.shields.io/github/stars/smart-doc-group/smart-doc.svg)                                |
 
-> smart-doc是一款同时支持JAVA REST API、JAVA WebSocket和Apache Dubbo RPC接口文档生成的工具。
+> smart-doc是一款支持JAVA REST API、JAVA WebSocket、Apache Dubbo RPC和gRPC接口文档生成的工具。
 
 ## 概述
-`smart-doc[smɑːt dɒk]`在业内率先提出基于`JAVA`泛型定义推导的理念， 完全基于接口源码来分析生成接口文档，不采用任何注解侵入到业务代码中。
-你只需要按照`java-doc`标准编写注释， `smart-doc`就能帮你生成一个简易明了的`Markdown`、`HTML5`、`Postman Collection2.0+`、`OpenAPI 3.0+`的文档。
+`smart-doc[/smɑːt dɒk/]`率先提出了基于`Java`泛型定义来推导接口文档的概念。它完全依赖于接口的源代码进行分析和生成文档，无需在业务代码中添加任何注解。
+只需按照`JavaDoc`的标准编写注释，`smart-doc`就能够帮助您生成简洁明了的`Markdown`、`HTML5`、`Postman Collection 2.0+` 和 `OpenAPI 3.0+` 格式的文档。
 
 > 无论你是很有经验的大佬、还是刚入行的萌新。遇到使用疑惑时，我们希望你能仔细阅读smart-doc官方文档。我们将smart-doc及其插件的 每一个配置项和可能在日常中遇到的问题都整理到了文档中。仔细阅读文档就是对开源项目最大的支持。
 
@@ -41,14 +41,16 @@
 - 支持生成`JMeter`性能测试脚本。
 - 支持`Maven`、`Gradle`插件式轻松集成。
 - 支持`Apache Dubbo RPC`接口文档生成。
+- 支持`gRPC`接口文档生成。
+- 支持`Java WebSocket`接口文档生成。
 - 支持普通`Java`类生成`javadoc`文档。
 - 支持基于`Git`管理项目的变更增量文档生成。
 - `debug`接口调试`html5`页面完全支持文件上传，下载(`@download tag`标记下载方法)测试。
 
 
 ## 最佳实践
-
-`smart-doc` + [Torna](http://torna.cn/) 组成行业领先的文档生成和管理解决方案，使用`smart-doc`无侵入完成`JAVA`源代码分析和提取注释生成`API`文档，自动将文档推送到`Torna`企业级接口文档管理平台。
+`smart-doc`结合[Torna](http://torna.cn/)构成了业内领先的文档生成与管理解决方案。通过使用`smart-doc`，能够无侵入地完成`JAVA`源代码的分析与注释提取，
+从而生成`API`文档，并自动将文档上传至`Torna`企业级接口文档管理平台。
 ![smart-doc + Torna](/assets/smart-to-torna.png)
 
 [smart-doc+Torna文档自动化](integrated/torna#文档全流程自动化)

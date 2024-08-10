@@ -49,21 +49,26 @@
 </plugin>
 
 ```
-> `includes`中需要调整为项目模块所依赖的包配置`artifactId:groupId`, 支持正则`artifactId:*`
+- `includes`中需要调整为项目模块所依赖的包配置`artifactId:groupId`, 支持正则`artifactId:*`
+- `phase`默认为`compile`，如果不需要在执行项目编译时启动`smart-doc`，则将`phase`注释掉
 
 
-如果项目依赖其他内部公共模块和二方包, 则依赖包需要配置源码打包.
+如果项目依赖其他内部公共模块和第三方包, 则使用`maven-source-plugin`插件生成源码包上传到内部私服中。
+`smart-doc`自动根据依赖树自动下载源码包，然后进行文档生成。 
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-source-plugin</artifactId>
-    <version>3.3.0</version>
+    <version>3.3.1</version>
     <executions>
         <execution>
             <phase>package</phase>
             <goals>
                 <goal>jar-no-fork</goal>
             </goals>
+            <configuration>
+                <encoding>UTF-8</encoding>
+            </configuration>
         </execution>
     </executions>
 </plugin>

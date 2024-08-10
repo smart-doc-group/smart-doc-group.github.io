@@ -13,10 +13,10 @@
 
 
 ## Introduce
-`smart-doc[smɑːt dɒk]` is a tool that supports both `JAVA REST API`、`JAVA WebSocket` and `Apache Dubbo RPC` interface document generation.
-`smart-doc` is based on interface source code analysis to generate interface documents, and zero annotation intrusion.
-You only need to write `Javadoc` comments when developing, `smart-doc` can help you generate `Markdown` or `HTML5` document.
-smart-doc does not need to inject annotations into the code like Swagger.
+`smart-doc [smɑːt dɒk]` is a tool that supports automatic generation of documentation for `JAVA REST API`, `JAVA WebSocket`, `Apache Dubbo RPC`, and `gRPC` interfaces.
+It generates documentation by analyzing the source code of the interfaces, achieving zero annotation intrusion.
+During development, you only need to write `Javadoc` comments, and `smart-doc` will help generate documents in `Markdown` or `HTML5` format. 
+Unlike Swagger, which requires annotations in the code, `smart-doc` does not require any annotations to be injected into the code.
 <div class="tip custom-block" style="padding-top: 8px">
 
 Just want to try it out? Skip to the [Quickstart](getting-started).
@@ -39,19 +39,17 @@ Just want to try it out? Skip to the [Quickstart](getting-started).
 - Support for exporting error codes and data dictionary codes to `API` documentation.
 - The `debug` html5 page fully supports file upload and download testing.
 - Support `Apache Dubbo RPC`.
+- Support `gRPC`.
+- Support `Java WebSocket`
 
 ## Best Practice
 
-`smart-doc` + [Torna](http://torna.cn/) form an industry-leading document generation and management solution, using smart-doc to complete `Java` source code analysis and extract annotations to generate API documents without intrusion, and automatically push the documents to the `Torna` enterprise-level interface document management platform.
+`smart-doc`, in conjunction with [Torna](http://torna.cn/), builds an industry-leading solution for documentation generation and management. By using `smart-doc`, developers can non-intrusively analyze `JAVA` source code and extract annotations to generate `API` documentation, which is then automatically uploaded to the Torna enterprise-level API documentation management platform.
 ![smart-doc + Torna](/assets/smart-doc-en.png)
 
 [smart-doc+Torna Full document process automation](integrated/torna#full-document-process-automation)
 
 > Torna is an open source API document management system, developed by the `smart-doc` official team. Torna provides convenience for enterprise API document management.
-
-## TODO
-
-- `GRPC`
 
 ## License
 

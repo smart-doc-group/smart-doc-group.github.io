@@ -1,7 +1,7 @@
 # JMeter
 ## 简介
 
-`smart-doc`从`3.0.1`版本开始支持`JMeter`性能测试的生成，做到为测试赋能。
+自`3.0.1`版本起，`smart-doc`新增了对`JMeter`性能测试脚本的生成支持，旨在提升测试流程的效率。
 
 ## 生成JMeter脚本
 通常在开发生成文档的时候已经集成好`smart-doc`。直接使用`Maven`或者`Gradle`插件的里生成`JMeter`性能测试脚本的`Mojo`或`Task`执行即可。
