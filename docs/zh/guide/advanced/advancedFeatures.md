@@ -29,8 +29,8 @@
 - `pathPatterns` 配置请求头的作用路径，和拦截器配置`pathPatterns`一致的，多个正则式之间用逗号隔开。
 - `excludePathPatterns` 配置在那些`path`上忽略该请求头。和拦截器的`excludePathPatterns`一致的，多个正则式之间用逗号隔开。
 
-> smart-doc完全借鉴了Spring的PathMatcher的匹配，因此相关的路径正则规则也是和PathMatcher一致的，
-使用时请自行研究下PathMatcher并书写正确正则表达式，否则可能配置了后效果和你想的不一样。
+> smart-doc 完全参考了Spring的PathMatcher进行路径匹配，因此相关的路径正则规则也与PathMatcher一致。在使用前，
+请务必熟悉PathMatcher并编写正确的正则表达式，以避免配置后的效果与预期不符。
 
 
 ## 公共请求参数 <Badge type="tip" text="^2.2.3" />
@@ -86,11 +86,11 @@ public CommonResult<Void> configQueryParamPost(String configQueryParam) {
 }
 ```
 
-## 静态常量替换
+## ~~静态常量替换~~
 **`2.4.2`版本开始，这个配置无需再手动添加，`smart-doc`可以自动识别静态常量的使用。**
 
-在`Java Web`接口开发的过程中，有用户会在`Controller`的`path`中使用静态场景。因此也是希望`smart-doc`能够解析静态常量获取到真实的值。
-下面来看下例子：
+在`Java Web`接口开发的过程中，有些用户会在`Controller`的路径中使用静态常量。因此，
+他们也希望`smart-doc`能够解析这些静态常量并获取到真实的值。下面来看一个例子：
 
 ```java
 /**
@@ -105,8 +105,9 @@ public void testConstantsRequestParams(@RequestParam(required = false,
 
 }
 ```
-针对这种常量的使用，`smart-doc`要求用户配置产量类，`smart-doc`根据设置的常量类分析形成常量容器，在做接口分析是从常量容器中查找做替换。
-配置参考输入：
+
+针对这种常量的使用，`smart-doc` 要求用户配置常量类。`smart-doc` 会根据设置的常量类分析并形成一个常量容器，
+在进行接口分析时从该容器中查找并替换常量。 配置参考如下：
 
 ```json
 {
@@ -142,9 +143,12 @@ config.setApiConstants(
 
 ## 响应字段忽略
 
-有同学在使用`smart-doc`时提问：“如何忽略响应实体中的某个字段？”，例如像密码`password`这种字段敏感字段，`smart-doc`在一开始开发的时候就考虑到了这种情况，
-因此我们对`Java`的一些`json`序列化库做了支持，像`Spring`框架默认使用的`Jackson`和国内用户使用较多的`Fastjson`都是支持的。
-- 为什么不用`@ignore`来标注返回字段忽略？这是一种掩耳盗铃的做法，仅仅是表面文档不展示，数据依旧返回了，因此这是`smart-doc`不支持的原因。还是使用框架的注解来控制吧。
+在使用 `smart-doc` 时，有同学提问：“如何忽略响应实体中的某个字段？”例如，像密码 (`password`) 这样的敏感字段。在 `smart-doc` 的早期开发阶段，我们就考虑到了这种情况，并为此提供了支持。
+因此，我们对 `Java` 中常用的 `JSON` 序列化库进行了兼容，例如 `Spring` 框架默认使用的 `Jackson` 以及在国内使用较多的 `Fastjson`。
+
+- **为什么不使用 `@Ignore` 注解来标注忽略返回字段？** 这种做法类似于自欺欺人，仅仅是在文档中不展示该字段，但实际上数据仍然会被返回。因此，这不是 `smart-doc` 所推荐的做法。我们建议使用框架提供的注解来控制字段的展示与否。
+通过这种方式，我们确保了文档的准确性和安全性，同时也保持了与现有框架的良好兼容性。
+
 
 ### 使用jackson注解忽略
 
@@ -170,7 +174,8 @@ public class JacksonAnnotation {
 ```
 像这个`idCard`使用`@JsonIgnore`注解后，接口不会看到该字段，`smart-doc`发现该注解也不会把该字段显示在接口文档中。
 ### Fastjson忽略响应字段
-`Fastjson`也自己用于忽略字段的注解，`Fastjson`使用 `@JSONField(serialize = false)`,起关键作用的是`serialize = false`
+`Fastjson` 也支持忽略字段的注解。在 `Fastjson` 中，可以使用 `@JSONField(serialize = false)` 注解来忽略字段的序列化。其中，
+`serialize = false` 是起到关键作用的属性。
 
 ```java
 public class FastJson {
@@ -285,10 +290,10 @@ public enum OrderEnum {
 `smart-doc`是依赖泛型和源码推荐出文档的，因此如果接口使用的类来自外部`jar`包或者是其他模块，
 那么需要做一些处理才能让`smart-doc`能够正确分析出文档。
 ### 如何让smart-doc加载源码
-`smart-doc`作为一款完全依赖源码注释来分析生成文档的工具。如果没有源代码，那么在生成文档时将只能看到字段名和字段类型等信息，
-注释相关的信息都将无法生成，对于一个所有代码都在一个单独项目中的情况，你不需要考虑任何东西，`smart-doc`能完美的完成你想要的文档，
-但是对一个多模块项目，或者项目依赖了一个独立的`jar`包的情况，`smart-doc`将无法加载到它所运行模块之外的代码。
-下面将会介绍如何来让`smart-doc`加载到运行模块外的项目代码。
+`smart-doc` 是一款完全依赖于源码注释来生成文档的工具。如果没有源代码，生成的文档将仅包含字段名和字段类型等基本信息，而无法包括相关的注释内容。
+对于所有代码都集中在一个单一项目中的情况，`smart-doc` 能够完美地生成所需的文档，无需额外配置。然而，在多模块项目或是项目依赖于独立的 JAR 包的情况下，`smart-doc` 可能无法加载并访问运行模块之外的代码。
+接下来，我们将指导您如何优雅地配置 `smart-doc`，使其能够成功加载并记录运行模块外部的项目代码。
+
 
  **注意：自`smart-doc-maven-plugin 1.0.2`版本开始，使用`maven`的插件能够实现自动源码加载。** 
 #### 通过`ApiConfig`类设置(不推荐)
@@ -308,8 +313,8 @@ config.setSourceCodePaths(
 
 #### 通过`maven`的`classifier`来指定源码包(不推荐)
 
-> 官方不推荐这样使用，如果你们团队比较规范，领导要求严格，下面的配置纯属找骂，
-请使用smart-doc提供的官方插件来集成，最好保持项目pom配置的清爽整洁。
+> 我们并不推荐此类使用方式。若您的团队遵循严格的规范和领导要求，采用以下配置可能会引起不必要的误解。
+建议使用 smart-doc 官方提供的插件进行集成，以保持项目 pom 配置的清爽整洁。
 
 这里先看如何使用`classifier`来加载源码包。
 
@@ -363,9 +368,11 @@ config.setSourceCodePaths(
 
 ### 第三方源码示例
 
-当前在做项目开发时难免会使用到一些第三方的开源工具或者是框架，例如：`mybatis-plus`，`smart-doc`本身是基于源代码来分析的，
-如果没有源代码`smart-doc`将不能正确的生成完整的接口文档。 **当然如果使用`smart-doc-maven-plugin 1.0.2`版本开始的插件，
-插件可以自动加载到相关使用依赖的源码，使用插件后就不需要自行去配置`source`的依赖了，推荐使用插件** 
+当然，在项目开发过程中，我们经常会使用到第三方的开源工具或框架，比如 `mybatis-plus` 和 `smart-doc`。`smart-doc` 作为一款强大的文档生成工具，
+其核心功能在于基于源代码进行分析，进而生成详细的接口文档。然而，如果项目中使用的某些依赖没有提供源代码，`smart-doc` 将无法正确地生成完整的接口文档。
+从 `smart-doc-maven-plugin 1.0.2` 版本开始，该插件增强了对源代码的自动加载能力。这意味着当你在项目中使用了此版本的插件之后，它能够自动识别并加载相关依赖的源码，
+从而无需手动配置源代码依赖。这种改进不仅简化了配置过程，也使得文档的生成更加完整准确，因此我们强烈建议使用此版本及其以上版本的 `smart-doc-maven-plugin`。
+这样的做法不仅能提高文档的质量，还能保持项目的构建配置（如 `pom.xml`）更加简洁和规范，符合团队的最佳实践标准。
 
 #### mybatis-plus分页处理
 在使用`mybatis-plus`的分页时，如果使用`IPage`作为`Controller`层的返回，`smart-doc`无论如何也不能扫描出正确的文档，
@@ -399,9 +406,10 @@ public Page<Order> queryPage(@PathVariable int pageIndex , @PathVariable int pag
 >classifier这种方式都不推荐使用，请使用maven插件或者gradle插件，插件可以实现自动加载。
 
 ## 自定义错误码解析器
-现在很多人使用枚举作为字典码，对于枚举类`smart-doc`可以根据配置很容易就完成扫描到文档中。
-但是对于采用非枚举的情况就需要自己去编写对应的自定解析类了。自定义的解析类必须实现`smart-doc`
-的`com.power.doc.extension.dict.DictionaryValuesResolver`。接口代码如下：
+当前，许多人选择使用枚举类型作为字典码。对于枚举类，`smart-doc` 可以根据配置轻松地将其扫描并整合到文档中。
+然而，对于那些不使用枚举而是采用其他数据结构的情况，就需要自行编写自定义解析类。这种情况下，
+自定义的解析类必须实现 `smart-doc` 中的 `com.power.doc.extension.dict.DictionaryValuesResolver` 接口。
+
 ```java
 public interface DictionaryValuesResolver {
     <T extends EnumDictionary> Collection<T> resolve();

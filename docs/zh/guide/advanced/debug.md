@@ -23,9 +23,9 @@
 }
 ```
 ### 跨域配置
-有的开发人员直接在`idea`中使用【Open In Browser】打开`smart-doc`生成的`debug`页面，
-如果非要这做，前端`js`请求后台接口时就出现了跨域。因此你需要在后端配置跨域。
-这里以`SpringBoot`为例：
+部分开发人员可能习惯于直接在`IntelliJ IDEA`中使用"Open In Browser" 功能来查看`smart-doc`生成的`debug`页面。
+然而，这种做法可能导致前端`JavaScript`在请求后台接口时遇到跨域问题。因此，您需要在后端配置跨域访问权限。
+这里我们以`Spring Boot`为例进行说明。
 
 ```java
 @Configuration
@@ -59,11 +59,11 @@ public class WebConfig implements WebMvcConfigurer {
 ![mock](/assets/mock.png "mock.png")
 
 ### debug页面调试
-在使用`smart-doc`生成的`html`调试页面做接口调试时，你可能会碰到一下问题，
-通常当点击`Send Request`按钮后，按钮变成了红色就说明接口出错或者是`debug`页面出现错误。
-这时请打开浏览器的调试控制台查看问题或者是调试。`smart-doc`创建的页面中只是用了`jquery`和原生`js`来开发的，
-`debug.js`是用于处理接口测试请求的，`search.js`是用于处理文档目录标题搜索的。源码都未做压缩，可以直接调试页面的`js`源码。
-调试操作参考如下图：
+当使用 `smart-doc` 生成的`HTML`调试页面进行接口测试时，您可能会遇到这样的情况：点击“Send Request”按钮后，按钮变为红色，
+这通常意味着接口请求出现问题或是调试页面本身存在错误。此时，您可以打开浏览器的开发者工具进行进一步的调试。需要注意的是，
+`smart-doc` 创建的页面使用了 `jQuery` 和原生`JavaScript`，其中 `debug.js` 用于处理接口测试请求，
+而 `search.js` 则负责文档目录标题的搜索功能。这些脚本文件均未经过压缩，便于直接调试页面的`JavaScript`源码。
+具体调试步骤可以参考下图所示的操作流程。
 
 ![mock](/assets/debug-console.png "debug-console.png")
 
@@ -92,8 +92,8 @@ public class WebConfig implements WebMvcConfigurer {
 
 ## `Swagger UI`集成
 
-`smart-doc`支持生成`OpenAPI 3.0+`规范的接口文档，因此你可以使用支持`OpenAPI 3.0+`规范的文档管理系统或者`UI`界面来
-展示`smart-doc`生成的文档。 本文来说下如何快速集成`Swagger UI`来在开发中测试你的接口。
+`smart-doc` 支持生成符合`OpenAPI 3.0+`规范的接口文档，这意味着你可以利用任何支持`OpenAPI 3.0+` 规范的文档管理系统或用户界面来展示由 
+`smart-doc` 生成的文档。接下来，我们将介绍如何快速集成`Swagger UI`，以便在开发过程中对你的接口进行测试。
 
 ### 添加依赖
 
@@ -120,7 +120,6 @@ springdoc:
 - `url`是配置的关键，代表指向`smart-doc`生成的`openapi.json`文件。并且你需要将`OpenAPI`生成到`src/main/resources/static/doc`下。
 
 
-生成好`API`文件后启动你的应用访问`localhost:8080/swagger-ui-custom.html`即可看到文档。
-接下来你就可以在开发的时候使用这个ui界面来自测了。
+生成`API`文件后，启动你的应用并访问 `localhost:8080/swagger-ui-custom.html` 即可查看文档。随后，在开发过程中，你就可以利用这个UI界面来进行自我测试了。
 
-**提醒：** 关于`Swagger UI`的其他配置就自行研究吧，我们也不会。
+**提醒：** 关于`Swagger UI`的其他配置就自行研究官方文档。
