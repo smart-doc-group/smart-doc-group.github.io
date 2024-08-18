@@ -16,6 +16,10 @@ To prevent conflicts caused by changes in the upstream repository, you should `s
 
 ## 3. Commit && Push to Remote Repository
 
+::: warning Code Formatting
+Please use `mvn spring-javaformat:apply` to format your code before committing.
+:::
+
 1. A `pull request` can only contain one `commit`. If there are multiple `commits`, use the [Rebase command to merge commits](community/rebase-option.md)
 2. Each `commit` should add corresponding modification records in the `CHANGELOG`.
 3. Use `git push` or `git push -f`(add `-f` if merging remote `commits`) to push `commit` to the remote repository.

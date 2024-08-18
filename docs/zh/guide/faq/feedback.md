@@ -3,7 +3,7 @@
 关于`Q&A`，请按下面的流程：
 
 * 在`Wiki`中有的内容，请花时间看文档，不要提`Issue`。
-* 重复的`Issue`会被删除，请先在`Issues`中搜索你的问题，确认没有后再提[`Issue`](https://github.com/TongchengOpenSource/smart-doc/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=)。
+* 重复的`Issue`会被删除，请先在`Issues`中搜索你的问题，确认没有后再提[`Issue`](https://github.com/TongchengOpenSource/smart-doc/issues/new/choose)。
 * 我碰到个错误，确定是`Bug`，请按`Issue`模版提`Bug or PR`。
 * 咨询和讨论请来微信群，在群里交流。
 
