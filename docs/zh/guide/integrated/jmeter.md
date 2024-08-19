@@ -1,4 +1,4 @@
-# JMeter
+# JMeter   <Badge type="tip" text="^3.0.1" />
 ## 简介
 
 自`3.0.1`版本起，`smart-doc`新增了对`JMeter`性能测试脚本的生成支持，旨在提升测试流程的效率。

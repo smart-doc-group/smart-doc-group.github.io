@@ -1,4 +1,4 @@
-# Torna
+# Torna  <Badge type="tip" text="^2.0.9" />
 
 
 ## Introduction

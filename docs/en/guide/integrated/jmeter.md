@@ -1,4 +1,4 @@
-# JMeter
+# JMeter  <Badge type="tip" text="^3.0.1" />
 ## Introduction
 
 `smart-doc` has supported the generation of `JMeter` performance testing from version `3.0.1`, providing test capabilities.
