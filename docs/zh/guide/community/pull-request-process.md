@@ -1,4 +1,4 @@
-# pr贡献流程
+# PR贡献流程
 [开源指南](https://docs.github.com/zh/pull-requests)
 
 ## 1. 从上游仓库同步（sync fork）
@@ -17,7 +17,11 @@
 
 ## 3. 提交commit && 推送到远程仓库
 
-1. 一个`pull request`中只能一个`commit`。如果有多个`commit`，使用[Rebase命令合并commit](rebase-option.md)
+:::warning 代码格式化
+提交commit之前请使用 `mvn spring-javaformat:apply`进行代码格式化
+:::
+
+1. 一个`pull request`中只能一个`commit`。如果有多个`commit`，使用 [Rebase命令合并commit](rebase-option.md)
 2. 每个`commit`都要在`CHANGELOG`中添加对应的修改记录。
 3. `git push` 或则 `git push -f`(合并了远程`commit`添加 `-f`)推送`commit`到远程仓库
 

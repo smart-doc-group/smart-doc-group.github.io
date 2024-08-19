@@ -1,4 +1,4 @@
-# concept
+# Concept
 
 ## Is smart-doc suitable for design-first development?
 Some old-school programmers or so-called architects with many years of experience feel that `smart-doc`, a code-based scanning tool, is of no use to the design-first development model.

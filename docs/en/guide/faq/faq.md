@@ -62,7 +62,7 @@ Open source is released from this site and synchronized to other warehouses, so 
   
 As long as you master the above methods, you will not be able to find any open source software version.
 
-Have you `GET` arrived? When `GET` arrives, go to https://github.com/TongchengOpenSource/smart-docand give us three consecutive clicks!
+Have you `GET` arrived? When `GET` arrives, go to [smart-doc](https://github.com/TongchengOpenSource/smart-doc) and give the project a star!
 
 ## Why can't I extract the comments?
 This is often a question asked by newbies. The principle of `smart-doc` is to use comments and generics in the source code to analyze and generate documentation.
@@ -113,7 +113,7 @@ As long as there are two reasons:
    Just when you get the field type from `class` through reflection, you can't know that it is a generic type, and ultimately it cannot be analyzed correctly. If the source code is not loaded, there is usually a very obvious display. The field comments of the entity are all `No comments found.`;
 - You use a less standardized generic definition, such as using multiple letters to define a generic, as shown below using BR as the generic definition.
 
-```
+``` java
 public abstract class BaseResult<BR> implements Serializable {
 
     /**

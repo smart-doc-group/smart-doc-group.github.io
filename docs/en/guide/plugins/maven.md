@@ -122,7 +122,7 @@ Add and create a `smart-doc.json` configuration file in the project. The plug-in
 This configuration content is actually the result of converting `ApiConfig` written by unit test into `json`, so for the description of configuration items, you can refer to the configuration of the original unit test.
 
 **Minimum Hive:**
-```
+``` json
 {
     "outPath": "D://md2" //Specify the output path of the document
 }
@@ -136,7 +136,7 @@ In the above `json` configuration example, only `"outPath"` is required. Other c
 ## Run the plug-in to generate documentation
 ### 5.1 Using maven command line
 
-```
+``` bash
 mvn -Dfile.encoding=UTF-8 smart-doc:html
 //  Generate document output to Markdown
 mvn -Dfile.encoding=UTF-8 smart-doc:markdown
@@ -173,14 +173,14 @@ mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-markdown
 mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-adoc
 ```
 If you want to view the `debug` log when building using the `mvn` command, the `debug` log can also help you analyze the source code loading status of the `smart-doc-maven` plug-in, you can add a `-X` parameter. For example:
-```
+``` bash
 mvn -X -Dfile.encoding=UTF-8 smart-doc:html
 ```
 
 **Note:** Especially under the `window` system, if you actually use the `mvn` command line to perform document generation, garbled characters may appear, so you need to specify `-Dfile.encoding=UTF-8` during execution.
 
 View the encoding of `maven`
-```
+``` bash
 # mvn -version
 Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T19:57:37+08:00)
 Maven home: D:\ProgramFiles\maven\bin\..
@@ -208,7 +208,7 @@ The following will introduce how to debug the `smart-doc-maven-plugin` plug-in.
 Because `smart-doc-maven-plugin` ultimately uses `smart-doc` to complete the source code analysis and document generation of the project,
 Usually the actual debugged code is `smart-doc`. But this process is mainly checked through `smart-doc-maven-plugin`.
 
-```
+``` xml
 <dependency>
      <groupId>com.ly.smart-doc</groupId>
      <artifactId>smart-doc</artifactId>
@@ -229,7 +229,7 @@ This way you can go directly to the breakpoint.
 
 **Tips:** The above is the source code of `smart-doc` that is used as an entrance to debug through the plug-in. If you want to debug the source code execution process of the plug-in itself, add the plug-in dependencies to the project dependencies, as follows:
 
-```
+``` xml
 <dependency>
      <groupId>com.ly.smart-doc</groupId>
      <artifactId>smart-doc-maven-plugin</artifactId>

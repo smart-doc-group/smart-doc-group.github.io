@@ -141,7 +141,7 @@ mvn -Dfile.encoding=UTF-8  -DconfigFile="src/main/resources/smart-doc.json"  sma
 **注意：** 对于老用户完全可以通过`Fastjson`或者是`Gson`库将`ApiConfig`转化成`json`配置。
 ## 运行插件生成文档
 ### 5.1 使用maven命令行
-```
+``` bash
 //生成html
 mvn -Dfile.encoding=UTF-8 smart-doc:html
 //生成markdown
@@ -179,14 +179,14 @@ mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-markdown
 mvn -Dfile.encoding=UTF-8 smart-doc:javadoc-adoc
 ```
 在使用`mvn`命令构建时如果想查看`debug`日志，`debug`日志也能够帮助你去分析`smart-doc-maven`插件的源码加载情况，可以加一个`-X`参数。例如：
-```
+``` shell
 mvn -X -Dfile.encoding=UTF-8 smart-doc:html
 ```
 
 **注意：** 尤其在`window`系统下，如果实际使用`mvn`命令行执行文档生成，可能会出现乱码，因此需要在执行时指定`-Dfile.encoding=UTF-8`。
 
 查看`maven`的编码
-```
+``` bash
 # mvn -version
 Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T19:57:37+08:00)
 Maven home: D:\ProgramFiles\maven\bin\..
@@ -216,7 +216,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 因为`smart-doc-maven-plugin`最终是使用`smart-doc`来完成项目的源码分析和文档生成的，
 通常情况下真正的调试的代码是`smart-doc`。但这个过程主要通过`smart-doc-maven-plugin`来排查。
 
-```
+``` xml
 <dependency>
      <groupId>com.ly.smart-doc</groupId>
      <artifactId>smart-doc</artifactId>
@@ -237,7 +237,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 
 **提示：** 上面是通过插件去作为入口调试`smart-doc`的源码，如果你想调试插件本身的源码执行过程，则将插件的依赖添加到项目依赖中,如下：
 
-```
+``` xml
 <dependency>
     <groupId>com.ly.smart-doc</groupId>
     <artifactId>smart-doc-maven-plugin</artifactId>
