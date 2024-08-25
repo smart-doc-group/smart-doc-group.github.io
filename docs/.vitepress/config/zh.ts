@@ -100,6 +100,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
                 { text: 'Dubbo', link: 'integrated/dubbo' },
                 { text: 'JAX-RS', link: 'integrated/jax-rs' },
                 { text: 'JMeter', link: '/integrated/jmeter' },
+                { text: 'gRPC', link: '/integrated/grpc' },
             ]
         },
         {

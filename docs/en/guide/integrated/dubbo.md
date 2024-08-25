@@ -1,8 +1,8 @@
-# Dubbo
+# Dubbo   <Badge type="tip" text="^1.8.7" />
 ## Introduction
 
 `smart-doc` supports the generation of `Dubbo API` documents starting from version `1.8.7`. The following describes how to use the `smart-doc` tool to generate `RPC` internal interface documentation of `Dubbo`.
-## dubbo document integration
+## Dubbo document integration
 `smart-doc` has developed the `maven` plug-in and `gradle` based on the principle of simplicity of use. The plug-in can reduce the integration difficulty of `smart-doc` and remove the intrusiveness of dependencies.
 You can choose relevant plug-ins according to the dependency build management tool you use. The following is an example of using the `smart-doc-maven-plugin` plug-in to integrate `smart-doc` to generate `dubbo`.
 Of course, you have two options for integrating `smart-doc` to generate `Dubbo RPC` interface documentation:
@@ -70,11 +70,11 @@ Dubbo:
    application:
      name: dubbo-consumer
 ```
-## dubbo interface scan
+## Dubbo interface scan
 As mentioned above, `smart-doc` supports scanning `dubbo api` or `dubbo provider` separately. exist
 The scanning principle is mainly by identifying `smart-doc` official custom `@dubbo` annotation `tag` or `Dubbo` official `@service` annotation.
 
-### Scan dubbo api
+### Scan Dubbo api
 `dubbo api` is usually a very concise `Dubbo` interface definition. If you need `smart-doc` to scan the `Dubbo` interface, you need to add `@dubbo` annotation `tag`. Examples are as follows:
 
 ```java
@@ -130,7 +130,7 @@ public interface DubboInterface {
 - `@service` specifies the name of the Dubbo service
 - `@protocol` specifies the protocol type of the Dubbo service
 
-#### Scan dubbo provider
+#### Scan Dubbo provider
 If you want to generate `RPC` interface documentation through `dubbo provider`, you do not need to add any other annotations `tag`, `smart-doc` will automatically scan the `@service` annotation.
 
 ```java
@@ -171,6 +171,8 @@ public class UserServiceImpl implements UserService {
 }
 ```
 ## Generate operations
-Run the plug-in's document generation command directly through the `mvc` command or directly click the plug-in's visual command in `IDEA`.
+Run the plug-in's document generation command directly through the `mvn`command or directly click the plug-in's visual command in `IDEA`.
+
 ![maven-smart-doc](/assets/20200705230512435.png)
+
 Run `rpc-html` etc. to generate `Dubbo RPC` document

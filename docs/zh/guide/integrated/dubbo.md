@@ -1,8 +1,8 @@
-# Dubbo
+# Dubbo   <Badge type="tip" text="^1.8.7" />
 ## 简介
 
 `smart-doc`从`1.8.7`版本开始支持`Dubbo API`文档的生成，下面介绍如何利用`smart-doc`工具来生成`Dubbo`的`RPC`内部接口文档。
-## dubbo文档集成
+## Dubbo文档集成
 `smart-doc`本着使用简单的原则开发了`maven`插件和`gradle`，通过插件来降低`smart-doc`的集成难度和去除依赖侵入性。
 您可以根据自己使用的依赖构建管理工具来选择相关的插件，下面以使用`smart-doc-maven-plugin`插件集成`smart-doc`生成`dubbo`为例。
 当然集成`smart-doc`来生成`Dubbo RPC`接口文档你有两种可选方式：
@@ -70,11 +70,11 @@ dubbo:
   application:
     name: dubbo-consumer
 ```
-## dubbo接口扫描
+## Dubbo接口扫描
 上面提到了`smart-doc`支持单独去扫描`dubbo api`或者`dubbo provider`。在
 扫描原理是主要通过识别`smart-doc`官方自定义`@dubbo`注释`tag`或`Dubbo`官方的`@service`注解。
 
-### 扫描dubbo api
+### 扫描Dubbo api
 `dubbo api`通常都是很简洁的`Dubbo`接口定义，如果你需要让`smart-doc`扫描到`Dubbo`接口，那么需要加上`@dubbo`注释`tag`。示例如下：
 
 ```java
@@ -128,7 +128,7 @@ public interface DubboInterface {
 - `@version`指定`Dubbo`服务的接口版本
 - `@service`指定`Dubbo`服务名称
 - `@protocol`指定`Dubbo`服务协议类型
-#### 扫描dubbo provider
+#### 扫描Dubbo provider
 如果想通过`dubbo provider`生成`RPC`接口文档的情况，你不需要加任何的其他注释`tag`，`smart-doc`自动扫描`@service`注解完成。
 
 ```java
@@ -169,7 +169,8 @@ public class UserServiceImpl implements UserService {
 }
 ```
 ## 生成操作
-直接通过`mvc`命令运行插件的文档生成命令或者在`IDEA`中直接单击插件的可视化命令即可。
+直接通过`mvn`命令运行插件的文档生成命令或者在`IDEA`中直接单击插件的可视化命令即可。
+
 ![maven-smart-doc](/assets/20200705230512435.png)
 
 运行`rpc-html`等就能生成`Dubbo RPC`文档
