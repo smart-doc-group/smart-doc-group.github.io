@@ -1,2 +1,3 @@
 # smart-doc社区案例
 - [Smart-doc赋能JMeter性能压测实践](https://juejin.cn/post/7365785731702865954)
+- [Smart-Doc高效生成Java WebSocket接口文档](https://mp.weixin.qq.com/s?__biz=MzkxMTIwMzE1NQ==&mid=2247483654&idx=1&sn=465cdef5746d7f3d25c53b02fb4e0c8f&chksm=c0321dd4a122599f76ed521749ff9f39eabf5c6c03339eab46dbf8f7074a597a25b0877fa74f&mpshare=1&scene=23&srcid=0827NJZZXye0tdmDEXMC4Mju&sharer_shareinfo=9c91805f10046704ba097c885516d226&sharer_shareinfo_first=9c91805f10046704ba097c885516d226#rd)
