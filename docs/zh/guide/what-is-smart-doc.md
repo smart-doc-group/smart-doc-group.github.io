@@ -13,17 +13,19 @@
 > smart-doc是一款支持JAVA REST API、JAVA WebSocket、Apache Dubbo RPC和gRPC接口文档生成的工具。
 
 ## 概述
-`smart-doc[/smɑːt dɒk/]`率先提出了基于`Java`泛型定义来推导接口文档的概念。它完全依赖于接口的源代码进行分析和生成文档，无需在业务代码中添加任何注解。
-只需按照`JavaDoc`的标准编写注释，`smart-doc`就能够帮助您生成简洁明了的`Markdown`、`HTML5`、`Postman Collection 2.0+` 和 `OpenAPI 3.0+` 格式的文档。
 
-> 无论你是很有经验的大佬、还是刚入行的萌新。遇到使用疑惑时，我们希望你能仔细阅读smart-doc官方文档。我们将smart-doc及其插件的 每一个配置项和可能在日常中遇到的问题都整理到了文档中。仔细阅读文档就是对开源项目最大的支持。
+`smart-doc[/smɑːt dɒk/]`率先提出了基于`Java`泛型定义来推导接口文档的概念。它完全依赖于接口的源代码进行分析和生成文档，无需在业务代码中添加任何注解。
+只需按照`JavaDoc`的标准编写注释，`smart-doc`就能够帮助您生成简洁明了的`Markdown`、`HTML5`、`Postman Collection 2.0+`
+和 `OpenAPI 3.0+` 格式的文档。
+
+> 无论你是很有经验的大佬、还是刚入行的萌新。遇到使用疑惑时，我们希望你能仔细阅读smart-doc官方文档。我们将smart-doc及其插件的
+> 每一个配置项和可能在日常中遇到的问题都整理到了文档中。仔细阅读文档就是对开源项目最大的支持。
 
 <div class="tip custom-block" style="padding-top: 8px">
 
 查看[快速开始](getting-started)了解详情。
 
 </div>
-
 
 ## 特性
 
@@ -47,33 +49,41 @@
 - 支持基于`Git`管理项目的变更增量文档生成。
 - `debug`接口调试`html5`页面完全支持文件上传，下载(`@download tag`标记下载方法)测试。
 
-
 ## 最佳实践
-`smart-doc`结合[Torna](http://torna.cn/)构成了业内领先的文档生成与管理解决方案。通过使用`smart-doc`，能够无侵入地完成`JAVA`源代码的分析与注释提取，
+
+`smart-doc`结合[Torna](http://torna.cn/)构成了业内领先的文档生成与管理解决方案。通过使用`smart-doc`
+，能够无侵入地完成`JAVA`源代码的分析与注释提取，
 从而生成`API`文档，并自动将文档上传至`Torna`企业级接口文档管理平台。
 ![smart-doc + Torna](/assets/smart-to-torna.png)
 
 [smart-doc+Torna文档自动化](integrated/torna#文档全流程自动化)
 
-> Torna是由smart-doc官方独家推动联合研发的企业级文档管理系统，因此smart-doc官方不会对接其它任何的外部文档管理系统，例如像showdoc、yapi 之类的对接请自定内部处理，也不要再给我们提其他文档系统对接的PR。我们核心是把smart-doc+Torna的这套方案打造好
-
+> Torna是由smart-doc官方独家推动联合研发的企业级文档管理系统，因此smart-doc官方不会对接其它任何的外部文档管理系统，例如像showdoc、yapi
+> 之类的对接请自定内部处理，也不要再给我们提其他文档系统对接的PR。我们核心是把smart-doc+Torna的这套方案打造好
 
 ## Contact
 
 愿意参与构建`smart-doc`或者是需要交流问题可以扫描微信二维码发送`smart-doc`备注信息后管理员拉进群，[常见问题答疑](faq/faq)
 <div style="display: flex; flex-wrap: wrap;">
     <div style="margin-right: 10px;">
-        <img src="/assets/wechat.png" title="微信群" width="200px" height="210px"/>
+      <figure>
+        <img src="/assets/wechat.png" title="微信群" width="200px" height="200px"/>
+        <figcaption style="text-align: center;">社区管理员微信</figcaption>
+      </figure>
     </div>
     <div style="margin-right: 10px;">
+        <figure>
         <img src="/assets/smart-doc-qq2.jpeg" title="QQ群2" width="200px" 
-height="210px"/>
+height="200px"/>
+        <figcaption style="text-align: center;">社区QQ群</figcaption>
+        </figure>
     </div>
 </div>
 
 
-> QQ1群已满，有问题请加微信群或者QQ群2。
+关注微信公众号，了解社区动态和更多技术分享
 
+<img src="/assets/WeChat-Official-Account.png" style="width: 50%; height: 50%" />
 
 ## 谁在使用
 
@@ -133,19 +143,18 @@ height="210px"/>
     </div>
 </div>
 
-
-
 ## 获奖情况
 
 - 2020 年度 OSC 中国开源项目评选”活动中获得「最积极运营项目」
 
-
 ## 致谢
+
 感谢[JetBrains SoftWare](https://www.jetbrains.com) 为本开源项目提供的免费Open Source license。<br/>
 <img src="/assets/jetbrains-variant-3.png" alt="jetbrains" width="260px" height="220px"/>
 
 ## License
 
-`smart-doc` is under the Apache 2.0 license. See the [LICENSE](https://github.com/smart-doc-group/smart-doc/blob/master/LICENSE) file for details.
+`smart-doc` is under the Apache 2.0 license. See
+the [LICENSE](https://github.com/smart-doc-group/smart-doc/blob/master/LICENSE) file for details.
 
 **注意：** `smart-doc`源代码文件全部带有版权注释，使用关键代码二次开源请保留原始版权，否则后果自负！
