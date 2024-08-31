@@ -19,8 +19,6 @@
 │  ├─ en                   # English documentation                  
 │  ├─ public               # Public files directory (static resources like images, fonts, etc.)
 │  ├─ zh                   # Chinese documentation
-│  ├─ getting-started.md
-│  └─ index.md
 └─ ...
 ```
 
