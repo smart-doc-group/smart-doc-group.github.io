@@ -19,6 +19,9 @@
 |                    `md5EncryptedHtmlName`                     |         | ❌  |   `Boolean`    |       `false`       | 只有每个`Controller`生成一个`HTML`文件是才使用。                                                                                                                                                                                          |
 |                            `style`                            |         | ❌  |    `String`    |                     | 基于`highlight.js`的[代码高亮](https://highlightjs.org/)设置。                                                                                                                                                                       |
 |                         `projectName`                         |         | ❌  |    `String`    |                     | 只有每个`Controller`生成一个`HTML`文件是才使用。 如果`smart-doc.json`中和插件中都未设置`projectName`，`2.3.4`开始，插件自动采用`pom`中的`projectName`作为默认填充， 因此使用插件时可以不配置。                                                                                       |
+|                     `skipTransientField`                      | `1.7.8` | ❌  |   `Boolean`    |       `true`        | 自 3.0.8 起已弃用。请使用 `serializeRequestTransients` 和 `serializeResponseTransients` 代替。此配置用于跳过请求和响应体中瞬态字段的序列化。                                                                                                                   |
+|                 `serializeRequestTransients`                  | `3.0.8` | ❌  |   `Boolean`    |       `false`       | 决定是否序列化请求对象中的瞬态字段。设置为 `true` 时，`transient`修饰的字段将包含在请求序列化中。                                                                                                                                                                 |
+|                 `serializeResponseTransients`                 | `3.0.8` | ❌  |   `Boolean`    |       `false`       | 决定是否序列化响应对象中的瞬态字段。设置为 `true` 时，`transient`修饰的字段将包含在响应序列化中。                                                                                                                                                                 |
 |                         `sortByTitle`                         | `1.8.7` | ❌  |   `Boolean`    |       `false`       | 接口标题排序。                                                                                                                                                                                                                    |
 |                         `showAuthor`                          |         | ❌  |   `Boolean`    |       `true`        | 是否显示接口作者名称。                                                                                                                                                                                                                |
 |                   `requestFieldToUnderline`                   | `1.8.7` | ❌  |   `Boolean`    |       `false`       | 自动将驼峰入参字段在文档中转为下划线格式。                                                                                                                                                                                                      |
@@ -84,6 +87,8 @@
     "projectName": "smart-doc",
     "framework": "spring",
     "skipTransientField": true,
+    "serializeRequestTransients": false,
+    "serializeResponseTransients": false,
     "sortByTitle": false,
     "showAuthor": true,
     "requestFieldToUnderline": true,
@@ -547,7 +552,6 @@ public void testIsMatch() {
   }
 }
 ```
-
 
 
 
