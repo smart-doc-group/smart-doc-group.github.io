@@ -193,6 +193,9 @@ public class InvoiceController {
 ```
 
 ### 2. `@mock`
+The `@mock` tag is used to set custom display values for basic type fields in objects. Once set, `smart-doc` will no longer generate random values for you.
+This facilitates direct output of delivery documents through `smart-doc`. `smart-doc` treats the attribute value of the `@mock` tag by unescape any literals in `{@mock String}`.
+If line breaks are needed in the content, do not use `\n`; simply perform line breaks directly within the comment.
 
 ```java
 public class SimpleUser {
