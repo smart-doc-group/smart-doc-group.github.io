@@ -205,6 +205,9 @@ public class InvoiceController {
 
 
 ### 2. `@mock`
+`@mock` `tag`用于在对象基本类型字段设置自定义文档展示值。设置值后`smart-doc`不再帮你生成随机值。
+方便可以通过`smart-doc`直接输出交付文档。`smart-doc`会将`@mock`标签的属性值做将`{@mock String}`中的任何字面量取消转义。
+如果内容需要换行不要使用`\n`， 就直接在注释里做换行。
 
 ```java
 public class SimpleUser {
