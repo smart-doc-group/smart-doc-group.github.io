@@ -41,6 +41,14 @@ const members = [
       { icon: 'github', link: 'https://github.com/abing22333' },
     ]
   },
+  {
+    avatar: 'https://github.com/linwumingshi.png',
+    name: 'Linwumingshi',
+    title: 'Committer',
+    links: [
+      { icon: 'github', link: 'https://github.com/linwumingshi' },
+    ]
+  },
 ]
 </script>
 
