@@ -41,6 +41,9 @@ function nav(): DefaultTheme.NavItem[] {
                 },{
                     text: 'Documenting a Spring REST API Using Smart-doc',
                     link: 'https://dzone.com/articles/documenting-a-spring-rest-api-using-smart-doc',
+                },{
+                    text: 'Documenting a Java WebSocket API Using Smart-Doc',
+                    link: 'https://dzone.com/articles/generate-java-websocket-api-documentation-using-smart-doc',
                 }
             ],
         },
