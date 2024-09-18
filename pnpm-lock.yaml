@@ -22,8 +22,8 @@ importers:
         specifier: ^22.4.0
         version: 22.4.0
       '@vitejs/plugin-vue':
-        specifier: ^5.1.2
-        version: 5.1.2(vite@5.4.1(@types/node@22.4.0)(sass@1.77.8))(vue@3.4.38)
+        specifier: ^5.1.4
+        version: 5.1.4(vite@5.4.1(@types/node@22.4.0)(sass@1.77.8))(vue@3.4.38)
       esbuild:
         specifier: ^0.23.1
         version: 0.23.1
@@ -565,8 +565,8 @@ packages:
   '@types/web-bluetooth@0.0.20':
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
 
-  '@vitejs/plugin-vue@5.1.2':
-    resolution: {integrity: sha512-nY9IwH12qeiJqumTCLJLE7IiNx7HZ39cbHaysEUd+Myvbz9KAqd2yq+U01Kab1R/H1BmiyM2ShTYlNH32Fzo3A==}
+  '@vitejs/plugin-vue@5.1.4':
+    resolution: {integrity: sha512-N2XSI2n3sQqp5w7Y/AN/L2XDjBIRGqXko+eDp42sydYSBeJuSm5a1sLf8zakmo8u7tA8NmBgoDLA1HeOESjp9A==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0
@@ -1623,7 +1623,7 @@ snapshots:
 
   '@types/web-bluetooth@0.0.20': {}
 
-  '@vitejs/plugin-vue@5.1.2(vite@5.4.1(@types/node@22.4.0)(sass@1.77.8))(vue@3.4.38)':
+  '@vitejs/plugin-vue@5.1.4(vite@5.4.1(@types/node@22.4.0)(sass@1.77.8))(vue@3.4.38)':
     dependencies:
       vite: 5.4.1(@types/node@22.4.0)(sass@1.77.8)
       vue: 3.4.38
@@ -2269,7 +2269,7 @@ snapshots:
       '@shikijs/core': 1.14.1
       '@shikijs/transformers': 1.14.1
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 5.1.2(vite@5.4.1(@types/node@22.4.0)(sass@1.77.8))(vue@3.4.38)
+      '@vitejs/plugin-vue': 5.1.4(vite@5.4.1(@types/node@22.4.0)(sass@1.77.8))(vue@3.4.38)
       '@vue/devtools-api': 7.3.8
       '@vue/shared': 3.4.38
       '@vueuse/core': 11.0.0(vue@3.4.38)
