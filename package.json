@@ -14,7 +14,7 @@
   "author": "smart-doc",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^22.8.7",
+    "@types/node": "^22.9.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "esbuild": "^0.24.0",
     "sass": "^1.80.6",
