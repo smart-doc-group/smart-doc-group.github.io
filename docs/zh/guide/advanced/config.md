@@ -68,6 +68,7 @@
 |                       `showValidation`                        | `3.0.3` | ❌  |   `Boolean`    |       `true`        | `showValidation`用于控制`smart-doc`是否提取JSR字段验证信息展示到文档中                                                                                                                                                                         |
 |                           `jmeter`                            | `3.0.4` | ❌  |    `Object`    |                     | 生成`JMeter`性能测试脚本一些配置。                                                                                                                                                                                                      |
 |                   `addDefaultHttpStatuses`                    | `3.0.5` | ❌  |   `Boolean`    |       `false`       | 生成文档时是否添加框架默认的`http`状态码，例如`Spring MVC`默认的`500`和`404`, 当前只有生成`OenAPI`文档时支持。                                                                                                                                                 |
+|                       `enumConvertor`                         | `3.1.0` | ❌  |   `Boolean`    |       `false`       | 在 header/path/query 请求类型下，是否启用枚举转换器，默认值为false。<br/>如果为true，则解析enumValue作为枚举示例值。<br/>如果为false，则以enumName作为枚举示例值                                                                                                                                              |
 
 ```json
 {
@@ -250,7 +251,8 @@
     "jmeter": {
         "addPrometheusListener": true
     },
-    "addDefaultHttpStatuses": true
+    "addDefaultHttpStatuses": true,
+    "enumConvertor": false
 }
 ```
 

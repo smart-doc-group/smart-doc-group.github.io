@@ -64,6 +64,7 @@
 |                                `showValidation`                                | `3.0.3` |    ❌     | `Boolean`      |       `true`        | `showValidation` is used to control whether `smart-doc` extracts the JSR validation information of fields for display in the documentation.                                                                                                                                                                                                                                                                                                                                                                                  |
 |                                    `jmeter`                                    | `3.0.4` |    ❌     | `Object`       |                     | Custom Configurations for JMeter Performance Test Script Generation                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |                            `addDefaultHttpStatuses`                            | `3.0.5` |    ❌     | `Boolean`      |       `false`       | When generating documentation, consider whether to include the default HTTP status codes from frameworks such as Spring MVC's default `500` and `404` errors. Currently, only the generation of `OpenAPI` documentation supports this feature.                                                                                                                                                                                                                                                                               |
+|                                 `enumConvertor`                                | `3.1.0` |    ❌     | `Boolean`      |       `false`       | In the header/path/query request mode, whether to enable the enumeration converter, The default value is false. <br/>If true, the enumeration value is parsed as an enumeration example value. <br/>If false, take the enumeration name as the enumeration example value                                                                                                                                                                                                                                                               |
 
 ```json
 {
@@ -246,7 +247,8 @@
     "jmeter": {
         "addPrometheusListener": true
     },
-    "addDefaultHttpStatuses": true
+    "addDefaultHttpStatuses": true,
+    "enumConvertor": false
 }
 ```
 ## packageFilters
