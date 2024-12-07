@@ -15,7 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.10.1",
-    "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue": "^5.2.1",
     "esbuild": "^0.24.0",
     "sass": "^1.81.0",
     "vitepress": "^1.5.0"
