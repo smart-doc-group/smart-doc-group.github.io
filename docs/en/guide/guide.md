@@ -270,7 +270,9 @@ public void download(HttpServletResponse response) throws IOException {
 }
 ```
 
-Starting from smart-doc 2.0.2, the file name will automatically be read from the download response header `Content-Disposition: attachment; filename=xx`, so there is no need to set `response.setHeader("filename", urlEncode(fileName));` in the response header.
+:::tip  TIPS <Badge type="tip" text="^2.0.2" />
+Starting from `smart-doc` 2.0.2, the file name will automatically be read from the download response header `Content-Disposition: attachment; filename=xx`, so there is no need to set `response.setHeader("filename", urlEncode(fileName));` in the response header.
+:::
 
 If the response type is one of the following:
 - `org.springframework.core.io.Resource`

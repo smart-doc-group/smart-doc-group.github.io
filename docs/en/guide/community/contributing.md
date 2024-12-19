@@ -13,6 +13,11 @@ If you would like to contribute to `smart-doc`, you can follow these steps:
 
 4. After completing your modifications, push the commits and submit a Pull Request to the main `smart-doc` repository. Please refer to the [Pull Request](pull-request-process) process to submit your merge request.
 
+::: tip  
+The code should adhere to the `smart-doc` coding style (using the Spring code style). Please use the command `mvn spring-javaformat:apply` to format the code.  
+It is recommended to download the [Spring Java Format](https://github.com/spring-io/spring-javaformat) plugin.  
+:::
+
 5. Wait for the community Committers to review and merge your Pull Request.
 
 6. If the merge is successful, congratulations, you have made a successful contribution!
