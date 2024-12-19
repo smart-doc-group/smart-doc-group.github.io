@@ -35,71 +35,70 @@ public void testBuilderControllersApi() {
 ```
 字段信息如下：
 
-Field | Type|Description|Since
----|---|---|---
-projectName|string|项目名称|-
-projectId|string|项目id,名称做md5生成|-
-language|string|文档生语言(自定义模板可使用)|-
-apiDocList|array|接口文档列表|-
-└─order|int32|controller的顺序，smart-doc自动排序生成|1.7+
-└─name|string|controller类名|-
-└─alias|string|controller名称做md5后的别名|1.7+
-└─list|array|controller中的接口列表|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─methodId|方法id，使用controller+method做md5取32位|1.7.3 +
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|method name|1.7.3 +
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─order|int32|接口序号，自动排序|1.7+
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|method description|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─detail|string|detailed introduction of the method|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─url|string|controller method url|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─author|string|接口作者名称|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|http request type|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─headers|string|string类型的header拼接，只是为了在模板渲染是减少headers的渲染次数|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─contentType|string|http contentType|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestHeaders|array|http request headers|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|Request header name|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|Request header type|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|Request header description|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required|boolean|required flag|1.7.0
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─since|string|Starting version number|1.7.0
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestParams|array|http request params|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─field|string|field|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|field type|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|description|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required|boolean|require flag|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─version|string|version|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestUsage|string|http request usage|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─responseUsage|string|http response usage|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─responseParams|array|http response params|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─field|string|field|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|field type|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|description|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required|boolean|require flag|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─version|string|version|-
-└─desc|string|method description|-
-apiDocDictList|array|枚举字典列表|-
-└─order|int32|字典顺序|-
-└─title|string|字典名称|-
-└─dataDictList|array|枚举字典表|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─value|string|字典码|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|字典值类型|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|字典描述|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ordinal|int32|枚举顺序|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|枚举顺序|-
-errorCodeList|array|枚举错误列表|-
-└─value|string|错误码|-
-└─type|string|错误码类型|-
-└─desc|string|错误码描述|-
-└─ordinal|int32|枚举错误码的顺序|-
-└─name|string|枚举名称|-
-revisionLogs|array|文档变更记录|-
-└─version|string|version|-
-└─status|string|status|-
-└─author|string|author|-
-└─revisionTime|string|update time|-
-└─remarks|string|description|-
+| Field                                                                  | Type                             | Description                                | Since   |
+|------------------------------------------------------------------------|----------------------------------|--------------------------------------------|---------|
+| projectName                                                            | string                           | 项目名称                                       | -       |
+| projectId                                                              | string                           | 项目id,名称做md5生成                              | -       |
+| language                                                               | string                           | 文档生语言(自定义模板可使用)                            | -       |
+| apiDocList                                                             | array                            | 接口文档列表                                     | -       |
+| └─order                                                                | int32                            | controller的顺序，smart-doc自动排序生成              | 1.7+    |
+| └─name                                                                 | string                           | controller类名                               | -       |
+| └─alias                                                                | string                           | controller名称做md5后的别名                       | 1.7+    |
+| └─list                                                                 | array                            | controller中的接口列表                           | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─methodId                               | 方法id，使用controller+method做md5取32位 | 1.7.3 +                                    |         |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name                                   | string                           | method name                                | 1.7.3 + |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─order                                  | int32                            | 接口序号，自动排序                                  | 1.7+    |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc                                   | string                           | method description                         | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─detail                                 | string                           | detailed introduction of the method        | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─url                                    | string                           | controller method url                      | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─author                                 | string                           | 接口作者名称                                     | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type                                   | string                           | http request type                          | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─headers                                | string                           | string类型的header拼接，只是为了在模板渲染是减少headers的渲染次数 | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─contentType                            | string                           | http contentType                           | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestHeaders                         | array                            | http request headers                       | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name     | string                           | Request header name                        | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type     | string                           | Request header type                        | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc     | string                           | Request header description                 | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required | boolean                          | required flag                              | 1.7.0   |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─since    | string                           | Starting version number                    | 1.7.0   |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestParams                          | array                            | http request params                        | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─field    | string                           | field                                      | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type     | string                           | field type                                 | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc     | string                           | description                                | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required | boolean                          | require flag                               | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─version  | string                           | version                                    | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestUsage                           | string                           | http request usage                         | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─responseUsage                          | string                           | http response usage                        | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─responseParams                         | array                            | http response params                       | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─field    | string                           | field                                      | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type     | string                           | field type                                 | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc     | string                           | description                                | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required | boolean                          | require flag                               | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─version  | string                           | version                                    | -       |
+| └─desc                                                                 | string                           | method description                         | -       |
+| apiDocDictList                                                         | array                            | 枚举字典列表                                     | -       |
+| └─order                                                                | int32                            | 字典顺序                                       | -       |
+| └─title                                                                | string                           | 字典名称                                       | -       |
+| └─dataDictList                                                         | array                            | 枚举字典表                                      | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─value                                  | string                           | 字典码                                        | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type                                   | string                           | 字典值类型                                      | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc                                   | string                           | 字典描述                                       | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ordinal                                | int32                            | 枚举顺序                                       | -       |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name                                   | string                           | 枚举顺序                                       | -       |
+| errorCodeList                                                          | array                            | 枚举错误列表                                     | -       |
+| └─value                                                                | string                           | 错误码                                        | -       |
+| └─type                                                                 | string                           | 错误码类型                                      | -       |
+| └─desc                                                                 | string                           | 错误码描述                                      | -       |
+| └─ordinal                                                              | int32                            | 枚举错误码的顺序                                   | -       |
+| └─name                                                                 | string                           | 枚举名称                                       | -       |
+| revisionLogs                                                           | array                            | 文档变更记录                                     | -       |
+| └─version                                                              | string                           | version                                    | -       |
+| └─status                                                               | string                           | status                                     | -       |
+| └─author                                                               | string                           | author                                     | -       |
+| └─revisionTime                                                         | string                           | update time                                | -       |
+| └─remarks                                                              | string                           | description                                | -       |
 
-
- **注意：** `1.7.9`后获取数据接口有变更，需要自行渲染模板的，以最终数据为重。`ApiDataBuilder`。
+**注意：** `1.7.9`后获取数据接口有变更，需要自行渲染模板的，以最终数据为重。`ApiDataBuilder`。
 
 
 

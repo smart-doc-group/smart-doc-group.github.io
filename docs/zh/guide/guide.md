@@ -283,8 +283,9 @@ public void download(HttpServletResponse response) throws IOException {
     outputStream.write(randomStr.getBytes());
 }
 ```
-
-> smart-doc 2.0.2版本将会自动从下载响应头`Content-Disposition: attachment; filename=xx`中读取文件名， 不再需要在响应头中设置`response.setHeader("filename", urlEncode(fileName));`
+:::tip  TIPS <Badge type="tip" text="^2.0.2" />
+`smart-doc` 2.0.2 版本将会自动从下载响应头`Content-Disposition: attachment; filename=xx`中读取文件名， 不再需要在响应头中设置`response.setHeader("filename", urlEncode(fileName));`
+:::
 
 
 

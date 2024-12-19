@@ -49,7 +49,7 @@
 </plugin>
 
 ```
-- `includes`中需要调整为项目模块所依赖的包配置`artifactId:groupId`, 支持正则`artifactId:*`
+- `includes`中需要调整为项目模块所依赖的包配置`groupId:artifactId`, 支持正则`artifactId:*`
 - `phase`默认为`compile`，如果不需要在执行项目编译时启动`smart-doc`，则将`phase`注释掉
 
 

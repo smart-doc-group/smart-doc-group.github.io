@@ -1,4 +1,4 @@
-# Maven
+# Maven  <Badge type="tip" text="^1.7.9" />
 从`smart-doc 1.7.9`开始官方提供了`Maven`插件，可以在项目中通过运行插件来直接生成文档。 
 
 ## 环境要求
@@ -51,6 +51,7 @@
 </plugin>
 ```
 ### 插件 configuration
+maven插件的配置信息
 #### configFile
 指定生成文档的使用的配置文件。相对路径时请用./开头，eg: `./src/main/resources/smart-doc.json`。
 如果你通过`mvn`命令来使用插件，那么你也可以通过在命令行中使用`-DconfigFile`参数来指定, 例如：
@@ -66,7 +67,7 @@ mvn -Dfile.encoding=UTF-8  -DconfigFile="src/main/resources/smart-doc.json"  sma
 `2.3.4`开始, 如果`smart-doc.json`中和此处都未设置`projectName`，插件自动设置为`pom`中的`projectName`
 
 #### excludes & includes
-
+ excludes & includes用于控制源代码的加载。
 ##### 加载源码机制
 `smart-doc`会自动分析依赖树加载所有依赖源码，不过这样会存在两个问题：
 - 加载不需要的源码，影响文档构建效率 

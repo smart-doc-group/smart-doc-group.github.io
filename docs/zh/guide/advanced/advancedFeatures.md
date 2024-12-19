@@ -1,6 +1,6 @@
 # 高级特性
 
-## 公共请求头
+## 公共请求头 <Badge type="tip" text="^2.2.2" />
 
 **requestHeaders**
 
@@ -86,8 +86,10 @@ public CommonResult<Void> configQueryParamPost(String configQueryParam) {
 }
 ```
 
-## ~~静态常量替换~~
-**`2.4.2`版本开始，这个配置无需再手动添加，`smart-doc`可以自动识别静态常量的使用。**
+## ~~静态常量替换~~ <Badge type="danger" text="^2.4.2" />
+:::tip
+**`@sice 2.4.2`版本开始，这个配置无需再手动添加，`smart-doc`可以自动识别静态常量的使用。**
+:::
 
 在`Java Web`接口开发的过程中，有些用户会在`Controller`的路径中使用静态常量。因此，
 他们也希望`smart-doc`能够解析这些静态常量并获取到真实的值。下面来看一个例子：

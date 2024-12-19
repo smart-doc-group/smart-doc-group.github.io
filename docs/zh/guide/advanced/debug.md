@@ -1,6 +1,6 @@
 # 接口UI集成
 
-## `smart-doc`调试页面
+## `smart-doc`调试页面 <Badge type="tip" text="^2.0.0" />
 
 从`smart-doc 2.0.0`版本开始，在`html`的`allInOne`的模式下。可以添加`"createDebugPage": true`的配置。`smart-doc`会
 创建一个`debug.html`的页面。 在让生成`smart-doc`生成文档时直接放入到`static/doc/`下，
@@ -73,7 +73,7 @@ public class WebConfig implements WebMvcConfigurer {
 当然smart-doc的调试页面对于文件上传你只能传一个文件，这点相比Swagger UI要弱。但是smart-doc也有比Swagger UI强的地方，
 例如：文档展示更清晰明了；支持测试文件下载
 
-## `Postman` 导入调试
+## `Postman` 导入调试   <Badge type="tip" text="^1.7.8" />
 从`smart-doc 1.7.8`版本开始，`smart-doc`支持生成`Postman`的`json`文件，
 你可以使用`smart-doc`生成整个项目的或者某个微服务所有接口的`Postman`的`json`文件，
 然后通过将这个`json`文件导入`Postman`的`Collections`做测试。导出`json`.
@@ -106,6 +106,7 @@ public class WebConfig implements WebMvcConfigurer {
 </dependency>
 ```
 `smart-doc`支持的`OpenAPI`规范版本比较高，因此需要集成`1.5.0`或者是更高的版本。
+
 ### 配置Swagger UI
 在`application`配置文件中添加如下配置
 ```

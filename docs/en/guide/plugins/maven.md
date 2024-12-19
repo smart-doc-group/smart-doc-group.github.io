@@ -1,4 +1,4 @@
-# Maven
+# Maven  <Badge type="tip" text="^1.7.9" />
 Starting from `smart-doc 1.7.9`, the `Maven` plug-in is officially provided, and documents can be generated directly by running the plug-in in the project.
 
 ## Environmental requirements
@@ -62,7 +62,7 @@ Specify the project name. It is recommended to use dynamic parameters, such as `
 Starting from `2.3.4`, if the projectName is not set in `smart-doc.json` or here, the plug-in is automatically set to the projectName in the pom.
 
 #### excludes & includes
-
+ excludes & includes are used to control the loading of source code.
 ##### Loading source code mechanism
 smart-doc will automatically analyze the dependency tree and load all dependent source codes, but this will cause two problems:
 1. Loading unnecessary source code affects document construction efficiency

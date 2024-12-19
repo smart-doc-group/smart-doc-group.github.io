@@ -13,8 +13,12 @@
 
 3、在本地环境中运行`smart-doc`，并确认所做的改动是否生效。可参考 [快速开始](../getting-started) 了解如何启动`smart-doc`并生成`API`文档。
 
-4、完成修改后，推送提交并提交`Pull Request`给`smart-doc`的主仓库。
-请参考[Pull Request](pull-request-process)流程 来提交合并请求。
+4、完成修改后，推送提交并提交`Pull Request`给`smart-doc`的主仓库。 请参考[Pull Request](pull-request-process)流程 来提交合并请求。
+
+::: tip
+代码需要符合`smart-doc`的代码风格(使用Spring代码风格)，请使用`mvn spring-javaformat:apply`命令进行代码格式化。
+推荐下载[Spring Java Format](https://github.com/spring-io/spring-javaformat)插件
+:::
 
 5、等待社区`Committer`审核并合并您的`Pull Request`。
 

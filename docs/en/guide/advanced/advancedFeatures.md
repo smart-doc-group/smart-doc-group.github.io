@@ -1,6 +1,6 @@
 # Advanced features
 
-## Public request header
+## Public request header <Badge type="tip" text="^2.2.2" />
 
 **requestHeaders**
 
@@ -83,8 +83,8 @@ public CommonResult<Void> configQueryParamPost(String configQueryParam) {
      return CommonResult.ok();
 }
 ```
-## Static constant replacement
-**Starting from `2.4.2` version, this configuration does not need to be added manually, `smart-doc` can automatically recognize the use of static constants. **
+## ~~Static constant replacement~~
+**Starting from `2.4.2` version, this configuration does not need to be added manually, `smart-doc` can automatically recognize the use of static constants.**
 
 During the development of the `Java Web` interface, some users will use static scenes in the `path` of the `Controller`. Therefore, we also hope that `smart-doc` can parse static constants to obtain the real values.
 Let’s look at an example:
@@ -224,15 +224,15 @@ For example, there is an order status enumeration dictionary in the code.
 
 public enum OrderEnum {
 
-    WAIT_PAY("0", "已支付"),
+    WAIT_PAY("0", "wait to pay"),
 
-    PAID("1", "已支付"),
+    PAID("1", "paid"),
 
-    EXPIRED("2","已经失效");
+    EXPIRED("2","expired");
 
-    private String code;
+    private final String code;
 
-    private String desc;
+    private final String desc;
 
     OrderEnum(String code, String desc) {
         this.code = code;

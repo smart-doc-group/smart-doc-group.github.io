@@ -213,7 +213,7 @@ You can refer to the following documents to learn alternative configurations:
 
 [Spring boot uses Maven Profile and Spring Profile for multi-environment configuration and packaging](https://cloud.tencent.com/developer/article/1769239)
 
-## plug-in
+## Plug-in
 
 ### The project cannot load the smart-doc plug-in
 The error message is as follows:
