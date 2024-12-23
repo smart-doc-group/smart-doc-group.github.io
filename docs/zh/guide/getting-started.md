@@ -18,7 +18,12 @@
 > `outPath`也可以使用相对路径, 如: `./src/main/resources/static/doc`
 
 
-在项目启动类所在模块的`pom.xml`文件配置`Maven插件`, 注意: 需要`includes`依赖的源码包
+在项目启动类所在模块的`pom.xml`文件配置`Maven插件`
+
+:::tip
+注意: 需要`includes`依赖的源码包
+:::
+
 ```xml
 <plugin>
     <groupId>com.ly.smart-doc</groupId>

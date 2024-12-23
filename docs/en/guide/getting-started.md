@@ -18,7 +18,13 @@ Create the `smart-doc.json` file in the `resources` directory of the module wher
 > `outPath` can also use relative paths, such as: `./src/main/resources/static/doc`
 
 
-Configure the `Maven plug-in` in the `pom.xml` file of the module where the project startup class is located. Note: the source code package that `includes` depends on is required.
+Configure the `Maven plug-in` in the `pom.xml` file of the module where the project startup class is located.
+
+:::tip
+Note: the source code package that `includes` depends on is required.
+:::
+
+
 ```xml
 <plugin>
      <groupId>com.ly.smart-doc</groupId>
@@ -49,7 +55,7 @@ Configure the `Maven plug-in` in the `pom.xml` file of the module where the proj
 </plugin>
 
 ```
-> `includes` needs to be adjusted to configure `groupId:artifactId` for the packages that the project module depends on, and supports regular `artifactId:*`
+> `includes` needs to be adjusted to configure `groupId:artifactId` for the packages that the project module depends on, and supports regular `groupId:*`
 
 
 If the project depends on other internal public modules and second-party packages, the dependent packages need to be configured with source code packaging.
