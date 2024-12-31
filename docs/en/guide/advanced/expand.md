@@ -233,7 +233,7 @@ Create a new module or project and include the `smart-doc` dependency:
 </project>
 ```
 
-Implement the `com.power.doc.spi.DocBuildTemplate` interface. If you want to obtain `WebSocket` documentation, implement the `com.ly.doc.template.IWebSocketDocBuildTemplate` interface and implement the relevant methods.
+Implement the `com.ly.doc.template.IDocBuildTemplate` interface. If you want to obtain `WebSocket` documentation, implement the `com.ly.doc.template.IWebSocketDocBuildTemplate` interface and implement the relevant methods.
 
 For example:
 ```java
@@ -278,7 +278,7 @@ public class QuarkusDocBuildTemplate implements IDocBuildTemplate<ApiDoc> {
 }
 ```
 
-Then add the fully qualified name of the implementation class to the `resources/META-INF/services/com.ly.doc.spi.DocBuildTemplate` file.
+Then add the fully qualified name of the implementation class to the `resources/META-INF/services/com.ly.doc.template.IDocBuildTemplate` file.
 If it is a `WebSocket` document, add the fully qualified name of the implementation class to the `resources/META-INF/services/com.ly.doc.template.IWebSocketDocBuildTemplate` file.
 
 As shown below:
