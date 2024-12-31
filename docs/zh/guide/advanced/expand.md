@@ -238,7 +238,7 @@ Dubbo`层面的解析。由于官方开源人力有限，因此无法去满足�
     </dependencies>
 </project>
  ```
-实现`com.power.doc.spi.DocBuildTemplate`接口，如果要获取`WebSocket`文档，则实现`com.ly.doc.template.IWebSocketDocBuildTemplate`接口，并实现相关方法, 
+实现`com.power.doc.template.IDocBuildTemplate`接口，如果要获取`WebSocket`文档，则实现`com.ly.doc.template.IWebSocketDocBuildTemplate`接口，并实现相关方法, 
 示例代码如下：
 ```java
 package com.github.test;
@@ -310,7 +310,7 @@ public class QuarkusDocBuildTemplate implements IDocBuildTemplate<ApiDoc> {
 
 ```
 
-然后在 `resources/META-INF/services/com.ly.doc.spi.DocBuildTemplate` 文件中添加实现类的全类名。如果是`WebSocket`文档则在`resources/META-INF/services/com.ly.doc.template.IWebSocketDocBuildTemplate` 文件中添加实现类的全类名。
+然后在 `resources/META-INF/services/com.ly.doc.template.IDocBuildTemplate` 文件中添加实现类的全类名。如果是`WebSocket`文档则在`resources/META-INF/services/com.ly.doc.template.IWebSocketDocBuildTemplate` 文件中添加实现类的全类名。
 
 如下图所示：
 ![project](/assets/project-screenshots.png)
