@@ -238,7 +238,7 @@ Dubbo`层面的解析。由于官方开源人力有限，因此无法去满足�
     </dependencies>
 </project>
  ```
-实现`com.power.doc.template.IDocBuildTemplate`接口，如果要获取`WebSocket`文档，则实现`com.ly.doc.template.IWebSocketDocBuildTemplate`接口，并实现相关方法, 
+实现`com.ly.doc.template.IDocBuildTemplate`接口，如果要获取`WebSocket`文档，则实现`com.ly.doc.template.IWebSocketDocBuildTemplate`接口，并实现相关方法, 
 示例代码如下：
 ```java
 package com.github.test;
@@ -253,7 +253,7 @@ import com.thoughtworks.qdox.model.JavaClass;
 import java.util.Collection;
 
 /**
- * QuarkusDocBuildTemplate.
+ * QuarkusDocBuildTemplate 类，用于生成 Quarkus 项目的 API 文档。
  *
  * @author test
  * @version 1.0.0
@@ -262,11 +262,11 @@ import java.util.Collection;
 public class QuarkusDocBuildTemplate implements IDocBuildTemplate<ApiDoc> {
 
     /**
-     * render api
+     * 渲染 API 文档
      *
-     * @param projectBuilder   ProjectDocConfigBuilder
-     * @param candidateClasses candidate classes
-     * @return api ApiSchema
+     * @param projectBuilder   项目文档配置构建器
+     * @param candidateClasses 候选的 Java 类集合
+     * @return 返回生成的 API 文档架构
      */
     @Override
     public ApiSchema<ApiDoc> renderApi(ProjectDocConfigBuilder projectBuilder, Collection<JavaClass> candidateClasses) {
@@ -274,21 +274,21 @@ public class QuarkusDocBuildTemplate implements IDocBuildTemplate<ApiDoc> {
     }
 
     /**
-     * support framework.
+     * 判断是否支持指定的框架
      *
-     * @param framework framework
-     * @return boolean
+     * @param framework 框架名称
+     * @return 如果支持该框架则返回 true，否则返回 false
      */
     @Override
     public boolean supportsFramework(String framework) {
-        // 匹配
+        // 匹配 Quarkus 框架
         return "Quarkus".equalsIgnoreCase(framework);
     }
 
     /**
-     * registered annotations.
+     * 获取已注册的注解
      *
-     * @return registered annotations
+     * @return 返回框架支持的注解
      */
     @Override
     public FrameworkAnnotations registeredAnnotations() {
@@ -296,11 +296,11 @@ public class QuarkusDocBuildTemplate implements IDocBuildTemplate<ApiDoc> {
     }
 
     /**
-     * is entry point.
+     * 判断给定的 Java 类是否为入口点
      *
-     * @param javaClass            javaClass
-     * @param frameworkAnnotations frameworkAnnotations
-     * @return is entry point
+     * @param javaClass            Java 类
+     * @param frameworkAnnotations 框架注解
+     * @return 如果是入口点返回 true，否则返回 false
      */
     @Override
     public boolean isEntryPoint(JavaClass javaClass, FrameworkAnnotations frameworkAnnotations) {

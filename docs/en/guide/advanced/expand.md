@@ -103,7 +103,7 @@ The field information is as follows:
 
 
 
-## Other framework document parsing and development
+## ~~Other framework document parsing and development~~
 :::warning
 `@since 3.0.6`, you don't need to modify the source code~
 :::
@@ -256,21 +256,47 @@ import java.util.Collection;
  */
 public class QuarkusDocBuildTemplate implements IDocBuildTemplate<ApiDoc> {
 
+    /**
+     * render api
+     *
+     * @param projectBuilder   ProjectDocConfigBuilder
+     * @param candidateClasses candidate classes
+     * @return api ApiSchema
+     */
     @Override
     public ApiSchema<ApiDoc> renderApi(ProjectDocConfigBuilder projectBuilder, Collection<JavaClass> candidateClasses) {
         return null;
     }
 
+    /**
+     * support framework.
+     *
+     * @param framework framework
+     * @return boolean
+     */
     @Override
     public boolean supportsFramework(String framework) {
+        // match Quarkus
         return "Quarkus".equalsIgnoreCase(framework);
     }
 
+    /**
+     * registered annotations.
+     *
+     * @return registered annotations
+     */
     @Override
     public FrameworkAnnotations registeredAnnotations() {
         return null;
     }
 
+    /**
+     * is entry point.
+     *
+     * @param javaClass            javaClass
+     * @param frameworkAnnotations frameworkAnnotations
+     * @return is entry point
+     */
     @Override
     public boolean isEntryPoint(JavaClass javaClass, FrameworkAnnotations frameworkAnnotations) {
         return false;
