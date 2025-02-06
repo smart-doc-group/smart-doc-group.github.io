@@ -15,7 +15,7 @@
 }
 
 ```
-> `outPath`也可以使用相对路径, 如: `./src/main/resources/static/doc`
+> `outPath`也可以使用相对路径, 如: `./src/main/resources/static/doc`, 更多配置项请参考 [配置项](advanced/config)
 
 
 在项目启动类所在模块的`pom.xml`文件配置`Maven插件`
