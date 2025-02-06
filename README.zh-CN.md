@@ -1,5 +1,8 @@
 # Smart-Doc VitePress 文档
 
+
+[English Doc](/README.md)
+
 ## 项目目录
 ```shell
 .

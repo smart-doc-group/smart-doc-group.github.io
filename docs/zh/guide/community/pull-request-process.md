@@ -13,7 +13,7 @@
 ## 2. 从远程仓库同步 && 本地解决冲突
 1. 在本地使用`git pull`命令从远程仓库同步代码
 
-2. 如果没有冲突，那太好了。如果存在冲突，[请参考 about-merge-conflicts](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)解决
+2. 如果没有冲突，那太好了。如果存在冲突，请参考 [about-merge-conflicts](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) 解决
 
 ## 3. 提交commit && 推送到远程仓库
 
@@ -21,11 +21,18 @@
 提交commit之前请使用 `mvn spring-javaformat:apply`进行代码格式化
 :::
 
-1. 一个`pull request`中只能一个`commit`。如果有多个`commit`，使用 [Rebase命令合并commit](rebase-option.md)
+1. 一个 `pull request` 中只能一个 `commit` 。如果有多个 `commit` ，使用 [Rebase命令合并commit](rebase-option)
 2. 每个`commit`都要在`CHANGELOG`中添加对应的修改记录。
-3. `git push` 或则 `git push -f`(合并了远程`commit`添加 `-f`)推送`commit`到远程仓库
+3. 确保 `commit` 提交信息符合 [Angular 提交规范](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits)。
+4. `git push` 或则 `git push -f` (合并了远程 `commit` 添加 `-f` ) 推送`commit`到远程仓库
 
-- [Rebase操作参考文档](rebase-option.md)
+- [Rebase操作参考文档](rebase-option)
+
+::: tip
+- [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Angular 提交规范](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits)
+:::
+
 
 ## 4. 创建 pull request
 

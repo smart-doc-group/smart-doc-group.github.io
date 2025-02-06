@@ -2,7 +2,7 @@
 
 > smart-doc官方目前已经开发完成Maven插件和Gradle插件，本章以Maven插件举例.
 
-> Gradle插件配置请 [跳转](plugins/gradle.md).
+> Gradle插件配置请 [跳转](plugins/gradle).
 
 
 ## 最小化配置
