@@ -48,7 +48,7 @@
             "value": "testPath", //不设置默认null
             "required": false, //是否必须
             "since": "-", //什么版本添加的改请求参数
-            "pathPatterns": "**", //正则表达式过滤请求, 所有参数都会有此参数
+            "pathPatterns": "/**", //正则表达式过滤请求, 所有参数都会有此参数
             "excludePathPatterns": "/app/page/**" //参考请求头中的用法
         }
     ]

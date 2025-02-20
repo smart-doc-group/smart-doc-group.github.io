@@ -46,7 +46,7 @@ Please study PathMatcher yourself and write the correct regular expression when 
              "value": "testPath", //Do not set the default null
              "required": false, //Is it necessary?
              "since": "-", //What version added the request parameters?
-             "pathPatterns": "**", //Regular expression filter request, all parameters will have this parameter
+             "pathPatterns": "/**", //Regular expression filter request, all parameters will have this parameter
              "excludePathPatterns": "/app/page/**" //Refer to the usage in the request header
          }
      ]
