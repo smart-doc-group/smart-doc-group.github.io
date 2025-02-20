@@ -195,7 +195,7 @@
             "value": "testPath",
             "required": false,
             "since": "-",
-            "pathPatterns": "**",
+            "pathPatterns": "/**",
             "excludePathPatterns": "/app/page/**"
         },
         {
@@ -206,7 +206,7 @@
             "value": "testQuery",
             "required": false,
             "since": "-",
-            "pathPatterns": "**",
+            "pathPatterns": "/**",
             "excludePathPatterns": "/app/page/**"
         }
     ],
@@ -279,12 +279,12 @@
 
 Configure the data dictionary. Starting from `2.4.6`, you can configure the interface implemented by the enumeration. When configuring the interface, `title` will use the class description that implements the enumeration. If there are already implemented enumerations that need to be ignored, you can implement the enumeration. Add `@ignore` to the class to ignore it.
 
-| Configuration   | Type     | Description                                                  |
-| --------------- | -------- | ------------------------------------------------------------ |
-| `title`         | `String` |                                                              |
-| `enumClassName` | `String` | Error code enumeration class                                 |
+| Configuration   | Type     | Description                                                                                                                                                                                                                                                    |
+|-----------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title`         | `String` |                                                                                                                                                                                                                                                                |
+| `enumClassName` | `String` | Error code enumeration class                                                                                                                                                                                                                                   |
 | `codeField`     | `String` | The name of the `code` code field of the error code. By default, `smart-doc` uses the `getCode` method name to obtain it through reflection. If there is no `get` method, you can configure the corresponding method name of the field, for example: `code()`. |
-| `descField`     | `String` | The field name corresponding to the error code description information. Like `codeField`, it can be configured as a method name, for example: `message()` |
+| `descField`     | `String` | The field name corresponding to the error code description information. Like `codeField`, it can be configured as a method name, for example: `message()`                                                                                                      |
 
 ```json
 {
@@ -305,12 +305,12 @@ Configure the data dictionary. Starting from `2.4.6`, you can configure the inte
 
 Error code list, starting from `2.4.6`, you can configure the interface implemented by the enumeration. When configuring the interface, `title` will use the class description that implements the enumeration. If there are already implemented enumerations that need to be ignored, you can implement the enumeration. Add `@ignore` to the class to ignore it.
 
-| Configuration   | Type     | Description                                                  |
-| --------------- | -------- | ------------------------------------------------------------ |
-| `title`         | `String` |                                                              |
-| `enumClassName` | `String` | Error code enumeration class                                 |
+| Configuration   | Type     | Description                                                                                                                                                                                                                                                    |
+|-----------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title`         | `String` |                                                                                                                                                                                                                                                                |
+| `enumClassName` | `String` | Error code enumeration class                                                                                                                                                                                                                                   |
 | `codeField`     | `String` | The name of the `code` code field of the error code. By default, `smart-doc` uses the `getCode` method name to obtain it through reflection. If there is no `get` method, you can configure the corresponding method name of the field, for example: `code()`. |
-| `descField`     | `String` | The field name corresponding to the error code description information. Like `codeField`, it can be configured as a method name, for example: `message()` |
+| `descField`     | `String` | The field name corresponding to the error code description information. Like `codeField`, it can be configured as a method name, for example: `message()`                                                                                                      |
 
 ```json
 {
@@ -332,7 +332,7 @@ Error code list, starting from `2.4.6`, you can configure the interface implemen
 Documentation change history.
 
 | Configuration  | Type     | Description                                            |
-| -------------- | -------- | ------------------------------------------------------ |
+|----------------|----------|--------------------------------------------------------|
 | `version`      | `String` | Document version number                                |
 | `revisionTime` | `String` | Document revision time                                 |
 | `status`       | `String` | Change operation status, usually: create, update, etc. |
@@ -359,13 +359,13 @@ Documentation change history.
 
 Customize added fields and comments, and general users deal with third-party `jar` package libraries.
 
-| Configuration    | Type      | Description                                                  |
-| ---------------- | --------- | ------------------------------------------------------------ |
-| `name`           | `String`  | Override response code field                                 |
-| `desc`           | `String`  | Field comments that override the response code               |
-| `ownerClassName` | `String`  | Specify the class name you want to annotate                  |
+| Configuration    | Type      | Description                                                                    |
+|------------------|-----------|--------------------------------------------------------------------------------|
+| `name`           | `String`  | Override response code field                                                   |
+| `desc`           | `String`  | Field comments that override the response code                                 |
+| `ownerClassName` | `String`  | Specify the class name you want to annotate                                    |
 | `ignore`         | `Boolean` | Setting true will be automatically ignored and will not appear in the document |
-| `value`          | `String`  | Set the value of the response code                           |
+| `value`          | `String`  | Set the value of the response code                                             |
 
 ```json
 {
@@ -442,7 +442,7 @@ The open `Dubbo API` interface module of the project depends on it. After config
 Use custom classes to override other classes for document rendering.
 
 | Configuration          | Type     | Description                                   |
-| ---------------------- | -------- | --------------------------------------------- |
+|------------------------|----------|-----------------------------------------------|
 | `className`            | `String` | The full class name that needs to be replaced |
 | `replacementClassName` | `String` | The fully qualified class name to be replaced |
 
@@ -464,7 +464,7 @@ Use custom classes to override other classes for document rendering.
 `ResponseBodyAdvice` is a hook reserved in the `Spring` framework. It acts after the `Controller` method is executed and before the `http` response body is written back to the client. It can conveniently weave in some of its own business logic processing. Therefore, `smart-doc` also provides support for unified return settings of `ResponseBodyAdvice` (do not configure it casually according to the technology of the project), which can be ignored by `ignoreResponseBodyAdvice` `tag`.
 
 | Configuration | Type     | Description             |
-| ------------- | -------- | ----------------------- |
+|---------------|----------|-------------------------|
 | `className`   | `String` | Universal response body |
 
 ```json
@@ -501,9 +501,9 @@ Group different `Controllers`.
 
 > PS: Grouping does not take effect on postman.json and openApi.json
 
-| Configuration | Type     | Description                                                  |
-| ------------- | -------- | ------------------------------------------------------------ |
-| `name`        | `String` | Group name                                                   |
+| Configuration | Type     | Description                                                                           |
+|---------------|----------|---------------------------------------------------------------------------------------|
+| `name`        | `String` | Group name                                                                            |
 | `apis`        | `String` | Group url, supports regular expressions,with multiple expressions separated by commas |
 
 ```json
@@ -535,8 +535,8 @@ public void testIsMatch() {
 ## jmeter
 Starting from version `3.0.4`, the following custom configuration options have been added when generating `JMeter` performance test scripts:
 
-| Configuration           | Type      | Description                                                  |
-| ----------------------- | --------- | ------------------------------------------------------------ |
+| Configuration           | Type      | Description                                                       |
+|-------------------------|-----------|-------------------------------------------------------------------|
 | `addPrometheusListener` | `Boolean` | Whether to add a `Prometheus` listener when generating the script |
 
 ```json

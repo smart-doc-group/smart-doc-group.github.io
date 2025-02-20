@@ -199,7 +199,7 @@
             "value": "testPath",
             "required": false,
             "since": "-",
-            "pathPatterns": "**",
+            "pathPatterns": "/**",
             "excludePathPatterns": "/app/page/**"
         },
         {
@@ -210,7 +210,7 @@
             "value": "testQuery",
             "required": false,
             "since": "-",
-            "pathPatterns": "**",
+            "pathPatterns": "/**",
             "excludePathPatterns": "/app/page/**"
         }
     ],
