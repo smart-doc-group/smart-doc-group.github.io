@@ -52,7 +52,7 @@
   "rpcConsumerConfig":"src/main/resources/consumer-example.conf"//文档中添加dubbo consumer集成配置，用于方便集成方可以快速集成
 }
 ```
-关于`smart-doc`如果你生成文档需要更详细的配置请常看官方其它文档
+关于`smart-doc`如果你生成文档需要更详细的配置请常看官方其它文档 [配置项](/zh/guide/advanced/config)
 
 **rpcConsumerConfig：**
 

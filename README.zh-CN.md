@@ -26,7 +26,7 @@
 
 > 推荐使用 nvm 管理 node 版本
 
-[![nodejs](https://img.shields.io/badge/node-v20.x-brightgreen)](https://nodejs.org/en/)
+[![nodejs](https://img.shields.io/badge/node-v20.x-brightgreen)](https://nodejs.org/zh-cn)
 
 > pnpm 推荐使用 scoop(windows) | brew(macos) 安装
 

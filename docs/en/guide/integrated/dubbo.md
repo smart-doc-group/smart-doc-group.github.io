@@ -52,7 +52,7 @@ Add the `smart-doc.json` configuration file in your `Dubbo API` or `dubbo provid
    "rpcConsumerConfig":"src/main/resources/consumer-example.conf"//Add dubbo consumer integration configuration in the document to facilitate the integration party to quickly integrate
 }
 ```
-Regarding `smart-doc`, if you need more detailed configuration when generating documents, please refer to other official documents.
+Regarding `smart-doc`, if you need more detailed configuration when generating documents, please refer to other official documents. [Configuration items](/guide/advanced/config).
 
 **rpcConsumerConfig:**
 
