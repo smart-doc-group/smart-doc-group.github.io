@@ -29,7 +29,7 @@
 - [Rebase操作参考文档](rebase-option)
 
 ::: tip
-- [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+- [约定式提交](https://www.conventionalcommits.org/zh-hans/v1.0.0/)
 - [Angular 提交规范](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits)
 :::
 

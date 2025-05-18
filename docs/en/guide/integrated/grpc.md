@@ -51,7 +51,7 @@ Add the `smart-doc.json` configuration file in the module `resources`.
 }
 ```
 
-For more detailed configurations when generating documentation with`smart-doc`, please refer to the official documentation [Configuration items](/en/guide/advanced/config).
+For more detailed configurations when generating documentation with`smart-doc`, please refer to the official documentation [Configuration items](/guide/advanced/config).
 
 ## gRPC Interface Scanning
 The scanning mechanism mainly works by scanning the `.proto` files to obtain interface information.
