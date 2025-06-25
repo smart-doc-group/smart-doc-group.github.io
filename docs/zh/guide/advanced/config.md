@@ -70,6 +70,7 @@
 |                   `addDefaultHttpStatuses`                    | `3.0.5` | ❌  |   `Boolean`    |       `false`       | 生成文档时是否添加框架默认的`http`状态码，例如`Spring MVC`默认的`500`和`404`, 当前只有生成`OenAPI`文档时支持。                                                                                                                                                                           |
 |                        `enumConvertor`                        | `3.1.0` | ❌  |   `Boolean`    |       `false`       | 在 header/path/query 请求类型下，是否启用枚举转换器，默认值为false。<br/>如果为true，则解析enumValue作为枚举示例值。<br/>如果为false，则以enumName作为枚举示例值                                                                                                                                       |
 |          [`openApiTagNameType`](#openapitagnametype)          | `3.1.1` | ❌  |    `String`    |    `CLASS_NAME`     | 定义 OpenAPI 文档中 `tags[].name` 的生成策略。<br/> 可选值：<br/> - `CLASS_NAME`（默认）：使用控制器的简单类名（如 `UserController`）。<br/> - `DESCRIPTION`：使用控制器的描述信息（如 `用户管理`）。<br/> - `PACKAGE_NAME`：使用控制器的完整包路径（如 `com.example.controller`）。<br/> 此设置影响 API 操作在 OpenAPI 文档中的分组方式。 |
+|                        `allowSelfReference`                     | `3.1.1` | ❌  |   `Boolean`    |       `false`       | 是否启用自引用处理，默认值为false。<br/>启用递归展开自引用结构，最多支持2层嵌套。<br/>当启用时，自引用字段（如 `List<T> children`）将显示完整结构而非空内容或仅引用内容。    |
 
 ```json
 {
@@ -254,6 +255,7 @@
     },
     "addDefaultHttpStatuses": true,
     "enumConvertor": false,
+    "allowSelfReference": false,
     "openApiTagNameType": "CLASS_NAME"
 }
 ```
