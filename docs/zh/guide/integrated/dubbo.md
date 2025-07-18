@@ -29,7 +29,11 @@
             <!--如果不需要在执行编译时启动smart-doc，则将phase注释掉-->
             <phase>compile</phase>
             <goals>
-                <goal>dubbo</goal>
+                <!--根据需求选择配置下面的任一goal-->
+                <goal>rpc-html</goal>
+                <goal>rpc-adoc</goal>
+                <goal>rpc-markdown</goal>
+                <goal>rpc-word</goal>
             </goals>
         </execution>
     </executions>

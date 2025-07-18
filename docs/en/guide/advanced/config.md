@@ -65,6 +65,8 @@
 |                                    `jmeter`                                    | `3.0.4` |    ❌     | `Object`       |                     | Custom Configurations for JMeter Performance Test Script Generation                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |                            `addDefaultHttpStatuses`                            | `3.0.5` |    ❌     | `Boolean`      |       `false`       | When generating documentation, consider whether to include the default HTTP status codes from frameworks such as Spring MVC's default `500` and `404` errors. Currently, only the generation of `OpenAPI` documentation supports this feature.                                                                                                                                                                                                                                                                               |
 |                                `enumConvertor`                                 | `3.1.0` |    ❌     | `Boolean`      |       `false`       | In the header/path/query request mode, whether to enable the enumeration converter, The default value is false. <br/>If true, the enumeration value is parsed as an enumeration example value. <br/>If false, take the enumeration name as the enumeration example value                                                                                                                                                                                                                                                     |
+|                              `allowSelfReference`                              | `3.1.1` |    ❌     | `Boolean`      |       `false`       | Whether to enable self-reference handling, default value is false.<br/>Enables recursive expansion of self-referencing structures up to 2 levels.<br/>When enabled, self-referencing fields (like `List<T> children`) will display full structure instead of empty or reference-only content.                                                                                                                                                                                                                                |
+|                  [`openApiTagNameType`](#openapitagnametype)                   | `3.1.1` |    ❌     | `String`       |    `CLASS_NAME`     | Determines how to generate tag names (`tags[].name`) in the OpenAPI document. Possible values: <ul><li>`CLASS_NAME` (default): Use the controller's simple class name.</li><li>`DESCRIPTION`: Use the controller's description.</li><li>`PACKAGE_NAME`: Use the controller's full package name.</li></ul> This setting controls how API operations are grouped in the OpenAPI documentation.                                                                                                                                 |
 
 ```json
 {
@@ -248,7 +250,9 @@
         "addPrometheusListener": true
     },
     "addDefaultHttpStatuses": true,
-    "enumConvertor": false
+    "enumConvertor": false,
+    "allowSelfReference": false,
+    "openApiTagNameType": "CLASS_NAME"
 }
 ```
 ## packageFilters
@@ -271,7 +275,36 @@
 }
 ```
 
+If the interface filtering result does not meet expectations after configuration, the issue might be in the regular expression setup. You can manually invoke the `DocUtil` tool in `smart-doc` to verify your regex.
 
+Refer to the following example for validation:
+
+```
+    /**
+     * test packageFilters pattern
+     */
+    @Test
+    void testIsMatchPattern() {
+        String classOne = "xxx.yyy.zzz.Controller";
+        String classTwo = "xxx.yyy.zzz222.TestController";
+
+        // Match only classes under com.example
+        String packageFiltersOne = "^xxx\\.yyy\\.zzz\\..*$";
+        boolean result1 = DocUtil.isMatch(packageFiltersOne, classOne);
+        boolean result2 = DocUtil.isMatch(packageFiltersOne, classTwo);
+
+        assertTrue(result1);
+        assertFalse(result2);
+
+        // Greedy regex with .*
+        String packageFiltersTwo = "xxx.yyy.zzz.*";
+        boolean result3 = DocUtil.isMatch(packageFiltersTwo, classOne);
+        boolean result4 = DocUtil.isMatch(packageFiltersTwo, classTwo);
+
+        assertTrue(result3);
+        assertTrue(result4);
+    }
+```
 
 
 
@@ -532,7 +565,7 @@ public void testIsMatch() {
     System.out.println(DocUtil.isMatch(pattern, controllerName));
 }
 ```
-## jmeter
+## jmeter    <Badge type="tip" text="^3.0.4" />
 Starting from version `3.0.4`, the following custom configuration options have been added when generating `JMeter` performance test scripts:
 
 | Configuration           | Type      | Description                                                       |
@@ -547,7 +580,45 @@ Starting from version `3.0.4`, the following custom configuration options have b
 }
 ```
 
+## openApiTagNameType <Badge type="tip" text="^3.1.1" />
 
+Added in version `3.1.1`, this configuration controls the **generation strategy for `tags[].name` in OpenAPI documents**. It allows flexible definition of how API interfaces are grouped in the documentation.
+
+### ✅ Configuration Details
+
+| Configuration        | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                |
+|----------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `openApiTagNameType` | `String` | Specifies the tag name generation method. Supported enumeration values:<br> - `CLASS_NAME` (default): Uses the controller class name as the tag name (e.g., `UserController`)<br> - `DESCRIPTION`: Uses the controller description as the tag name (e.g., `User Management Interface`)<br> - `PACKAGE_NAME`: Uses the full package path of the controller (e.g., `com.example.controller`) |
+
+### 📄 Example Configuration
+
+```json
+{
+  "openApiTagNameType": "DESCRIPTION"
+}
+```
+
+### 📌 Usage Guide
+
+- **CLASS_NAME**  
+  Uses the controller class name directly as the tag name. Suitable for basic scenarios.  
+  Example: `UserController` → Tag name `UserController`
+
+- **DESCRIPTION**  
+  Uses the controller's description
+  Example: Description set to `User Management Interface` → Tag name `User Management Interface`
+
+- **PACKAGE_NAME**  
+  Uses the full package path as the tag name. Ideal for modular organization in large projects.  
+  Example: Package path `com.example.controller.user` → Tag name `com.example.controller.user`
+
+### 🧩 Recommended Scenarios
+
+| Scenario                            | Recommended Configuration | Description                           |
+|-------------------------------------|---------------------------|---------------------------------------|
+| Quickly generate base documentation | `CLASS_NAME`              | No extra configuration required       |
+| Use user-friendly tag names         | `DESCRIPTION`             | Leverage controller descriptions      |
+| Organize documentation by module    | `PACKAGE_NAME`            | Logical grouping by package structure |
 
 
 
