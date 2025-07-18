@@ -29,7 +29,10 @@ Add `smart-doc-maven-plugin` to your `dubbo api` or `dubbo provider` module. Of 
              <!--If you do not need to start smart-doc when compiling, comment out phase-->
              <phase>compile</phase>
              <goals>
-                 <goal>dubbo</goal>
+                 <goal>rpc-html</goal>
+                 <goal>rpc-adoc</goal>
+                 <goal>rpc-markdown</goal>
+                 <goal>rpc-word</goal>
              </goals>
          </execution>
      </executions>
@@ -52,7 +55,7 @@ Add the `smart-doc.json` configuration file in your `Dubbo API` or `dubbo provid
    "rpcConsumerConfig":"src/main/resources/consumer-example.conf"//Add dubbo consumer integration configuration in the document to facilitate the integration party to quickly integrate
 }
 ```
-Regarding `smart-doc`, if you need more detailed configuration when generating documents, please refer to other official documents.
+Regarding `smart-doc`, if you need more detailed configuration when generating documents, please refer to other official documents. [Configuration items](/guide/advanced/config).
 
 **rpcConsumerConfig:**
 

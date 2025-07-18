@@ -323,15 +323,15 @@ config.setSourceCodePaths(
 ```xml
 <!--依赖的库-->
 <dependency>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>io.github.shalousun</groupId>
     <artifactId>common-util</artifactId>
-    <version>2.2.2</version>
+    <version>2.2.9</version>
 </dependency>
 <!--依赖库源码，使用smart-doc的插件无需使用这种方式加载sources-->
 <dependency>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>io.github.shalousun</groupId>
     <artifactId>common-util</artifactId>
-    <version>2.2.2</version>
+    <version>2.2.9</version>
     <classifier>sources</classifier>
     <!--设置为test,项目发布时source不会放入最终的产品包-->
     <scope>test</scope>
