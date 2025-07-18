@@ -311,15 +311,15 @@ Let’s first look at how to use `classifier` to load the source code package.
 ```xml
 <!--Dependent libraries-->
 <dependency>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>io.github.shalousun</groupId>
      <artifactId>common-util</artifactId>
-     <version>2.2.2</version>
+     <version>2.2.9</version>
 </dependency>
 <!--Depending on library source code, plug-ins using smart-doc do not need to load sources in this way-->
 <dependency>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>io.github.shalousun</groupId>
      <artifactId>common-util</artifactId>
-     <version>2.2.2</version>
+     <version>2.2.9</version>
      <classifier>sources</classifier>
      <!--Set to test, the source will not be put into the final product package when the project is released-->
      <scope>test</scope>

@@ -29,7 +29,10 @@ Add `smart-doc-maven-plugin` to your `dubbo api` or `dubbo provider` module. Of 
              <!--If you do not need to start smart-doc when compiling, comment out phase-->
              <phase>compile</phase>
              <goals>
-                 <goal>dubbo</goal>
+                 <goal>rpc-html</goal>
+                 <goal>rpc-adoc</goal>
+                 <goal>rpc-markdown</goal>
+                 <goal>rpc-word</goal>
              </goals>
          </execution>
      </executions>
