@@ -75,7 +75,7 @@
         <figure>
         <img src="/assets/smart-doc-qq2.jpeg" title="QQ群2" width="200px" 
 height="200px"/>
-        <figcaption style="text-align: center;">社区QQ群</figcaption>
+        <figcaption style="text-align: center;">社区QQ群(已满)</figcaption>
         </figure>
     </div>
 </div>
