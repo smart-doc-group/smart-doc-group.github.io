@@ -44,7 +44,7 @@ export const shared = defineConfig({
         logo: { src: '/logo/smart-doc-logo.svg', width: 24, height: 24 },
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/TongchengOpenSource/smart-doc' }
+            { icon: 'github', link: 'https://github.com/smart-doc-group/smart-doc' }
         ],
 
         search: {
