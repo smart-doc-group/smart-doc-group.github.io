@@ -194,7 +194,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 
 ### Plug-in source code
 
-[GitHub](https://github.com/TongchengOpenSource/smart-doc-maven-plugin)
+[GitHub](https://github.com/smart-doc-group/smart-doc-maven-plugin)
 
 ## Plug-in debugging
 Some errors may occur when using the `smart-doc-maven-plugin` plug-in to build and generate `API` documentation.

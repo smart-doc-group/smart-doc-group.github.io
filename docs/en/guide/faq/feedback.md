@@ -3,7 +3,7 @@
 Regarding `Q&A`, please follow the process below:
 
 * For content available in the `Wiki`, please take the time to read the documentation, and do not raise an `Issue`.
-* Duplicate `Issues` will be deleted. Please first search your question in `Issues` to confirm it hasn't been raised before creating a new [`Issue`](https://github.com/TongchengOpenSource/smart-doc/issues/new/choose).
+* Duplicate `Issues` will be deleted. Please first search your question in `Issues` to confirm it hasn't been raised before creating a new [`Issue`](https://github.com/smart-doc-group/smart-doc/issues/new/choose).
 * If you encounter an error and are certain it's a `Bug`, please report it as a `Bug or PR` following the `Issue` template.
 * For consultations and discussions, please join the WeChat group for communication.
 

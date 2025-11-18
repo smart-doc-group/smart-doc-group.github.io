@@ -55,7 +55,7 @@ const members = [
 <VPTeamMembers size="small" :members="members" />
 
 ## Contributor
-https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
+https://github.com/smart-doc-group/smart-doc/graphs/contributors
 
 ## Maintainer
 对`smart-doc`项目演进和发展做出显著贡献的个人。
