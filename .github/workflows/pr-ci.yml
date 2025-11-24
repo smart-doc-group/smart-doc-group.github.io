@@ -25,7 +25,7 @@ jobs:
       group: pr-build-${{ github.event.pull_request.number }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Not needed if lastUpdated is not enabled
       - uses: pnpm/action-setup@v4 # Uncomment this if you're using pnpm
