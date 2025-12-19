@@ -352,3 +352,15 @@ if( packageInfo.exists() )
     context.add( pckg );
 }
 ```
+### How to Convert Long to String?
+
+In web projects, when a Java backend sends a `Long`/`long` type to the frontend, JavaScript may lose precision when receiving it, leading to data inaccuracies.
+
+Currently, **smart-doc** supports automatic recognition of annotations to handle this conversion.
+
+To address this, add the `@JsonSerialize` annotation to the corresponding field in your class:
+
+```java
+@JsonSerialize(using = ToStringSerializer.class)
+private Long id;
+```

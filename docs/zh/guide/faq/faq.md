@@ -352,3 +352,11 @@ if( packageInfo.exists() )
     context.add( pckg );
 }
 ```
+### 如何将Long转String？
+在`web`项目中,`Java`后端传过来的`Long/long`类型，前端`JS`接收时会丢失精度。导致数据有问题。`smart-doc`当前支持自动识别注解完成转换。
+
+在相应的类的属性上添加`JsonSerialize`注解
+```java
+@JsonSerialize(using = ToStringSerializer.class)
+private Long id;
+```
