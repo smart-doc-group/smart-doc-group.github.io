@@ -67,21 +67,21 @@
 <div style="display: flex; flex-wrap: wrap;">
     <div style="margin-right: 10px;">
       <figure>
-        <img src="/assets/wechat.png" title="微信群" width="200px" height="200px"/>
-        <figcaption style="text-align: center;">社区管理员微信</figcaption>
+        <img src="/assets/smart-doc-qq.jpg" title="QQ群1" width="200px" height="200px"/>
+        <figcaption style="text-align: center;">加此2000人大群</figcaption>
       </figure>
     </div>
     <div style="margin-right: 10px;">
         <figure>
         <img src="/assets/smart-doc-qq2.jpeg" title="QQ群2" width="200px" 
 height="200px"/>
-        <figcaption style="text-align: center;">社区QQ群(已满)</figcaption>
+        <figcaption style="text-align: center;">社区QQ群2(已满)</figcaption>
         </figure>
     </div>
 </div>
 
 
-关注微信公众号，了解社区动态和更多技术分享
+关注微信公众号，了解社区动态已经当前火热的AI相关知识
 
 <img src="/assets/WeChat-Official-Account.png" style="width: 50%; height: 50%" />
 

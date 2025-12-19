@@ -159,7 +159,7 @@ When you use `Idea`, you can choose what kind of documentation to generate throu
 ![Use of smart-doc-gradle plug-in in idea](/assets/idea-gradle-plugin.png)
 
 ### Plug-in source code
-https://github.com/TongchengOpenSource/smart-doc-gradle-plugin
+https://github.com/smart-doc-group/smart-doc-gradle-plugin
 
 The development of the official `Gradle` plug-in of `smart-doc` is in progress. The main structure of the plug-in is currently completed. During optimization testing, please wait patiently for release.
 
