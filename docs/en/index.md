@@ -16,7 +16,7 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: GitHub
-      link: https://github.com/TongchengOpenSource/smart-doc
+      link: https://github.com/smart-doc-group/smart-doc
   image:
     src: /logo/smart-doc-logo.svg
     alt: Smart-Doc

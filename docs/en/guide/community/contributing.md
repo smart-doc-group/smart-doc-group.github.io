@@ -52,7 +52,7 @@ All code must go through a `Committer` review. Here are some principles we recom
 We very much welcome you to share any usage cases related to `smart-doc`. We encourage everyone to submit articles and share their `smart-doc` usage cases.
 
 ## Participating in Community Discussions
-If you encounter any problems using `smart-doc`, you are welcome to join discussions on [Discussions](https://github.com/TongchengOpenSource/smart-doc/discussions).
+If you encounter any problems using `smart-doc`, you are welcome to join discussions on [Discussions](https://github.com/smart-doc-group/smart-doc/discussions).
 You are also welcome to help other users here by answering questions they may have about using the tool.
 
 `Discussion` categories:

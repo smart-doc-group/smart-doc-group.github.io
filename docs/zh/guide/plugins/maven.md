@@ -201,9 +201,9 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 "maven_plugin_tasks.png")
 
 ### 插件源码
-[Gitee](https://gitee.com/TongchengOpenSource/smart-doc-maven-plugin)
+[Gitee](https://gitee.com/smart-doc-group/smart-doc-maven-plugin)
 
-[GitHub](https://github.com/TongchengOpenSource/smart-doc-maven-plugin)
+[GitHub](https://github.com/smart-doc-group/smart-doc-maven-plugin)
 
 ## 插件调试
 在使用`smart-doc-maven-plugin`插件来构建生成`API`文档的过程中可能会出现一些错误问题。
