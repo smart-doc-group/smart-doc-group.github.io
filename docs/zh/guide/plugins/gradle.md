@@ -162,9 +162,9 @@ gradle javadocAdoc
 
 ## 插件源码
 
-[Gitee](https://gitee.com/TongchengOpenSource/smart-doc-gradle-plugin)
+[Gitee](https://gitee.com/smart-doc-group/smart-doc-gradle-plugin)
 
-[GitHub](https://github.com/TongchengOpenSource/smart-doc-gradle-plugin)
+[GitHub](https://github.com/smart-doc-group/smart-doc-gradle-plugin)
 
 ## 插件调试
 `smart-doc-gradle-plugin`插件依赖于`smart-doc`来完成文件的解析，`smart-doc-gradle-plugin`主要是为了用户更加快速简易的
