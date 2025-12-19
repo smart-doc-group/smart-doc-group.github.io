@@ -61,7 +61,7 @@ const members = [
 
 ## Contributor
 
-https://github.com/TongchengOpenSource/smart-doc/graphs/contributors
+https://github.com/smart-doc-group/smart-doc/graphs/contributors
 
 ## Maintainer
 

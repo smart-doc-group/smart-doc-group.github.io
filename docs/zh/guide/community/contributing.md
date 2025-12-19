@@ -60,7 +60,7 @@
 对于优秀的案例分享者，社区也会后续也会给予一些奖励。
 
 ## 参与社区讨论
-如果您在使用`smart-doc`中遇到任何问题，欢迎到[Discussions](https://github.com/TongchengOpenSource/smart-doc/discussions)进行交流互动。
+如果您在使用`smart-doc`中遇到任何问题，欢迎到[Discussions](https://github.com/smart-doc-group/smart-doc/discussions)进行交流互动。
 也欢迎在这里帮助其他使用者解答一些使用中的问题。
 
 `Discussion`分类：

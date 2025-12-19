@@ -57,7 +57,7 @@
   
 只要你掌握了上面几种方法什么开源软件版本查找都难不倒你。
 
-你`GET`到了吗？`GET`到了那就快去 [smart-doc](https://github.com/TongchengOpenSource/smart-doc)  给我们一键三连吧！
+你`GET`到了吗？`GET`到了那就快去 [smart-doc](https://github.com/smart-doc-group/smart-doc)  给我们一键三连吧！
 
 ## 注释怎么提取不到啊？
 这个往往是一些萌新提出的问题。`smart-doc`的原理是使用源代码中的注释和泛型来分析生成文档。
@@ -351,4 +351,12 @@ if( packageInfo.exists() )
                                                   packageInfo.toURI().toURL() ).getSource().getPackage();
     context.add( pckg );
 }
+```
+### 如何将Long转String？
+在`web`项目中,`Java`后端传过来的`Long/long`类型，前端`JS`接收时会丢失精度。导致数据有问题。`smart-doc`当前支持自动识别注解完成转换。
+
+在相应的类的属性上添加`JsonSerialize`注解
+```java
+@JsonSerialize(using = ToStringSerializer.class)
+private Long id;
 ```
