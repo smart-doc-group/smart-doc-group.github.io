@@ -27,7 +27,7 @@ Note: the source code package that `includes` depends on is required.
 
 ```xml
 <plugin>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>com.github.shalousun</groupId>
      <artifactId>smart-doc-maven-plugin</artifactId>
      <version>[latest version]</version>
      <configuration>

@@ -225,7 +225,7 @@ Create a new module or project and include the `smart-doc` dependency:
 
     <dependencies>
         <dependency>
-            <groupId>com.ly.smart-doc</groupId>
+            <groupId>com.github.shalousun</groupId>
             <artifactId>smart-doc</artifactId>
             <version>[latest version]</version>
         </dependency>
@@ -317,7 +317,7 @@ Package the project into a `jar` file and install it into the local repository o
 Adjust the `smart-doc-maven-plugin` plugin dependency configuration to add the above project dependency:
 ```xml
 <plugin>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>com.github.shalousun</groupId>
     <artifactId>smart-doc-maven-plugin</artifactId>
     <version>[latest version]</version>
     <configuration>

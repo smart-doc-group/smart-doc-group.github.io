@@ -15,7 +15,7 @@ Let’s take a look at the integration methods.
 Add `smart-doc-maven-plugin` to your `dubbo api` or `dubbo provider` module. Of course you only need to select one method
 ```xml
 <plugin>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>com.github.shalousun</groupId>
      <artifactId>smart-doc-maven-plugin</artifactId>
      <version>[latest version]</version>
      <configuration>

@@ -2,7 +2,7 @@
 
 | Badge                   | Image                                                                                                                                                                              |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Maven Version           | [![maven](https://img.shields.io/maven-central/v/com.ly.smart-doc/smart-doc)](https://img.shields.io/maven-central/v/com.ly.smart-doc/smart-doc)                                   |
+| Maven Version           | [![maven](https://img.shields.io/maven-central/v/com.github.shalousun/smart-doc)](https://img.shields.io/maven-central/v/com.github.shalousun/smart-doc)                               |
 | License                 | [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)                                                               |
 | Number of Closed Issues | [![number of issues closed](https://img.shields.io/github/issues-closed-raw/smart-doc-group/smart-doc)](https://img.shields.io/github/issues-closed-raw/smart-doc-group/smart-doc) |
 | Closed Pull Requests    | [![closed pull requests](https://img.shields.io/github/issues-pr-closed/smart-doc-group/smart-doc)](https://img.shields.io/github/issues-pr-closed/smart-doc-group/smart-doc)      |

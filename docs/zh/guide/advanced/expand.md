@@ -231,7 +231,7 @@ Dubbo`层面的解析。由于官方开源人力有限，因此无法去满足�
 
     <dependencies>
         <dependency>
-            <groupId>com.ly.smart-doc</groupId>
+            <groupId>com.github.shalousun</groupId>
             <artifactId>smart-doc</artifactId>
             <version>[最新版]</version>
         </dependency>
@@ -321,7 +321,7 @@ public class QuarkusDocBuildTemplate implements IDocBuildTemplate<ApiDoc> {
 调整 `smart-doc-maven-plugin` 插件依赖配置，新增上述项目的依赖：
 ```xml
       <plugin>
-        <groupId>com.ly.smart-doc</groupId>
+        <groupId>com.github.shalousun</groupId>
         <artifactId>smart-doc-maven-plugin</artifactId>
         <version>[最新版]</version>
         <configuration>
