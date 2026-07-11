@@ -224,6 +224,35 @@ This problem actually has nothing to do with `smart-doc`, but some students who 
 In fact, this is because after adding the `maven` plug-in of `smart-doc` to the project, there were some problems with my own network, which resulted in the official plug-in not being downloaded from the `maven` repository.
 
 
+### How to use SNAPSHOT version dependency source code?
+
+`smart-doc-maven-plugin` automatically downloads the `-sources.jar` of dependencies for source code analysis.
+However, the plugin does not have built-in SNAPSHOT-specific configuration for source JAR resolution.
+
+Whether SNAPSHOT dependency source JARs can be downloaded depends on your Maven repository configuration:
+
+1. Ensure the remote repository has SNAPSHOT support enabled and the corresponding `-sources.jar` is deployed.
+2. Configure the repository in your project's `pom.xml` with explicit SNAPSHOT settings:
+
+```xml
+<repositories>
+    <repository>
+        <id>snapshots</id>
+        <url>your-snapshot-repository-url</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
+```
+
+3. If the SNAPSHOT source JAR still cannot be resolved, verify that:
+   - The remote repository actually contains the SNAPSHOT version's `-sources.jar`.
+   - Your local Maven cache is not stale — try deleting the locally cached SNAPSHOT artifacts and rebuild.
+
+> **Note:** The plugin uses Maven's underlying `RepositorySystem` API for resolution and does not set a custom snapshot update policy. Setting `<updatePolicy>always</updatePolicy>` in your repository configuration ensures Maven always checks for the latest SNAPSHOT sources.
+
 ## Other
 
 ### How to solve memory overflow?

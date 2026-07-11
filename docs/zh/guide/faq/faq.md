@@ -224,6 +224,35 @@ No plugin found for prefix 'smart-doc' in the current project and in the plugin 
 
 
 
+### 如何使用快照(SNAPSHOT)版本的依赖源码？
+
+`smart-doc-maven-plugin`会自动下载依赖的`-sources.jar`来进行源码分析。
+但插件本身没有针对SNAPSHOT版本做专门的源码JAR解析配置。
+
+能否下载SNAPSHOT版本的依赖源码，取决于你的Maven仓库配置：
+
+1. 确保远程仓库开启了SNAPSHOT支持，并且部署了对应版本的`-sources.jar`。
+2. 在项目的`pom.xml`中明确配置仓库的SNAPSHOT策略：
+
+```xml
+<repositories>
+    <repository>
+        <id>snapshots</id>
+        <url>你的快照仓库地址</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
+```
+
+3. 如果SNAPSHOT源码JAR仍然无法解析，请检查：
+   - 远程仓库是否确实包含了SNAPSHOT版本的`-sources.jar`。
+   - 本地Maven缓存是否过期——可以尝试删除本地缓存的SNAPSHOT构件后重新构建。
+
+> **注意：** 插件底层使用Maven的`RepositorySystem` API来解析依赖，未设置自定义的快照更新策略。在仓库配置中将`<updatePolicy>`设置为`always`可以确保Maven每次都检查最新的SNAPSHOT源码。
+
 ## 其他
 
 ### 内存溢出了怎么解决？
