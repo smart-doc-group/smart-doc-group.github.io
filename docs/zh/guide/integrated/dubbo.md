@@ -15,7 +15,7 @@
 在你的`dubbo api`或者或者是`dubbo provider`模块中添加`smart-doc-maven-plugin`。当然你只需要选中一种方式即可
 ```xml
 <plugin>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>com.github.shalousun</groupId>
     <artifactId>smart-doc-maven-plugin</artifactId>
     <version>[最新版本]</version>
     <configuration>

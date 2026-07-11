@@ -12,7 +12,7 @@
 在你的模块中添加`smart-doc-maven-plugin`
 ```xml
 <plugin>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>com.github.shalousun</groupId>
     <artifactId>smart-doc-maven-plugin</artifactId>
     <version>[最新版本]</version>
     <configuration>

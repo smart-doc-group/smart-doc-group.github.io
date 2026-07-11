@@ -10,7 +10,7 @@ There are very few directly related to the generated document `api` layer, these
 The most direct way to improve the speed is to configure it in the plug-in: `include` or `exclude`. For example:
 ```xml
 <plugin>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>com.github.shalousun</groupId>
      <artifactId>smart-doc-maven-plugin</artifactId>
      <version>[latest version]</version>
      <configuration>

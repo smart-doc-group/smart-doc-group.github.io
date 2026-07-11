@@ -23,7 +23,7 @@ The usage reference is as follows:
 
 ```xml
 <plugin>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>com.github.shalousun</groupId>
     <artifactId>smart-doc-maven-plugin</artifactId>
     <version>[latest]</version>
     <configuration> 
@@ -210,7 +210,7 @@ Usually the actual debugged code is `smart-doc`. But this process is mainly chec
 
 ``` xml
 <dependency>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>com.github.shalousun</groupId>
      <artifactId>smart-doc</artifactId>
      <version>[latest]</version>
      <scope>test</scope>
@@ -231,7 +231,7 @@ This way you can go directly to the breakpoint.
 
 ``` xml
 <dependency>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>com.github.shalousun</groupId>
      <artifactId>smart-doc-maven-plugin</artifactId>
      <version>[Latest version of maven warehouse]</version>
 </dependency>

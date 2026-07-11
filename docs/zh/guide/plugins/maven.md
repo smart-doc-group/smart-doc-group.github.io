@@ -23,7 +23,7 @@
 
 ```xml
 <plugin>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>com.github.shalousun</groupId>
     <artifactId>smart-doc-maven-plugin</artifactId>
     <version>[最新版本]</version>
     <configuration> 
@@ -219,7 +219,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 
 ``` xml
 <dependency>
-     <groupId>com.ly.smart-doc</groupId>
+     <groupId>com.github.shalousun</groupId>
      <artifactId>smart-doc</artifactId>
      <version>[最新版本]</version>
      <scope>test</scope>
@@ -240,7 +240,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 
 ``` xml
 <dependency>
-    <groupId>com.ly.smart-doc</groupId>
+    <groupId>com.github.shalousun</groupId>
     <artifactId>smart-doc-maven-plugin</artifactId>
     <version>【maven仓库最新版本】</version>
 </dependency>

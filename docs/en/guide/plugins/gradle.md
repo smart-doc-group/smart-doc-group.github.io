@@ -14,7 +14,7 @@ There are two ways to add plug-ins in `Gradle`: one is `DSL`. It is recommended 
 Using the plugins DSL:
 ```gradle
 plugins {
-  id "com.ly.smart-doc" version "[latest]"
+  id "com.github.shalousun" version "[latest]"
 }
 ```
 #### Using legacy plugin application
@@ -34,10 +34,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.ly.smart-doc:smart-doc-gradle-plugin:[latest]'
+        classpath 'com.github.shalousun:smart-doc-gradle-plugin:[latest]'
     }
 }
-apply(plugin = "com.ly.smart-doc")
+apply(plugin = "com.github.shalousun")
 ```
 
 **`buildscript` configuration added to the top of `build.gradle`**.
@@ -87,7 +87,7 @@ For multi-module `gradle`, put the `smart-doc` plug-in related configuration int
 
 ```gradle
 subprojects{
-    apply plugin: 'com.ly.smart-doc'
+    apply plugin: 'com.github.shalousun'
     smartdoc {
         //
         configFile = file("src/main/resources/smart-doc.json")
@@ -175,7 +175,7 @@ Therefore, when some unknown reasons occur, users usually need to debug by thems
 Adding the `smart-doc` dependency is mainly to facilitate direct viewing of source code debugging. No errors occurred, no need to debug, and no need to add `smart-doc` dependency to your project.
 ```
 dependencies {
-    testCompile 'com.ly.smart-doc:smart-doc:latest'
+    testCompile 'com.github.shalousun:smart-doc:latest'
 }
 ```
 Find the `smart-doc` source code and put a breakpoint. The operation is as follows:
