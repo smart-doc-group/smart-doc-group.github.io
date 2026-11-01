@@ -31,6 +31,8 @@ public void testRequestParam(@RequestParam String author, @RequestParam String t
 }
 ```
 
+> 4.0.1 起，`@RequestParam`的 mock 值只用于查询参数和参数表，不会再追加到请求体，也不会产生`&0`或`?id=1234&&0`这样的调试 URL。
+
 * 参数对象替换
 
 例如一些对象在框架底层做了特殊处理，`smart-doc`根据原始参数对象依赖过于强大的分析处理后的文档可能并不符合要求，这时你可以定义一个参数对象来替换，然后`smart-doc`按照你指定的对象来输出文档。
@@ -142,6 +144,12 @@ public interface DubboInterface {
 
 
 
+
+## Javadoc HTML 与标题 <Badge type="tip" text="^4.0.1" />
+
+从 4.0.1 开始，Javadoc 注释中的 HTML 会被保留并渲染。`<a>`、`<ul>`、`<b>`、`<code>`等标签在 HTML 和 Word 文档中按原生 HTML 展示。`smart-doc`会信任注释中的原始 HTML，请只从可信源码生成文档。
+
+接口或字段的标题取自 Javadoc 中第一个非空行，并去除 HTML 标签后作为纯文本标题；完整注释仍然保留在详情中。
 
 ## smart-doc tags
 

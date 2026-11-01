@@ -83,6 +83,30 @@ public CommonResult<Void> configQueryParamPost(String configQueryParam) {
      return CommonResult.ok();
 }
 ```
+
+## Spring @HttpExchange support <Badge type="tip" text="^4.0.1" />
+
+Starting with 4.0.1, `smart-doc` supports Spring 6 declarative HTTP interfaces:
+
+- Recognizes `@HttpExchange`, `@GetExchange`, `@PostExchange`, `@PutExchange`, `@PatchExchange`, and `@DeleteExchange`.
+- A class/interface-level `@HttpExchange` acts as both the entry annotation and a mapping annotation, so annotated interfaces are scanned. Its `path`/`value` is used as the path prefix.
+- Method-level mappings require `@GetExchange` (etc.) or `@HttpExchange(method = RequestMethod.POST, value = "/...")`. A method-level `@HttpExchange` without `method` defaults to GET.
+- No class-level `@RequestMapping` is required.
+- Only interfaces are supported. Entry annotations are not inherited by implementing classes, so annotate the interface.
+- Paths are built from `serverUrl`, `pathPrefix`, and the class/method paths. The runtime `HttpServiceProxyFactory` base URL is not visible to `smart-doc`.
+
+```java
+@HttpExchange("/api/users")
+public interface UserApi {
+
+    @GetExchange("/{id}")
+    User getUser(@PathVariable Long id);
+
+    @HttpExchange(method = RequestMethod.POST, value = "/profile")
+    User updateProfile(@RequestBody User user);
+}
+```
+
 ## ~~Static constant replacement~~
 **Starting from `2.4.2` version, this configuration does not need to be added manually, `smart-doc` can automatically recognize the use of static constants.**
 
@@ -300,6 +324,8 @@ config.setSourceCodePaths(
 );
 ```
 This way `smart-doc` can load external source code.
+
+> To load additional third-party source jars manually, use [jarSourcePaths](/en/guide/advanced/config#jarsourcepaths). The Maven plugin does not overwrite it, and only `.jar` file paths are accepted.
 
 #### Specify the source code package through `maven`’s `classifier` (not recommended)
 

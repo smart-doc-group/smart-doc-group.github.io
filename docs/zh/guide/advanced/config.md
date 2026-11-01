@@ -61,16 +61,20 @@
 |                     `requestParamsTable`                      | `2.2.5` | ❌  |    `String`    |                     | 是否将请求参数表展示在文档中。                                                                                                                                                                                                                                      |
 |                     `responseParamsTable`                     | `2.2.5` | ❌  |   `Boolean`    |                     | 是否将响应参数表展示在文档中。                                                                                                                                                                                                                                      |
 |                          `framework`                          | `2.2.5` | ❌  |    `String`    | `spring` or `dubbo` | `Spring`和`Apache Dubbo`是`smart-doc`默认支持解析生成文档的框架，不配置`framework`时根据触发的文档构建场景自动选择`Spring`或者 `Dubbo`，`smart-doc`目前也支持`JAX-RS`的标准，因此使用支持`JAX-RS`标准的框架(如：`Quarkus`)可以作为体验使用，但是还不完善。<br />可选值: `spring`,`dubbo`,`JAX-RS`,`solon`                           |
-|                         `randomMock`                          | `2.6.9` | ❌  |   `Boolean`    |       `false`       | `randomMock`用于控制是否让`smart-doc`生成随机`mock`值，在`2.6.9`之前的版本中`smart-doc`会自动给参数和自动生成随机值， 每次生成的值都不一样，现在你可以设置为`false`来控制随机值的生成。                                                                                                                              |
+|                         `randomMock`                          | `2.6.9` | ❌  |   `Boolean`    |       `false`       | `randomMock`用于控制是否让`smart-doc`生成随机`mock`值，在`2.6.9`之前的版本中`smart-doc`会自动给参数和自动生成随机值， 每次生成的值都不一样，现在你可以设置为`false`来控制随机值的生成。启用`reproducible`时此项被强制关闭。                                                                                                                              |
 |                        `componentType`                        | `2.7.8` | ❌  |    `String`    |      `RANDOM`       | `openapi component key generator`<br />`RANDOM` : 支持 `@Validated` 分组校验 <br />`NORMAL`: 不支持 `@Validated`, 用于 `openapi` 生成代码                                                                                                                           |
-|                          `increment`                          | `3.0.0` | ❌  |   `Boolean`    |       `false`       | `increment`用于控制是否让`smart-doc`根据`GIT`代码的变更实现文档的增量推送                                                                                                                                                                                                   |
+|                     [`increment`](#increment)                      | `3.0.0` | ❌  |   `Boolean`    |       `false`       | `increment`用于控制是否让`smart-doc`根据`GIT`代码的变更实现文档的增量推送。4.0.1 起依赖树和 commit id 可跨构建保持，Windows 路径会被规范化，加载失败的类会输出 warning 日志。                                                                                                                                                                                                   |
+|                        `reproducible`                         | `4.0.1` | ❌  |   `Boolean`    |       `false`       | 生成可复现的文档输出：固定时间戳、确定性的 mock 值和输出顺序，适合在 CI 中比较文档 diff。启用后`randomMock`被强制关闭；Torna 上传不受影响。                                                                                                                                                                                                   |
 |                        `apiUploadNums`                        | `3.0.2` | ❌  |   `Integer`    |                     | 上传`torna`时，支持文档分批上传，设置文档批次的大小。不配置则一次上传所有                                                                                                                                                                                                             |
 |                       `showValidation`                        | `3.0.3` | ❌  |   `Boolean`    |       `true`        | `showValidation`用于控制`smart-doc`是否提取JSR字段验证信息展示到文档中                                                                                                                                                                                                   |
 |                           `jmeter`                            | `3.0.4` | ❌  |    `Object`    |                     | 生成`JMeter`性能测试脚本一些配置。                                                                                                                                                                                                                                |
 |                   `addDefaultHttpStatuses`                    | `3.0.5` | ❌  |   `Boolean`    |       `false`       | 生成文档时是否添加框架默认的`http`状态码，例如`Spring MVC`默认的`500`和`404`, 当前只有生成`OenAPI`文档时支持。                                                                                                                                                                           |
 |                        `enumConvertor`                        | `3.1.0` | ❌  |   `Boolean`    |       `false`       | 在 header/path/query 请求类型下，是否启用枚举转换器，默认值为false。<br/>如果为true，则解析enumValue作为枚举示例值。<br/>如果为false，则以enumName作为枚举示例值                                                                                                                                       |
+|                          `codePath`                           |         | ❌  |    `String`    | `src/main/java`(插件默认) | 项目源码根目录。插件默认填充并据此加载模块源码；增量构建时用于把 Git 变更路径映射为源码相对路径。手动使用`ApiConfig`构建时不能为空。                                                                                                                                                     |
+|                   [`jarSourcePaths`](#jarsourcepaths)                    |         | ❌  | `List<Object>` |                     | 第三方源码 jar 路径列表（`path`、`desc`）。由核心源码加载器加载；与`sourceCodePaths`不同，Maven 插件不会覆盖它。只接受`.jar`文件。                                                                                                                                                     |
 |          [`openApiTagNameType`](#openapitagnametype)          | `3.1.1` | ❌  |    `String`    |    `CLASS_NAME`     | 定义 OpenAPI 文档中 `tags[].name` 的生成策略。<br/> 可选值：<br/> - `CLASS_NAME`（默认）：使用控制器的简单类名（如 `UserController`）。<br/> - `DESCRIPTION`：使用控制器的描述信息（如 `用户管理`）。<br/> - `PACKAGE_NAME`：使用控制器的完整包路径（如 `com.example.controller`）。<br/> 此设置影响 API 操作在 OpenAPI 文档中的分组方式。 |
 |                        `allowSelfReference`                     | `3.1.1` | ❌  |   `Boolean`    |       `false`       | 是否启用自引用处理，默认值为false。<br/>启用递归展开自引用结构，最多支持2层嵌套。<br/>当启用时，自引用字段（如 `List<T> children`）将显示完整结构而非空内容或仅引用内容。    |
+|                 [`operationIdStrategy`](#operationidstrategy)                  | `4.0.1` | ❌  |    `String`    |                     | 控制 OpenAPI 3 和 Swagger JSON 中`operationId`的生成策略。可选`METHOD_NAME`、`METHOD_ID`、`PATH_METHOD_HTTP`。不配置时 OpenAPI 3 使用`METHOD_NAME`，Swagger 保持历史格式；仅影响这两种输出。 |
 
 ```json
 {
@@ -80,7 +84,9 @@
     "isStrict": false,
     "allInOne": true,
     "outPath": "D://md2",
+    "codePath": "src/main/java",
     "randomMock": false,
+    "reproducible": false,
     "coverOld": true,
     "createDebugPage": true,
     "packageFilters": "",
@@ -113,6 +119,12 @@
     "tornaDebug": false,
     "author": "smart-doc",
     "increment": false,
+    "jarSourcePaths": [
+        {
+            "path": "D:/libs/common-util-2.2.9-sources.jar",
+            "desc": "common-util sources"
+        }
+    ],
     "ignoreRequestParams": [
         "org.springframework.ui.ModelMap"
     ],
@@ -167,7 +179,7 @@
             "desc": "status code",
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200",
-            "required": true,
+            "require": true,
             "ignore": false
         }
     ],
@@ -244,7 +256,8 @@
     "groups": [
         {
             "name": "test group",
-            "apis": "com.power.doc.controller.app.*"
+            "apis": "com.power.doc.controller.app.*",
+            "paths": "/app/**,/app-*/**"
         }
     ],
     "requestParamsTable": true,
@@ -256,7 +269,8 @@
     "addDefaultHttpStatuses": true,
     "enumConvertor": false,
     "allowSelfReference": false,
-    "openApiTagNameType": "CLASS_NAME"
+    "openApiTagNameType": "CLASS_NAME",
+    "operationIdStrategy": "METHOD_NAME"
 }
 ```
 
@@ -320,6 +334,31 @@
 
 
 
+
+## codePath
+
+项目源码根目录，Maven 和 Gradle 插件默认使用`src/main/java`。插件会据此加载模块源码；增量构建时用于把 Git 返回的文件路径转换为源码相对路径。使用`ApiConfig`手动构建时该值不能为空，正常使用插件时无需配置。
+
+```json
+{
+    "codePath": "src/main/java"
+}
+```
+
+## jarSourcePaths
+
+手动加载第三方源码 jar。与`sourceCodePaths`不同，Maven 插件自动解析依赖源码时不会覆盖`jarSourcePaths`。每一项包含`path`和`desc`；`path`必须指向`.jar`文件（通常是`*-sources.jar`），目录不会被加载。
+
+```json
+{
+    "jarSourcePaths": [
+        {
+            "path": "D:/libs/common-util-2.2.9-sources.jar",
+            "desc": "common-util sources"
+        }
+    ]
+}
+```
 
 ## dataDictionaries
 
@@ -412,6 +451,8 @@
 | `ownerClassName` | `String`  | 指定你要添加注释的类名             |
 | `ignore`         | `Boolean` | 设置`true`会被自动忽略掉不会出现在文档中 |
 | `value`          | `String`  | 设置响应码的值                 |
+| `require`        | `Boolean` | 是否必填，仅对请求字段生效 |
+| `replaceName`    | `String`  | 文档展示时替换字段名，请求和响应均生效 |
 
 ```json
 {
@@ -420,6 +461,7 @@
             "name": "code", 
             "desc": "响应代码", 
             "ownerClassName": "org.springframework.data.domain.Pageable",
+            "replaceName": "statusCode",
             "ignore": true, 
             "value": "00000" 
         }
@@ -439,7 +481,8 @@
 | `desc`           | `String`  | 描述           |
 | `ownerClassName` | `String`  | 属性对应的类全路径    |
 | `ignore`         | `Boolean` | 是否忽略         |
-| `required`       | `Boolean` | 是否必填         |
+| `require`        | `Boolean` | 是否必填，只能把字段标记为必填 |
+| `replaceName`    | `String`  | 文档展示时替换字段名，不改变实际序列化字段名 |
 | `value`          | `String`  | 默认值或者`mock`值 |
 
 ```json
@@ -450,12 +493,15 @@
             "desc": "状态码", 
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200", 
-            "required": true, 
+            "require": true,
+            "replaceName": "statusCode",
             "ignore": false 
         }
     ]
 }
 ```
+
+> **注意：** 必填字段的 JSON key 是`require`，不是`required`。写成`required`不会报错，但会被静默忽略。
 
 
 
@@ -551,17 +597,21 @@
 |--------|----------|-------------------------|
 | `name` | `String` | 分组名称                    |
 | `apis` | `String` | 分组url, 支持正则 ，多个值用英文逗号隔开 |
+| `paths` | `String` | 在`apis`匹配到 Controller 后，再按接口 URL path 过滤该 Controller 内的方法；多个模式用英文逗号分隔，支持通配 |
+
+`apis`负责匹配 Controller，`paths`进一步筛选这些 Controller 中的方法；未匹配的方法不会出现在该分组中。
 
 ```json
 {
     "groups": [
         {
-            "name": "测试分组",
-            "apis": "com.example.controller.*",
-            "apis": "com.example.controller.PetController", // 只包含 PetController 的接口
-            "apis": "com.example.controller.*Controller", // 包含controller 包下以 Controller 后缀为类名的所有接口
-            "apis": "com.example.controller.Pet.*", // 包含 controller 包下以 Pet 开头为类名的所有接口
-            "apis": "com.example.controller.Pet.*Controller" // 包含 controller 包下符合 Pet*Controller 类名的所有接口
+            "name": "Pet",
+            "apis": "com.example.controller.Pet.*Controller",
+            "paths": "/pet/**,/pet-*/**"
+        },
+        {
+            "name": "User",
+            "apis": "com.example.controller.UserController"
         }
     ]
 }
@@ -574,6 +624,39 @@ public void testIsMatch() {
     String pattern = "com.aaa.*.controller";
     String controllerName = "com.aaa.cc.controlle";
     System.out.println(DocUtil.isMatch(pattern, controllerName));
+}
+```
+
+## increment <Badge type="tip" text="^3.0.0" />
+
+根据 Git 变更生成增量文档。4.0.1 起修复了以下问题：
+
+- 依赖树和 commit id 在多次构建之间保持，不再重复全量解析；
+- Windows 路径在比较前会统一规范化；
+- 无法找到的类会输出 warning 日志，不再静默忽略。
+
+```json
+{
+    "increment": true
+}
+```
+
+## reproducible <Badge type="tip" text="^4.0.1" />
+
+生成可复现的文档输出，默认`false`。适用于在 CI 中比较文档 diff，或把生成结果提交到仓库。
+
+启用后：
+
+- 使用固定时间`2024-01-01T00:00:00Z`，包括 all-in-one 文件名时间戳和 Word ZIP 内部时间戳；
+- mock 值、日期和时间使用固定种子生成，方法按稳定顺序输出；
+- Postman collection 使用确定性 UUID；
+- 表单请求体的字段顺序固定；
+- `randomMock`被强制关闭，即使配置为`true`也不生效；
+- Torna 上传行为不受影响。
+
+```json
+{
+    "reproducible": true
 }
 ```
 
@@ -632,6 +715,24 @@ public void testIsMatch() {
 | 快速生成基础文档 | `CLASS_NAME`   | 无需额外配置，直接使用类名 |
 | 需要友好标签名  | `DESCRIPTION`  | 使用控制器的描述信息    |
 | 按模块组织文档  | `PACKAGE_NAME` | 按包路径分组，逻辑清晰   |
+
+## operationIdStrategy <Badge type="tip" text="^4.0.1" />
+
+控制 OpenAPI 3 和 Swagger JSON 中`operationId`的生成方式。其他文档格式不受影响。
+
+| 值 | 示例 | 说明 |
+|---|---|---|
+| `METHOD_NAME` | `getUserInfo`、`getUserInfo_1` | 使用方法名作为 operationId；重名时追加`_1`、`_2` |
+| `METHOD_ID` | `a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4` | 使用基于控制器、方法名和执行顺序生成的 32 位 MD5 |
+| `PATH_METHOD_HTTP` | `api-users-profile-updateProfile-POST` | 使用 path 片段、方法名和 HTTP 方法拼接 |
+
+不配置时，OpenAPI 3 使用`METHOD_NAME`；Swagger 保持历史格式`name_methodIdUsingOnTYPE`。显式配置后，两种输出都使用同一策略。
+
+```json
+{
+    "operationIdStrategy": "PATH_METHOD_HTTP"
+}
+```
 
 
 

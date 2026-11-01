@@ -9,6 +9,12 @@ The original intention of `smart-doc` is to remove the intrusion of annotations 
 | @apiNote    | @apiNote is a new document tag for java, smart-doc uses @apiNote as a detailed description of the method, so you can use apiNote to write a long note. If a method does not write @apiNote annotation description, smart-doc directly uses the method default annotation to fill in |
 
 
+# Javadoc HTML and titles <Badge type="tip" text="^4.0.1" />
+
+Since 4.0.1, HTML in Javadoc comments is preserved and rendered. Tags such as `<a>`, `<ul>`, `<b>`, and `<code>` render natively in HTML and Word output. `smart-doc` trusts raw HTML from comments, so only generate documentation from trusted source code.
+
+The title or heading is taken from the first non-empty Javadoc line with HTML tags removed; the full comment is still kept in the detail section.
+
 # javadoc Usage
 ## 1.1 @param Special usage
 smart-doc adds some special usages for java native @param.
@@ -27,6 +33,8 @@ public void testRequestParam(@RequestParam String author, @RequestParam String t
 }
 ```
 The author's mock value is added after the | symbol above `Bob`
+
+> Since 4.0.1, the mock value of `@RequestParam` is used only for the query parameter and parameter table. It is no longer appended to the request body, so debug URLs no longer contain `?id=1234&&0` and bodies no longer contain `&0`.
 
 - Parameter object substitution
 

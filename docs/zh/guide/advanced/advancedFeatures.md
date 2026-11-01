@@ -86,6 +86,29 @@ public CommonResult<Void> configQueryParamPost(String configQueryParam) {
 }
 ```
 
+## Spring @HttpExchange 支持 <Badge type="tip" text="^4.0.1" />
+
+从 4.0.1 开始，`smart-doc`支持 Spring 6 的声明式 HTTP 接口：
+
+- 识别`@HttpExchange`、`@GetExchange`、`@PostExchange`、`@PutExchange`、`@PatchExchange`、`@DeleteExchange`。
+- 接口上的`@HttpExchange`同时作为入口注解和映射注解，因此只标注它的接口也会被扫描；类上的`path`/`value`作为路径前缀。
+- 方法级需要使用`@GetExchange`等注解，或使用`@HttpExchange(method = RequestMethod.POST, value = "/...")`。方法级`@HttpExchange`未指定`method`时按 GET 处理。
+- 不需要类级别的`@RequestMapping`。
+- 仅支持接口；入口注解不会被子实现类继承，请在接口上标注。
+- 路径由`serverUrl`、`pathPrefix`和类/方法路径拼接；运行时`HttpServiceProxyFactory`的 baseUrl 不会进入文档。
+
+```java
+@HttpExchange("/api/users")
+public interface UserApi {
+
+    @GetExchange("/{id}")
+    User getUser(@PathVariable Long id);
+
+    @HttpExchange(method = RequestMethod.POST, value = "/profile")
+    User updateProfile(@RequestBody User user);
+}
+```
+
 ## ~~静态常量替换~~ <Badge type="danger" text="^2.4.2" />
 :::tip
 **`@sice 2.4.2`版本开始，这个配置无需再手动添加，`smart-doc`可以自动识别静态常量的使用。**
@@ -312,6 +335,8 @@ config.setSourceCodePaths(
 );
 ```
 这样`smart-doc`就能将外部的源码载入。
+
+> 如果需要手动追加第三方源码 jar，可使用 [jarSourcePaths](/zh/guide/advanced/config#jarsourcepaths)。它不会被 Maven 插件自动覆盖，且只接受`.jar`文件路径。
 
 #### 通过`maven`的`classifier`来指定源码包(不推荐)
 

@@ -22,6 +22,12 @@
   "projectName": "SpringBoot2-Open-Api"
 }
 ```
+### 全局 Server URL <Badge type="tip" text="^4.0.1" />
+
+4.0.1 起，debug 页面顶部新增可编辑的`Server URL:`输入框。页面中展示的请求地址只包含接口路径，发送请求时会用输入框的值补全 host。输入值保存在浏览器`localStorage`的`smart-doc-server-url`键中，刷新页面后仍然生效；留空时不改写生成的请求地址。
+
+> 4.0.1 同时修复了`@RequestParam`的值被追加到请求体的问题，调试请求不会再出现`&0`请求体或`?id=1234&&0`这样的 URL。
+
 ### 跨域配置
 部分开发人员可能习惯于直接在`IntelliJ IDEA`中使用"Open In Browser" 功能来查看`smart-doc`生成的`debug`页面。
 然而，这种做法可能导致前端`JavaScript`在请求后台接口时遇到跨域问题。因此，您需要在后端配置跨域访问权限。
@@ -57,6 +63,10 @@ public class WebConfig implements WebMvcConfigurer {
 
 ### 界面效果
 ![mock](/assets/mock.png "mock.png")
+
+### 折叠参数表 <Badge type="tip" text="^4.0.1" />
+
+请求参数表和响应表使用原生`<details>`折叠块展示，默认处于展开状态（`open`）；点击标题即可折叠，便于在长接口文档中快速定位。
 
 ### debug页面调试
 当使用 `smart-doc` 生成的`HTML`调试页面进行接口测试时，您可能会遇到这样的情况：点击“Send Request”按钮后，按钮变为红色，

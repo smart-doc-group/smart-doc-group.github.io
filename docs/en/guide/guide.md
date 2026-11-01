@@ -30,6 +30,8 @@ public void testRequestParam(@RequestParam String author, @RequestParam String t
 }
 ```
 
+> Since 4.0.1, the mock value of `@RequestParam` is used only for the query parameter and parameter table. It is no longer appended to the request body, so debug URLs no longer contain `?id=1234&&0` and bodies no longer contain `&0`.
+
 * Parameter object replacement
 
 For example, some objects have been specially processed at the bottom of the framework. `smart-doc` may not meet the requirements if the original parameter object relies on too powerful an analysis. In this case, you can define a parameter object to replace it, and then `smart- doc` outputs the document according to the object you specify.
@@ -138,6 +140,12 @@ public interface DubboInterface {
 }
 ```
 
+
+## Javadoc HTML and titles <Badge type="tip" text="^4.0.1" />
+
+Since 4.0.1, HTML in Javadoc comments is preserved and rendered. Tags such as `<a>`, `<ul>`, `<b>`, and `<code>` render natively in HTML and Word output. `smart-doc` trusts raw HTML from comments, so only generate documentation from trusted source code.
+
+The title or heading is taken from the first non-empty Javadoc line with HTML tags removed; the full comment is still kept in the detail section.
 
 ## smart-doc tags
 For certain special scenarios, the official Java `javaFor certain special scenarios, the official Java `java limited and cannot fully meet some the official Java `javadoc` tags are somewhat limited and cannot fully meet some user requirements. Therefore, the smart-doc team has judiciously defined some custom tags.
