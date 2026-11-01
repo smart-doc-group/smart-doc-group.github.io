@@ -31,7 +31,8 @@
 
 - 零注解、零学习成本、只需要写标准`JAVA`注释。
 - 基于源代码接口定义自动推导，强大的返回结构推导。
-- 支持`Spring MVC`、`Spring Boot`、`Spring Boot Web Flux`(`Controller`书写方式)、`Feign`。
+- 支持`Spring MVC`、`Spring Boot`、`Spring Boot Web Flux`(`Controller`书写方式)、`Feign`、`Spring 6 @HttpExchange`。
+- 支持通过 Spring 6 `@HttpExchange` 声明式接口生成文档。
 - 支持`Callable`、`Future`、`CompletableFuture`等异步接口返回的推导。
 - 支持`JavaBean`上的`JSR303`参数校验规范，包括分组验证。
 - 对`JSON`请求参数的接口能够自动生成模拟`JSON`参数。

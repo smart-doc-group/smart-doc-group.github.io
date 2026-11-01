@@ -58,15 +58,20 @@
 |                              `requestParamsTable`                              | `2.2.5` |    ❌     | `String`       |                     | Whether to display the request parameter table in the document.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |                             `responseParamsTable`                              | `2.2.5` |    ❌     | `Boolean`      |                     | Whether to display the response parameter table in the document.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |                                  `framework`                                   | `2.2.5` |    ❌     | `String`       | `spring` or `dubbo` | `Spring` and `Apache Dubbo` are frameworks that support parsing and generating documents by `smart-doc` by default and are not configured` framework` automatically selects `Spring` or `Dubbo` according to the triggered document construction scenario. `smart-doc` currently also supports the `JAX-RS` standard, so use a framework that supports the `JAX-RS` standard (such as: ` Quarkus`) can be used as an experience, but it is not complete yet. <br />Optional values: `spring`, `dubbo`, `JAX-RS`, `solon`     |
-|                                  `randomMock`                                  | `2.6.9` |    ❌     | `Boolean`      |       `false`       | `randomMock` is used to control whether `smart-doc` generates random `mock` values, in versions before `2.6.9` `smart-doc` will automatically assign parameters and automatically generate random values. The generated values are different each time. Now you can set it to `false` to control the generation of random values.                                                                                                                                                                                            |
+|                                  `randomMock`                                  | `2.6.9` |    ❌     | `Boolean`      |       `false`       | `randomMock` is used to control whether `smart-doc` generates random `mock` values, in versions before `2.6.9` `smart-doc` will automatically assign parameters and automatically generate random values. The generated values are different each time. Now you can set it to `false` to control the generation of random values. Forced off when `reproducible` is enabled.                                                                                                                                                                                            |
 |                                `componentType`                                 | `2.7.8` |    ❌     | `String`       |      `RANDOM`       | `openapi component key generator`<br />`RANDOM`: supports `@Validated` group verification<br />`NORMAL` : Does not support `@Validated`, used for `openapi` generated code                                                                                                                                                                                                                                                                                                                                                   |
+|                             [`increment`](#increment)                             | `3.0.0` |    ❌     | `Boolean`      |       `false`       | Controls incremental documentation generation based on GIT changes. Since 4.0.1 the dependency tree and commit id persist across builds, Windows paths are normalized, and classes that fail to load are logged as warnings.                                                                                                                                                                                                                                                                                                  |
+|                                `reproducible`                                 | `4.0.1` |    ❌     | `Boolean`      |       `false`       | Generates reproducible output with fixed timestamps, deterministic mock values and stable ordering, suitable for comparing document diffs in CI. `randomMock` is forced off; Torna upload is unaffected.                                                                                                                                                                                                                                                                                                                    |
 |                                `apiUploadNums`                                 | `3.0.2` |    ❌     | `Integer`      |                     | When uploading `Torna`, batch uploading of documents is supported, and the size of document batches can be set.                                                                                                                                                                                                                                                                                                                                                                                                              |
 |                                `showValidation`                                | `3.0.3` |    ❌     | `Boolean`      |       `true`        | `showValidation` is used to control whether `smart-doc` extracts the JSR validation information of fields for display in the documentation.                                                                                                                                                                                                                                                                                                                                                                                  |
 |                                    `jmeter`                                    | `3.0.4` |    ❌     | `Object`       |                     | Custom Configurations for JMeter Performance Test Script Generation                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |                            `addDefaultHttpStatuses`                            | `3.0.5` |    ❌     | `Boolean`      |       `false`       | When generating documentation, consider whether to include the default HTTP status codes from frameworks such as Spring MVC's default `500` and `404` errors. Currently, only the generation of `OpenAPI` documentation supports this feature.                                                                                                                                                                                                                                                                               |
 |                                `enumConvertor`                                 | `3.1.0` |    ❌     | `Boolean`      |       `false`       | In the header/path/query request mode, whether to enable the enumeration converter, The default value is false. <br/>If true, the enumeration value is parsed as an enumeration example value. <br/>If false, take the enumeration name as the enumeration example value                                                                                                                                                                                                                                                     |
+|                                  `codePath`                                   |         |    ❌     | `String`       | `src/main/java` (plugin default) | Project source root. Plugins fill it by default and load module sources from it; incremental builds use it to map Git paths to source-relative paths. Must be non-empty when building manually with `ApiConfig`.                                                                                                                                                                                                                                                                                                             |
+|                          [`jarSourcePaths`](#jarsourcepaths)                          |         |    ❌     | `List<Object>` |                     | Third-party source jar paths (`path`, `desc`). Loaded by the core source loader; unlike `sourceCodePaths`, the Maven plugin does not overwrite it. Only `.jar` files are accepted.                                                                                                                                                                                                                                                                                                                                         |
 |                              `allowSelfReference`                              | `3.1.1` |    ❌     | `Boolean`      |       `false`       | Whether to enable self-reference handling, default value is false.<br/>Enables recursive expansion of self-referencing structures up to 2 levels.<br/>When enabled, self-referencing fields (like `List<T> children`) will display full structure instead of empty or reference-only content.                                                                                                                                                                                                                                |
 |                  [`openApiTagNameType`](#openapitagnametype)                   | `3.1.1` |    ❌     | `String`       |    `CLASS_NAME`     | Determines how to generate tag names (`tags[].name`) in the OpenAPI document. Possible values: <ul><li>`CLASS_NAME` (default): Use the controller's simple class name.</li><li>`DESCRIPTION`: Use the controller's description.</li><li>`PACKAGE_NAME`: Use the controller's full package name.</li></ul> This setting controls how API operations are grouped in the OpenAPI documentation.                                                                                                                                 |
+|                 [`operationIdStrategy`](#operationidstrategy)                  | `4.0.1` |    ❌     | `String`       |                     | Controls `operationId` generation for OpenAPI 3 and Swagger JSON only. Values: `METHOD_NAME`, `METHOD_ID`, `PATH_METHOD_HTTP`. When unset, OpenAPI 3 uses `METHOD_NAME` and Swagger keeps its historical format.                                                                                                                                                                                                                                                                                                          |
 
 ```json
 {
@@ -76,7 +81,9 @@
     "isStrict": false,
     "allInOne": true,
     "outPath": "D://md2",
+    "codePath": "src/main/java",
     "randomMock": false,
+    "reproducible": false,
     "coverOld": true,
     "createDebugPage": true,
     "packageFilters": "",
@@ -109,6 +116,12 @@
     "tornaDebug": false,
     "author": "smart-doc",
     "increment": false,
+    "jarSourcePaths": [
+        {
+            "path": "D:/libs/common-util-2.2.9-sources.jar",
+            "desc": "common-util sources"
+        }
+    ],
     "ignoreRequestParams": [
         "org.springframework.ui.ModelMap"
     ],
@@ -163,7 +176,7 @@
             "desc": "status code",
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200",
-            "required": true,
+            "require": true,
             "ignore": false
         }
     ],
@@ -240,7 +253,8 @@
     "groups": [
         {
             "name": "test group",
-            "apis": "com.power.doc.controller.app.*"
+            "apis": "com.power.doc.controller.app.*",
+            "paths": "/app/**,/app-*/**"
         }
     ],
     "requestParamsTable": true,
@@ -252,7 +266,8 @@
     "addDefaultHttpStatuses": true,
     "enumConvertor": false,
     "allowSelfReference": false,
-    "openApiTagNameType": "CLASS_NAME"
+    "openApiTagNameType": "CLASS_NAME",
+    "operationIdStrategy": "METHOD_NAME"
 }
 ```
 ## packageFilters
@@ -307,6 +322,31 @@ Refer to the following example for validation:
 ```
 
 
+
+## codePath
+
+Project source root. The Maven and Gradle plugins default to `src/main/java`. Plugins load module sources from this path; incremental builds use it to convert Git file paths into source-relative paths. It must not be empty when building through `ApiConfig`. Normally no configuration is needed with the plugins.
+
+```json
+{
+    "codePath": "src/main/java"
+}
+```
+
+## jarSourcePaths
+
+Loads third-party source jars manually. Unlike `sourceCodePaths`, the Maven plugin does not overwrite `jarSourcePaths` when it resolves dependency sources automatically. Each entry contains `path` and `desc`; `path` must point to a `.jar` file (usually `*-sources.jar`). Directories are not loaded.
+
+```json
+{
+    "jarSourcePaths": [
+        {
+            "path": "D:/libs/common-util-2.2.9-sources.jar",
+            "desc": "common-util sources"
+        }
+    ]
+}
+```
 
 ## dataDictionaries
 
@@ -399,6 +439,8 @@ Customize added fields and comments, and general users deal with third-party `ja
 | `ownerClassName` | `String`  | Specify the class name you want to annotate                                    |
 | `ignore`         | `Boolean` | Setting true will be automatically ignored and will not appear in the document |
 | `value`          | `String`  | Set the value of the response code                                             |
+| `require`        | `Boolean` | Whether the field is required; only applies to request fields                  |
+| `replaceName`    | `String`  | Replaces the displayed field name in both request and response documentation   |
 
 ```json
 {
@@ -407,6 +449,7 @@ Customize added fields and comments, and general users deal with third-party `ja
             "name": "code", 
             "desc": "response code", 
             "ownerClassName": "org.springframework.data.domain.Pageable",
+            "replaceName": "statusCode",
             "ignore": true, 
             "value": "00000" 
         }
@@ -426,7 +469,8 @@ Customize added fields and comments, and general users deal with third-party `ja
 | `desc`           | `String`  | Description                                               |
 | `ownerClassName` | `String`  | The full path of the class corresponding to the attribute |
 | `ignore`         | `Boolean` | Whether to ignore                                         |
-| `required`       | `Boolean` | Is it required                                            |
+| `require`        | `Boolean` | Whether the field is required; it can only mark a field required |
+| `replaceName`    | `String`  | Replaces the displayed field name; does not change the serialized JSON name |
 | `value`          | `String`  | Default value or mock value                               |
 
 ```json
@@ -437,12 +481,15 @@ Customize added fields and comments, and general users deal with third-party `ja
             "desc": "code", 
             "ownerClassName": "com.xxx.constant.entity.Result",
             "value": "200", 
-            "required": true, 
+            "require": true,
+            "replaceName": "statusCode",
             "ignore": false 
         }
     ]
 }
 ```
+
+> **Note:** The JSON key for required is `require`, not `required`. `required` does not raise an error; it is silently ignored.
 
 
 
@@ -538,17 +585,21 @@ Group different `Controllers`.
 |---------------|----------|---------------------------------------------------------------------------------------|
 | `name`        | `String` | Group name                                                                            |
 | `apis`        | `String` | Group url, supports regular expressions,with multiple expressions separated by commas |
+| `paths`       | `String` | After `apis` matches a controller, filters the methods in that controller by request URL path. Comma-separated; wildcards supported |
+
+`apis` selects controllers; `paths` then filters the methods inside them. Methods that do not match are excluded from that group.
 
 ```json
 {
   "groups": [
     {
-      "name": "Test Group",
-      "apis": "com.example.controller.*",
-      "apis": "com.example.controller.PetController", // Contains only the interface of PetController
-      "apis": "com.example.controller.Controller", // Contains all interfaces under the controller package with a class name suffixed by Controller
-      "apis": "com.example.controller.Pet.", // Contains all interfaces under the controller package with a class name starting with Pet
-      "apis": "com.example.controller.Pet.Controller" // Contains all interfaces under the controller package that match the class name PetController
+      "name": "Pet",
+      "apis": "com.example.controller.Pet.*Controller",
+      "paths": "/pet/**,/pet-*/**"
+    },
+    {
+      "name": "User",
+      "apis": "com.example.controller.UserController"
     }
   ]
 }
@@ -565,6 +616,40 @@ public void testIsMatch() {
     System.out.println(DocUtil.isMatch(pattern, controllerName));
 }
 ```
+
+## increment <Badge type="tip" text="^3.0.0" />
+
+Generates incremental documentation from Git changes. Since 4.0.1:
+
+- The dependency tree and commit id persist across builds instead of being rebuilt each time;
+- Windows paths are normalized before comparison;
+- Classes that cannot be loaded are logged as warnings instead of being silently ignored.
+
+```json
+{
+    "increment": true
+}
+```
+
+## reproducible <Badge type="tip" text="^4.0.1" />
+
+Generates reproducible documentation output; default `false`. Useful for comparing generated docs in CI or committing generated docs to a repository.
+
+When enabled:
+
+- Uses the fixed time `2024-01-01T00:00:00Z`, including all-in-one filename timestamps and Word ZIP entry timestamps;
+- Seeds mock values, dates and times, and emits methods in a stable order;
+- Uses deterministic UUIDs in the Postman collection;
+- Uses a deterministic field order in form request bodies;
+- Forces `randomMock` off, even when it is configured as `true`;
+- Does not affect Torna upload.
+
+```json
+{
+    "reproducible": true
+}
+```
+
 ## jmeter    <Badge type="tip" text="^3.0.4" />
 Starting from version `3.0.4`, the following custom configuration options have been added when generating `JMeter` performance test scripts:
 
@@ -619,6 +704,24 @@ Added in version `3.1.1`, this configuration controls the **generation strategy 
 | Quickly generate base documentation | `CLASS_NAME`              | No extra configuration required       |
 | Use user-friendly tag names         | `DESCRIPTION`             | Leverage controller descriptions      |
 | Organize documentation by module    | `PACKAGE_NAME`            | Logical grouping by package structure |
+
+## operationIdStrategy <Badge type="tip" text="^4.0.1" />
+
+Controls how `operationId` is generated in OpenAPI 3 and Swagger JSON. Other output formats are unaffected.
+
+| Value | Example | Description |
+|---|---|---|
+| `METHOD_NAME` | `getUserInfo`, `getUserInfo_1` | Uses the method name; duplicates get `_1`, `_2` suffixes |
+| `METHOD_ID` | `a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4` | Uses the 32-character MD5 generated from controller, method name and order |
+| `PATH_METHOD_HTTP` | `api-users-profile-updateProfile-POST` | Joins path segments, method name and HTTP method |
+
+When unset, OpenAPI 3 uses `METHOD_NAME` and Swagger keeps its historical `name_methodIdUsingOnTYPE` format. When set explicitly, both outputs use the same strategy.
+
+```json
+{
+    "operationIdStrategy": "PATH_METHOD_HTTP"
+}
+```
 
 
 

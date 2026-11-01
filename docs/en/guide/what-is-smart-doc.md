@@ -27,7 +27,8 @@ Just want to try it out? Skip to the [Quickstart](getting-started).
 
 - Zero annotation, zero learning cost, only need to write standard `JAVA` document comments.
 - Automatic derivation based on source code interface definition, powerful return structure derivation support.
-- Support `Spring MVC`, `Spring Boot`, `Spring Boot Web Flux` (Not support endpoint), `Feign`,`JAX-RS`.
+- Support `Spring MVC`, `Spring Boot`, `Spring Boot Web Flux` (Not support endpoint), `Feign`,`JAX-RS`, `Spring 6 @HttpExchange`.
+- Support documentation generation from Spring 6 `@HttpExchange` declarative interfaces.
 - Supports the derivation of asynchronous interface returns such as `Callable`, `Future`, `CompletableFuture`.
 - Support `JSR-303`parameter verification specification.
 - Support for automatic generation of request examples based on request parameters.
