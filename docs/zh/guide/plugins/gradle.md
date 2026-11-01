@@ -14,7 +14,7 @@
 
 ```gradle
 plugins {
-  id "com.github.shalousun" version "[最新版本]"
+  id "com.github.shalousun.smart-doc" version "[最新版本]"
 }
 ```
 #### 使用旧版插件应用程序
@@ -37,7 +37,7 @@ buildscript {
         classpath 'com.github.shalousun:smart-doc-gradle-plugin:[最新版本]'
     }
 }
-apply(plugin = "com.github.shalousun")
+apply(plugin = "com.github.shalousun.smart-doc")
 ```
 
 **`buildscript`配置添加到`build.gradle`的顶部** 。
@@ -49,6 +49,7 @@ apply(plugin = "com.github.shalousun")
 |configFile|`src/main/resources/default.json`|`true`| 插件配置文件                                                                                          |
 |exclude|无|`false`| 排除一些无法自动下载的`java lib sources`,例如:`exclude 'org.springframework.boot:spring-boot-starter-tomcat'` |
 |include|无|`false`| 让插件自定下载指定的`java lib sources`,例如:`include 'org.springframework.boot:spring-boot-starter-tomcat'`   |
+|formats|`markdown`|`false`| `smartDocGenerate`一次生成多种格式时指定输出格式，逗号分隔、大小写不敏感 |
 
 options配置示例:
 ```gradle
@@ -62,6 +63,8 @@ smartdoc {
     exclude 'org.springframework.boot.*'
     // 你可以使用include配置来让插件自动加载指定依赖的source.
     include 'org.springframework.boot:spring-boot-starter-tomcat'
+    // 一次生成多种格式时指定输出格式
+    formats = 'markdown,html,adoc,openapi'
 }
 ```
 对于`configFile`的配置，你也可以通过`gradle`命令行来动态覆盖。在`3.0.3`之前，
@@ -88,7 +91,7 @@ smartdoc {
 
 ```gradle
 subprojects{
-    apply plugin: 'com.github.shalousun'
+    apply plugin: 'com.github.shalousun.smart-doc'
     smartdoc {
         //
         configFile = file("src/main/resources/smart-doc.json")
@@ -135,6 +138,8 @@ gradle tornaRest
 gradle smartDocJmeter
 //生成文档输出到Word,since 3.0.0
 gradle word
+//一次解析生成多种格式,since 4.0.1
+gradle smartDocGenerate -Psmartdoc.formats=markdown,html,adoc,openapi
 
 
 // Apache Dubbo Rpc生成
@@ -155,6 +160,41 @@ gradle javadocMarkdown
 // Generate adoc
 gradle javadocAdoc
 ```
+#### 一次生成多种格式 <Badge type="tip" text="^4.0.1" />
+
+`smartDocGenerate`从一次源码扫描生成多种格式。解析参数相同的格式会共用一次解析，因此比逐个执行 task 更快。
+
+```bash
+// 多种格式，逗号分隔、大小写不敏感
+gradle smartDocGenerate -Psmartdoc.formats=markdown,html,adoc,openapi
+```
+
+也可以通过`-Pformats`传入，或在`smartdoc`扩展中配置：
+
+```groovy
+smartdoc {
+    formats = 'markdown,html,adoc,openapi'
+}
+```
+
+| 值 | 别名 | 输出 |
+|---|---|---|
+| `markdown` | `md` | `AllInOne.md`；`allInOne=false`时按 controller 拆分 |
+| `adoc` | `asciidoc` | `index.adoc` |
+| `html` | | `index.html`、debug 页面和`search.js` |
+| `word` | `docx` | `AllInOne.docx` |
+| `openapi` | `openapi3` | `openapi.json`（OpenAPI 3.1） |
+| `swagger` | `openapi2` | `openapi.json`（Swagger 2.0） |
+| `jmeter` | | JMeter 压测脚本 |
+| `postman` | | `postman.json` |
+
+注意：
+
+- 未配置格式时默认`markdown`。
+- 不要同时使用`openapi`和`swagger`，两者都写`openapi.json`，后者会覆盖前者。
+- Torna 不在`smartDocGenerate`中（需要向远程服务推送），继续使用`tornaRest`。
+- markdown/html/word 共用一次解析，jmeter/postman 共用一次，adoc 和 openapi 各自一次。
+
 #### 使用 IDEA
 当你使用`Idea`时，可以通过`Gradle Helper`插件选择生成何种文档。
 
