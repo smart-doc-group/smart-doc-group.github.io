@@ -61,6 +61,9 @@ Specify the project name. It is recommended to use dynamic parameters, such as `
 
 Starting from `2.3.4`, if the projectName is not set in `smart-doc.json` or here, the plug-in is automatically set to the projectName in the pom.
 
+#### formats
+Output formats used by `smart-doc:generate`. Comma-separated and case-insensitive; the default is `markdown`. See "5.2 Generate several formats in one execution" for the supported values.
+
 #### excludes & includes
  excludes & includes are used to control the loading of source code.
 ##### Loading source code mechanism
@@ -151,7 +154,7 @@ mvn -Dfile.encoding=UTF-8 smart-doc:torna-rest
 // Generate document output to Word.
 mvn -Dfile.encoding=UTF-8 smart-doc:word
 // Generate Jmeter performance pressure test scripts.
-mvn -Dfile.encoding=UTF-8 smart-doc:
+mvn -Dfile.encoding=UTF-8 smart-doc:jmeter
 
 
 // Apache Dubbo RPC
@@ -189,7 +192,59 @@ Java home: D:\ProgramFiles\Java\jdk1.8.0_191\jre
 Default locale: zh_CN, platform encoding: GBK
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 ```
-### 5.2 Generate documentation in `IDEA`
+### 5.2 Generate several formats in one execution <Badge type="tip" text="^4.0.1" />
+
+`smart-doc:generate` writes several output formats from a single source scan. Formats that need the same parse flags share one parse, so one execution is faster than running one goal per format.
+
+```bash
+// Single format. When formats is omitted the default is markdown.
+mvn -Dfile.encoding=UTF-8 smart-doc:generate -Dformats=markdown
+// Several formats. formats is comma separated and case-insensitive.
+mvn -Dfile.encoding=UTF-8 smart-doc:generate -Dformats=markdown,html,adoc,openapi
+// Everything except Torna.
+mvn -Dfile.encoding=UTF-8 smart-doc:generate -Dformats=markdown,html,adoc,word,openapi,jmeter,postman
+```
+
+Or bind it to the build in `pom.xml`:
+
+```xml
+<plugin>
+    <groupId>com.github.shalousun</groupId>
+    <artifactId>smart-doc-maven-plugin</artifactId>
+    <version>[latest version]</version>
+    <configuration>
+        <configFile>./src/main/resources/smart-doc.json</configFile>
+        <formats>markdown,html,adoc,openapi</formats>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+| Value | Aliases | Output |
+|---|---|---|
+| `markdown` | `md` | `AllInOne.md`, or one `.md` per controller when `allInOne` is false |
+| `adoc` | `asciidoc` | `index.adoc` |
+| `html` | | `index.html`, debug page and `search.js` |
+| `word` | `docx` | `AllInOne.docx` |
+| `openapi` | `openapi3` | `openapi.json` (OpenAPI 3.1) |
+| `swagger` | `openapi2` | `openapi.json` (Swagger 2.0) |
+| `jmeter` | | JMeter performance test script |
+| `postman` | | `postman.json` |
+
+Notes:
+
+- The default is `markdown` when `formats` is omitted. An unknown value fails with the list of supported formats.
+- Do not combine `openapi` and `swagger`: both write `openapi.json` and the latter overwrites the former.
+- Torna is not part of `generate` because it pushes documents to a remote server. Keep using `smart-doc:torna-rest` for that.
+- markdown, html and word share one parse; jmeter and postman share another; adoc and openapi each need their own.
+
+### 5.3 Generate documentation in `IDEA`
 ![Use of smart-doc-maven plug-in in idea](/assets/idea-maven-plugin.png)
 
 ### Plug-in source code

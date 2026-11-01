@@ -14,7 +14,7 @@ There are two ways to add plug-ins in `Gradle`: one is `DSL`. It is recommended 
 Using the plugins DSL:
 ```gradle
 plugins {
-  id "com.github.shalousun" version "[latest]"
+  id "com.github.shalousun.smart-doc" version "[latest]"
 }
 ```
 #### Using legacy plugin application
@@ -37,7 +37,7 @@ buildscript {
         classpath 'com.github.shalousun:smart-doc-gradle-plugin:[latest]'
     }
 }
-apply(plugin = "com.github.shalousun")
+apply(plugin = "com.github.shalousun.smart-doc")
 ```
 
 **`buildscript` configuration added to the top of `build.gradle`**.
@@ -49,6 +49,7 @@ Using the `smart-doc` plug-in also requires adding some common configurations to
 | configFile | `src/main/resources/default.json` | `true`   | Plug-in configuration file                                                                                                                            |
 | exclude    | None                              | `false`  | Exclude some `java lib sources` that cannot be downloaded automatically, for example: `exclude 'org.springframework.boot:spring-boot-starter-tomcat'` |
 | include    | None                              | `false`  | Let the plug-in download the specified `java lib sources`, for example: `include 'org.springframework.boot:spring-boot-starter-tomcat'`               |
+| formats    | `markdown`                        | `false`  | Output formats for `smartDocGenerate`, comma-separated and case-insensitive                                                                          |
 
 Example setting of options:
 ```gradle
@@ -62,6 +63,8 @@ smartdoc {
     exclude 'org.springframework.boot.*'
     // You can use the include configuration to let the plug-in automatically load the source of the specified dependency.
     include 'org.springframework.boot:spring-boot-starter-tomcat'
+    // Output formats for smartDocGenerate
+    formats = 'markdown,html,adoc,openapi'
 }
 ```
 For the configuration of `configFile`, you can also dynamically override it through the `gradle` command line. Before version `3.0.3`, you can add dynamic configuration to get the `configFile` in `build.gradle`, for example:
@@ -87,7 +90,7 @@ For multi-module `gradle`, put the `smart-doc` plug-in related configuration int
 
 ```gradle
 subprojects{
-    apply plugin: 'com.github.shalousun'
+    apply plugin: 'com.github.shalousun.smart-doc'
     smartdoc {
         //
         configFile = file("src/main/resources/smart-doc.json")
@@ -133,6 +136,8 @@ gradle tornaRest
 gradle smartDocJmeter
 // Generate documentation output to Word, since 3.0.0
 gradle word
+// Generate several formats from one parse, since 4.0.1
+gradle smartDocGenerate -Psmartdoc.formats=markdown,html,adoc,openapi
 
 // Apache Dubbo RPC generation
 // Generate html
@@ -153,6 +158,41 @@ gradle javadocMarkdown
 // Generate adoc
 gradle javadocAdoc
 ```
+#### Generate several formats in one execution <Badge type="tip" text="^4.0.1" />
+
+`smartDocGenerate` writes several output formats from a single source scan. Formats that need the same parse flags share one parse, so one execution is faster than running one task per format.
+
+```bash
+// Several formats. smartdoc.formats is comma separated and case-insensitive.
+gradle smartDocGenerate -Psmartdoc.formats=markdown,html,adoc,openapi
+```
+
+Formats can also be passed with `-Pformats`, or configured in the `smartdoc` extension:
+
+```groovy
+smartdoc {
+    formats = 'markdown,html,adoc,openapi'
+}
+```
+
+| Value | Aliases | Output |
+|---|---|---|
+| `markdown` | `md` | `AllInOne.md`, or one `.md` per controller when `allInOne` is false |
+| `adoc` | `asciidoc` | `index.adoc` |
+| `html` | | `index.html`, debug page and `search.js` |
+| `word` | `docx` | `AllInOne.docx` |
+| `openapi` | `openapi3` | `openapi.json` (OpenAPI 3.1) |
+| `swagger` | `openapi2` | `openapi.json` (Swagger 2.0) |
+| `jmeter` | | JMeter performance test script |
+| `postman` | | `postman.json` |
+
+Notes:
+
+- When no formats are configured the default is `markdown`.
+- Do not combine `openapi` and `swagger`: both write `openapi.json` and the latter overwrites the former.
+- Torna is not part of `smartDocGenerate` because it pushes documents to a remote server. Keep using `tornaRest` for that.
+- markdown, html and word share one parse; jmeter and postman share another; adoc and openapi each need their own.
+
 #### Use IDEA
 When you use `Idea`, you can choose what kind of documentation to generate through the `Gradle Helper` plugin.
 

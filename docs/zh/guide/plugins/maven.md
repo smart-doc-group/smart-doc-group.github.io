@@ -66,6 +66,9 @@ mvn -Dfile.encoding=UTF-8  -DconfigFile="src/main/resources/smart-doc.json"  sma
 
 `2.3.4`开始, 如果`smart-doc.json`中和此处都未设置`projectName`，插件自动设置为`pom`中的`projectName`
 
+#### formats
+`smart-doc:generate`使用的输出格式，逗号分隔、大小写不敏感，默认`markdown`。支持的值见“5.2 一次生成多种格式”。
+
 #### excludes & includes
  excludes & includes用于控制源代码的加载。
 ##### 加载源码机制
@@ -196,7 +199,59 @@ Java home: D:\ProgramFiles\Java\jdk1.8.0_191\jre
 Default locale: zh_CN, platform encoding: GBK
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "dos"
 ```
-### 5.2 在`IDEA`中生成文档
+### 5.2 一次生成多种格式 <Badge type="tip" text="^4.0.1" />
+
+`smart-doc:generate`从一次源码扫描生成多种格式。解析参数相同的格式会共用一次解析，因此比逐个执行 goal 更快。
+
+```bash
+// 单个格式，不传 formats 时默认 markdown
+mvn -Dfile.encoding=UTF-8 smart-doc:generate -Dformats=markdown
+// 多种格式，逗号分隔、大小写不敏感
+mvn -Dfile.encoding=UTF-8 smart-doc:generate -Dformats=markdown,html,adoc,openapi
+// 除 Torna 外的全部格式
+mvn -Dfile.encoding=UTF-8 smart-doc:generate -Dformats=markdown,html,adoc,word,openapi,jmeter,postman
+```
+
+也可以在`pom.xml`中绑定生成：
+
+```xml
+<plugin>
+    <groupId>com.github.shalousun</groupId>
+    <artifactId>smart-doc-maven-plugin</artifactId>
+    <version>[最新版本]</version>
+    <configuration>
+        <configFile>./src/main/resources/smart-doc.json</configFile>
+        <formats>markdown,html,adoc,openapi</formats>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+| 值 | 别名 | 输出 |
+|---|---|---|
+| `markdown` | `md` | `AllInOne.md`；`allInOne=false`时按 controller 拆分 |
+| `adoc` | `asciidoc` | `index.adoc` |
+| `html` | | `index.html`、debug 页面和`search.js` |
+| `word` | `docx` | `AllInOne.docx` |
+| `openapi` | `openapi3` | `openapi.json`（OpenAPI 3.1） |
+| `swagger` | `openapi2` | `openapi.json`（Swagger 2.0） |
+| `jmeter` | | JMeter 压测脚本 |
+| `postman` | | `postman.json` |
+
+注意：
+
+- 未配置`formats`时默认`markdown`；配置未知值会报错并列出支持的格式。
+- 不要同时使用`openapi`和`swagger`，两者都写`openapi.json`，后者会覆盖前者。
+- Torna 不在`generate`中（需要向远程服务推送），继续使用`smart-doc:torna-rest`。
+- markdown/html/word 共用一次解析，jmeter/postman 共用一次，adoc 和 openapi 各自一次。
+
+### 5.3 在`IDEA`中生成文档
 ![idea中smart-doc-maven插件使用](/assets/idea-maven-plugin.png 
 "maven_plugin_tasks.png")
 
