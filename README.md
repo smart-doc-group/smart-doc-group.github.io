@@ -26,11 +26,11 @@
 
 > It is recommended to use nvm to manage node versions.
 
-[![nodejs](https://img.shields.io/badge/node-v20.x-brightgreen)](https://nodejs.org/en/)
+[![nodejs](https://img.shields.io/badge/node-v22.x-brightgreen)](https://nodejs.org/en/)
 
 > pnpm installation is recommended via scoop (Windows) or brew (macOS).
 
-[![pnpm](https://img.shields.io/badge/pnpm-v8.x-f9ad00)](https://yarnpkg.com/getting-started/install#nodejs-1610)
+[![pnpm](https://img.shields.io/badge/pnpm-v9.x-f9ad00)](https://pnpm.io/installation)
 
 ## Install Dependencies
 

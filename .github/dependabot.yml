@@ -4,6 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # Limit open PRs to avoid multiple updates touching the same files at once
+    open-pull-requests-limit: 3
     labels:
       - "ci"
 
@@ -12,5 +14,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # Limit open PRs to avoid concurrent writes to pnpm-lock.yaml
+    open-pull-requests-limit: 3
     labels:
       - "dependencies"
+    # Group all npm dependencies into one PR to prevent lockfile merge conflicts
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"

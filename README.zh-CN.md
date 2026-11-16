@@ -26,11 +26,11 @@
 
 > 推荐使用 nvm 管理 node 版本
 
-[![nodejs](https://img.shields.io/badge/node-v20.x-brightgreen)](https://nodejs.org/zh-cn)
+[![nodejs](https://img.shields.io/badge/node-v22.x-brightgreen)](https://nodejs.org/zh-cn)
 
 > pnpm 推荐使用 scoop(windows) | brew(macos) 安装
 
-[![pnpm](https://img.shields.io/badge/pnpm-v8.x-f9ad00)](https://yarnpkg.com/getting-started/install#nodejs-1610)
+[![pnpm](https://img.shields.io/badge/pnpm-v9.x-f9ad00)](https://pnpm.io/installation)
 
 
 ## 下载依赖
