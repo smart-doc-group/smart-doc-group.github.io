@@ -71,7 +71,8 @@
 |                   `addDefaultHttpStatuses`                    | `3.0.5` | ❌  |   `Boolean`    |       `false`       | 生成文档时是否添加框架默认的`http`状态码，例如`Spring MVC`默认的`500`和`404`, 当前只有生成`OenAPI`文档时支持。                                                                                                                                                                           |
 |                        `enumConvertor`                        | `3.1.0` | ❌  |   `Boolean`    |       `false`       | 在 header/path/query 请求类型下，是否启用枚举转换器，默认值为false。<br/>如果为true，则解析enumValue作为枚举示例值。<br/>如果为false，则以enumName作为枚举示例值                                                                                                                                       |
 |                          `codePath`                           |         | ❌  |    `String`    | `src/main/java`(插件默认) | 项目源码根目录。插件默认填充并据此加载模块源码；增量构建时用于把 Git 变更路径映射为源码相对路径。手动使用`ApiConfig`构建时不能为空。                                                                                                                                                     |
-|                   [`jarSourcePaths`](#jarsourcepaths)                    |         | ❌  | `List<Object>` |                     | 第三方源码 jar 路径列表（`path`、`desc`）。由核心源码加载器加载；与`sourceCodePaths`不同，Maven 插件不会覆盖它。只接受`.jar`文件。                                                                                                                                                     |
+|                   [`jarSourcePaths`](#jarsourcepaths)                    |         | ❌  | `List<Object>` |                     | 第三方源码 jar 路径列表（`path`、`desc`）。由核心源码加载器加载；与`sourceCodePaths`不同，插件不会自动推导或合并它。只接受`.jar`文件。                                                                                                                                                     |
+| [`sourceCodePaths`](#sourcecodepaths) | | ❌ | `List<Object>` | | 附加的源码路径列表（`path`、`desc`），作为`codePath`的补充。插件会把它与`codePath`推导出的各模块源码路径合并（而非覆盖），相对路径按项目根目录解析；用于额外扫描注解处理器生成的源码等目录。 |
 |          [`openApiTagNameType`](#openapitagnametype)          | `3.1.1` | ❌  |    `String`    |    `CLASS_NAME`     | 定义 OpenAPI 文档中 `tags[].name` 的生成策略。<br/> 可选值：<br/> - `CLASS_NAME`（默认）：使用控制器的简单类名（如 `UserController`）。<br/> - `DESCRIPTION`：使用控制器的描述信息（如 `用户管理`）。<br/> - `PACKAGE_NAME`：使用控制器的完整包路径（如 `com.example.controller`）。<br/> 此设置影响 API 操作在 OpenAPI 文档中的分组方式。 |
 |                        `allowSelfReference`                     | `3.1.1` | ❌  |   `Boolean`    |       `false`       | 是否启用自引用处理，默认值为false。<br/>启用递归展开自引用结构，最多支持2层嵌套。<br/>当启用时，自引用字段（如 `List<T> children`）将显示完整结构而非空内容或仅引用内容。    |
 |                 [`operationIdStrategy`](#operationidstrategy)                  | `4.0.1` | ❌  |    `String`    |                     | 控制 OpenAPI 3 和 Swagger JSON 中`operationId`的生成策略。可选`METHOD_NAME`、`METHOD_ID`、`PATH_METHOD_HTTP`。不配置时 OpenAPI 3 使用`METHOD_NAME`，Swagger 保持历史格式；仅影响这两种输出。 |
@@ -345,9 +346,36 @@
 }
 ```
 
+## sourceCodePaths
+
+附加的源码路径列表，作为 [`codePath`](#codepath) 的补充。插件会把它与由 `codePath` 推导出的各模块源码路径**合并**（而不是覆盖），因此可以在默认源码根之外，额外扫描注解处理器生成的源码等目录。
+
+- 每一项包含 `path` 和 `desc`。
+- 相对路径按所在项目的根目录解析，多模块构建下也能正确定位到当前模块。
+- 未配置时行为不变：插件仍按 `codePath`（默认 `src/main/java`）自动识别各模块源码。
+- 与 [`jarSourcePaths`](#jarsourcepaths) 不同：`sourceCodePaths` 指向源码目录，`jarSourcePaths` 指向第三方源码 jar。
+
+例如项目既需要手写的 `src/main/java`，又需要注解处理器生成的 `target/generated-sources/annotations` 时：
+
+```json
+{
+    "codePath": "src/main/java",
+    "sourceCodePaths": [
+        {
+            "path": "src/main/java",
+            "desc": "hand-written sources"
+        },
+        {
+            "path": "target/generated-sources/annotations",
+            "desc": "annotation processor generated sources"
+        }
+    ]
+}
+```
+
 ## jarSourcePaths
 
-手动加载第三方源码 jar。与`sourceCodePaths`不同，Maven 插件自动解析依赖源码时不会覆盖`jarSourcePaths`。每一项包含`path`和`desc`；`path`必须指向`.jar`文件（通常是`*-sources.jar`），目录不会被加载。
+手动加载第三方源码 jar。与 `sourceCodePaths` 不同，插件不会自动推导或合并 `jarSourcePaths`。每一项包含`path`和`desc`；`path`必须指向`.jar`文件（通常是`*-sources.jar`），目录不会被加载。
 
 ```json
 {

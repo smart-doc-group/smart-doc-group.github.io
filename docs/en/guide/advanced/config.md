@@ -68,7 +68,8 @@
 |                            `addDefaultHttpStatuses`                            | `3.0.5` |    ❌     | `Boolean`      |       `false`       | When generating documentation, consider whether to include the default HTTP status codes from frameworks such as Spring MVC's default `500` and `404` errors. Currently, only the generation of `OpenAPI` documentation supports this feature.                                                                                                                                                                                                                                                                               |
 |                                `enumConvertor`                                 | `3.1.0` |    ❌     | `Boolean`      |       `false`       | In the header/path/query request mode, whether to enable the enumeration converter, The default value is false. <br/>If true, the enumeration value is parsed as an enumeration example value. <br/>If false, take the enumeration name as the enumeration example value                                                                                                                                                                                                                                                     |
 |                                  `codePath`                                   |         |    ❌     | `String`       | `src/main/java` (plugin default) | Project source root. Plugins fill it by default and load module sources from it; incremental builds use it to map Git paths to source-relative paths. Must be non-empty when building manually with `ApiConfig`.                                                                                                                                                                                                                                                                                                             |
-|                          [`jarSourcePaths`](#jarsourcepaths)                          |         |    ❌     | `List<Object>` |                     | Third-party source jar paths (`path`, `desc`). Loaded by the core source loader; unlike `sourceCodePaths`, the Maven plugin does not overwrite it. Only `.jar` files are accepted.                                                                                                                                                                                                                                                                                                                                         |
+|                          [`jarSourcePaths`](#jarsourcepaths)                          |         |    ❌     | `List<Object>` |                     | Third-party source jar paths (`path`, `desc`). Loaded by the core source loader; unlike `sourceCodePaths`, the plugin does not derive or merge it automatically. Only `.jar` files are accepted.                                                                                                                                                                                                                                                                                                                                         |
+| [`sourceCodePaths`](#sourcecodepaths) | | ❌ | `List<Object>` | | Additional source paths (`path`, `desc`) that complement `codePath`. The plugin merges them with the module paths derived from `codePath` instead of overwriting them; relative entries are resolved against the project base dir. Use it to scan generated sources in addition to the default source root. |
 |                              `allowSelfReference`                              | `3.1.1` |    ❌     | `Boolean`      |       `false`       | Whether to enable self-reference handling, default value is false.<br/>Enables recursive expansion of self-referencing structures up to 2 levels.<br/>When enabled, self-referencing fields (like `List<T> children`) will display full structure instead of empty or reference-only content.                                                                                                                                                                                                                                |
 |                  [`openApiTagNameType`](#openapitagnametype)                   | `3.1.1` |    ❌     | `String`       |    `CLASS_NAME`     | Determines how to generate tag names (`tags[].name`) in the OpenAPI document. Possible values: <ul><li>`CLASS_NAME` (default): Use the controller's simple class name.</li><li>`DESCRIPTION`: Use the controller's description.</li><li>`PACKAGE_NAME`: Use the controller's full package name.</li></ul> This setting controls how API operations are grouped in the OpenAPI documentation.                                                                                                                                 |
 |                 [`operationIdStrategy`](#operationidstrategy)                  | `4.0.1` |    ❌     | `String`       |                     | Controls `operationId` generation for OpenAPI 3 and Swagger JSON only. Values: `METHOD_NAME`, `METHOD_ID`, `PATH_METHOD_HTTP`. When unset, OpenAPI 3 uses `METHOD_NAME` and Swagger keeps its historical format.                                                                                                                                                                                                                                                                                                          |
@@ -333,9 +334,36 @@ Project source root. The Maven and Gradle plugins default to `src/main/java`. Pl
 }
 ```
 
+## sourceCodePaths
+
+Additional source paths that complement [`codePath`](#codepath). The plugin **merges** them with the module source paths derived from `codePath` instead of overwriting them, so extra directories such as annotation-processor generated sources can be scanned in addition to the default source root.
+
+- Each entry contains `path` and `desc`.
+- Relative paths are resolved against the owning project's base directory, so they resolve correctly in multi-module builds.
+- When unset, behaviour is unchanged: the plugin still detects each module's sources from `codePath` (default `src/main/java`).
+- Unlike [`jarSourcePaths`](#jarsourcepaths), `sourceCodePaths` points to source directories while `jarSourcePaths` points to third-party source jars.
+
+For example, when a project needs both hand-written `src/main/java` and the annotation-processor output under `target/generated-sources/annotations`:
+
+```json
+{
+    "codePath": "src/main/java",
+    "sourceCodePaths": [
+        {
+            "path": "src/main/java",
+            "desc": "hand-written sources"
+        },
+        {
+            "path": "target/generated-sources/annotations",
+            "desc": "annotation processor generated sources"
+        }
+    ]
+}
+```
+
 ## jarSourcePaths
 
-Loads third-party source jars manually. Unlike `sourceCodePaths`, the Maven plugin does not overwrite `jarSourcePaths` when it resolves dependency sources automatically. Each entry contains `path` and `desc`; `path` must point to a `.jar` file (usually `*-sources.jar`). Directories are not loaded.
+Loads third-party source jars manually. Unlike `sourceCodePaths`, the plugin does not derive or merge `jarSourcePaths` automatically. Each entry contains `path` and `desc`; `path` must point to a `.jar` file (usually `*-sources.jar`). Directories are not loaded.
 
 ```json
 {
